@@ -1,0 +1,3126 @@
+	1	IDENT	16
+		Object code version	= 3.10
+		Machine			= 16F1947
+		32 bit order		= 0 1 2 3
+		16 bit order		= 0 1
+	2	PSECT	10
+		text104
+	3	XPSECT	26
+		text104 space = 00 delta = 02 class=CODE
+	4	PSECTBOUND	26
+		text104	start=0000	end=0004 delta = 02 space = 0 class=CODE
+	5	PSECT	14
+		cstackBANK0	GLOBAL
+	6	XPSECT	31
+		cstackBANK0 space = 01 delta = 01 class=BANK0
+	7	PSECTBOUND	31
+		cstackBANK0	start=0000	end=0012 delta = 01 space = 1 class=BANK0	GLOBAL
+	8	PSECT	15
+		cstackCOMMON	GLOBAL
+	9	XPSECT	33
+		cstackCOMMON space = 01 delta = 01 class=COMMON
+	10	PSECTBOUND	33
+		cstackCOMMON	start=0000	end=000E delta = 01 space = 1 class=COMMON	GLOBAL
+	11	PSECT	10
+		text112
+	12	XPSECT	26
+		text112 space = 00 delta = 02 class=CODE
+	13	PSECTBOUND	26
+		text112	start=0000	end=00F0 delta = 02 space = 0 class=CODE
+	14	PSECT	11
+		pa_nodes	GLOBAL
+	15	XPSECT	27
+		pa_nodes space = 00 delta = 02 class=CODE
+	16	PSECT	10
+		text114
+	17	XPSECT	26
+		text114 space = 00 delta = 02 class=CODE
+	18	PSECT	10
+		text113
+	19	XPSECT	26
+		text113 space = 00 delta = 02 class=CODE
+	20	PSECTBOUND	26
+		text113	start=0000	end=00D8 delta = 02 space = 0 class=CODE
+	21	PSECT	8
+		cinit	GLOBAL
+	22	XPSECT	24
+		cinit space = 00 delta = 02 class=CODE
+	23	PSECTBOUND	24
+		cinit	start=0000	end=0FB2 delta = 02 space = 0 class=CODE	GLOBAL
+	24	PSECT	9
+		text98
+	25	XPSECT	25
+		text98 space = 00 delta = 02 class=CODE
+	26	PSECT	3
+		(abs)	GLOBAL	OVRLD	ABS
+	27	XPSECT	15
+		(abs) space = 00 delta = 01
+	28	PSECT	11
+		bssBANK0	GLOBAL
+	29	XPSECT	28
+		bssBANK0 space = 01 delta = 01 class=BANK0
+	30	PSECTBOUND	28
+		bssBANK0	start=0000	end=003A delta = 01 space = 1 class=BANK0	GLOBAL
+	31	PSECT	10
+		clrtext	GLOBAL
+	32	XPSECT	26
+		clrtext space = 00 delta = 02 class=CODE
+	33	PSECTBOUND	26
+		clrtext	start=0000	end=000C delta = 02 space = 0 class=CODE	GLOBAL
+	34	PSECT	11
+		bssBANK2	GLOBAL
+	35	XPSECT	28
+		bssBANK2 space = 01 delta = 01 class=BANK2
+	36	PSECTBOUND	28
+		bssBANK2	start=0000	end=0040 delta = 01 space = 1 class=BANK2	GLOBAL
+	37	PSECT	11
+		bssBANK1	GLOBAL
+	38	XPSECT	28
+		bssBANK1 space = 01 delta = 01 class=BANK1
+	39	PSECTBOUND	28
+		bssBANK1	start=0000	end=002B delta = 01 space = 1 class=BANK1	GLOBAL
+	40	SYM	495
+		cbuffGetSpace@hCircBuffer	cstackCOMMON	8	GLOBAL	
+		main@spaceRemainingInBuffer	cstackBANK0	A	GLOBAL	
+		__size_of_cbuffPeekHead	(abs)	0	GLOBAL	
+		cbuffPutArray@noOfBytes	cstackCOMMON	1	GLOBAL	
+		__size_of_cbuffPeekTail	(abs)	0	GLOBAL	
+		__size_of_cbuffClearBuffer	(abs)	0	GLOBAL	
+		cbuffCreate@newCircBufferObj	cstackCOMMON	4	GLOBAL	
+		_cbuffCreate	text112	0	GLOBAL	
+		cbuffPutArray@data	cstackCOMMON	0	GLOBAL	
+		__end_of_cbuffCreate	text112	78	GLOBAL	
+		__end_of_cbuffUnputByte	cinit	5F8	GLOBAL	
+		cbuffOpen@localCircBufferObj	cstackCOMMON	1	GLOBAL	
+		_startOfCbuffObjs	bssBANK0	0	GLOBAL	
+	41	SYM	496
+		__size_of_cbuffPutArray	(abs)	0	GLOBAL	
+		__size_of_cbuffClose	(abs)	0	GLOBAL	
+		_cbuffGetFill	cinit	4D7	GLOBAL	
+		_cbuffGetByte	cinit	549	GLOBAL	
+		main@hDummyHandle	cstackBANK0	4	GLOBAL	
+		cbuffDestroy@bufferNumber	cstackCOMMON	1	GLOBAL	
+		main@testBuffer1Num	cstackBANK0	6	GLOBAL	
+		main@testBuffer2Num	cstackBANK0	5	GLOBAL	
+		_inBuffer	bssBANK2	0	GLOBAL	
+		_cbuffDestroy	cinit	720	GLOBAL	
+		__ptext98	text98	0	GLOBAL	
+		__ptext99	cinit	4D7	GLOBAL	
+		__end_of_cbuffGetFill	cinit	4F8	GLOBAL	
+		__end_of_cbuffGetByte	cinit	5A9	GLOBAL	
+		_cbuffClearBuffer	cinit	7B5	GLOBAL	
+		__end_of_cbuffDestroy	cinit	756	GLOBAL	
+	42	SYM	489
+		_main	cinit	1A	GLOBAL	
+		cbuffPutArray@bytesWritten	cstackCOMMON	7	GLOBAL	
+		main@hInBuffer	cstackBANK0	8	GLOBAL	
+		?_cbuffCreate	cstackCOMMON	0	GLOBAL	
+		_inBufferObj	bssBANK0	11	GLOBAL	
+		btemp	(abs)	7E	GLOBAL	
+		_cbuffPutByte	cinit	756	GLOBAL	
+		start		0	GLOBAL	EXTERN
+		cbuffPeekHead@hCircBuffer	cstackCOMMON	3	GLOBAL	
+		cbuffCreate@buffer	cstackCOMMON	0	GLOBAL	
+		__size_of_cbuffCreate	(abs)	0	GLOBAL	
+		start_initialization	cinit	0	GLOBAL	
+		_testBuffer1Obj	bssBANK0	1C	GLOBAL	
+		_testBuffer2Obj	bssBANK0	27	GLOBAL	
+		?_cbuffClearBuffer	cstackCOMMON	0	GLOBAL	
+		__end_of_cbuffPutByte	cinit	7B5	GLOBAL	
+	43	SYM	506
+		cbuffCreate@localCircBufferObj	cstackCOMMON	A	GLOBAL	
+		clear_ram	clrtext	0	GLOBAL	
+		cbuffOpen@bufferNumber	cstackCOMMON	0	GLOBAL	
+		_cbuffInit	text104	0	GLOBAL	
+		_cbuffOpen	cinit	701	GLOBAL	
+		main@readData	cstackBANK0	F	GLOBAL	
+		__end_of_cbuffInit	text104	2	GLOBAL	
+		__end_of_cbuffOpen	cinit	720	GLOBAL	
+		_testBuffer1	bssBANK0	32	GLOBAL	
+		_testBuffer2	bssBANK0	1	GLOBAL	
+		_cbuffGetArray	cinit	5F8	GLOBAL	
+		_cbuffGetSpace	text113	0	GLOBAL	
+		?_cbuffInit	cstackCOMMON	0	GLOBAL	
+		cbuffUnputByte@hCircBuffer	cstackCOMMON	2	GLOBAL	
+		?_cbuffOpen	cstackCOMMON	0	GLOBAL	
+		?_main	cstackCOMMON	0	GLOBAL	
+	44	SYM	489
+		__ptext100	cinit	4F8	GLOBAL	
+		__size_of_cbuffUnputByte	(abs)	0	GLOBAL	
+		__ptext101	cinit	532	GLOBAL	
+		__ptext110	cinit	756	GLOBAL	
+		__ptext102	cinit	549	GLOBAL	
+		__ptext111	cinit	7B5	GLOBAL	
+		__ptext103	cinit	5A9	GLOBAL	
+		__ptext112	text112	0	GLOBAL	
+		__ptext104	text104	0	GLOBAL	
+		__ptext113	text113	0	GLOBAL	
+		__ptext105	cinit	5F8	GLOBAL	
+		__ptext114	text114	0	GLOBAL	
+		__ptext106	cinit	674	GLOBAL	
+		__ptext107	cinit	6F2	GLOBAL	
+		__ptext108	cinit	701	GLOBAL	
+		__ptext109	cinit	720	GLOBAL	
+		_cbuffPeekHead	cinit	4F8	GLOBAL	
+		_cbuffPeekTail	cinit	532	GLOBAL	
+		cbuffDestroy@tempCircBufferObj	cstackCOMMON	0	GLOBAL	
+	45	SYM	472
+		__end_of_cbuffGetArray	cinit	674	GLOBAL	
+		??_cbuffInit	cstackCOMMON	0	GLOBAL	
+		??_cbuffOpen	cstackCOMMON	0	GLOBAL	
+		cbuffClearBuffer@hCircBuffer	cstackCOMMON	2	GLOBAL	
+		__end_of_cbuffGetSpace	text113	6C	GLOBAL	
+		??_cbuffClearBuffer	cstackCOMMON	0	GLOBAL	
+		__pcstackCOMMON	cstackCOMMON	0	GLOBAL	
+		cbuffGetFill@hCircBuffer	cstackCOMMON	D	GLOBAL	
+		?_cbuffGetFill	cstackBANK0	0	GLOBAL	
+		cbuffPutByte@hCircBuffer	cstackCOMMON	5	GLOBAL	
+		?_cbuffGetByte	cstackCOMMON	0	GLOBAL	
+		?_cbuffDestroy	cstackCOMMON	0	GLOBAL	
+		main@x	cstackBANK0	11	GLOBAL	
+	46	SYM	480
+		cbuffGetByte@data	cstackCOMMON	0	GLOBAL	
+		_cbuffPutArray	cinit	674	GLOBAL	
+		__end_of_cbuffPeekHead	cinit	532	GLOBAL	
+		__end_of_cbuffPeekTail	cinit	549	GLOBAL	
+		wtemp0	(abs)	7E	GLOBAL	
+		??_cbuffCreate	cstackCOMMON	5	GLOBAL	
+		?_cbuffPutByte	cstackCOMMON	0	GLOBAL	
+		__size_of_cbuffGetFill	(abs)	0	GLOBAL	
+		__size_of_cbuffGetByte	(abs)	0	GLOBAL	
+		__size_of_cbuffDestroy	(abs)	0	GLOBAL	
+		__end_of_cbuffPutArray	cinit	6F2	GLOBAL	
+		main@outBufferNum	cstackBANK0	7	GLOBAL	
+		__size_of_main	(abs)	0	GLOBAL	
+		__pbssBANK0	bssBANK0	0	GLOBAL	
+		__pbssBANK1	bssBANK1	0	GLOBAL	
+		__pbssBANK2	bssBANK2	0	GLOBAL	
+	47	SYM	499
+		_outBufferObj	bssBANK1	20	GLOBAL	
+		_cbuffClose	cinit	6F2	GLOBAL	
+		__end_of_cbuffClose	cinit	701	GLOBAL	
+		__size_of_cbuffPutByte	(abs)	0	GLOBAL	
+		__size_of_cbuffInit	(abs)	0	GLOBAL	
+		_outBuffer	bssBANK1	0	GLOBAL	
+		__size_of_cbuffOpen	(abs)	0	GLOBAL	
+		??_main	cstackBANK0	2	GLOBAL	
+		cbuffPutByte@data	cstackCOMMON	0	GLOBAL	
+		?_cbuffClose	cstackCOMMON	0	GLOBAL	
+		__pmaintext	cinit	1A	GLOBAL	
+		cbuffPeekHead@data	cstackCOMMON	0	GLOBAL	
+		cbuffCreate@sizeOfBuffer	cstackCOMMON	2	GLOBAL	
+		cbuffCreate@circBuffNum	cstackCOMMON	9	GLOBAL	
+		main@hOutBuffer	cstackBANK0	10	GLOBAL	
+		__end_of_main	cinit	4D7	GLOBAL	
+	48	SYM	480
+		end_of_initialization	cinit	18	GLOBAL	
+		__pcstackBANK0	cstackBANK0	0	GLOBAL	
+		main@inBufferNum	cstackBANK0	9	GLOBAL	
+		??_cbuffClose	cstackCOMMON	0	GLOBAL	
+		cbuffDestroy@localCircBufferObj	cstackCOMMON	2	GLOBAL	
+		cbuffGetArray@data	cstackCOMMON	0	GLOBAL	
+		cbuffGetArray@noOfBytes	cstackCOMMON	1	GLOBAL	
+		?_cbuffGetArray	cstackCOMMON	0	GLOBAL	
+		?_cbuffGetSpace	cstackCOMMON	0	GLOBAL	
+		??_cbuffGetArray	cstackCOMMON	3	GLOBAL	
+		main@writeData	cstackBANK0	C	GLOBAL	
+		cbuffPeekTail@data	cstackCOMMON	0	GLOBAL	
+		??_cbuffGetSpace	cstackCOMMON	2	GLOBAL	
+	49	SYM	507
+		__end_of_cbuffClearBuffer	cinit	7D9	GLOBAL	
+		cbuffGetArray@bytesRead	cstackCOMMON	7	GLOBAL	
+		?_cbuffPeekHead	cstackCOMMON	0	GLOBAL	
+		?_cbuffPeekTail	cstackCOMMON	0	GLOBAL	
+		cbuffPeekTail@hCircBuffer	cstackCOMMON	3	GLOBAL	
+		??_cbuffPeekHead	cstackCOMMON	1	GLOBAL	
+		??_cbuffPeekTail	cstackCOMMON	1	GLOBAL	
+		cbuffGetByte@hCircBuffer	cstackCOMMON	5	GLOBAL	
+		cbuffGetArray@hCircBuffer	cstackCOMMON	9	GLOBAL	
+		??_cbuffGetFill	cstackCOMMON	9	GLOBAL	
+		??_cbuffGetByte	cstackCOMMON	1	GLOBAL	
+		cbuffPutArray@hCircBuffer	cstackCOMMON	9	GLOBAL	
+		??_cbuffDestroy	cstackCOMMON	0	GLOBAL	
+	50	SYM	347
+		?_cbuffPutArray	cstackCOMMON	0	GLOBAL	
+		main@dataInBuffer	cstackBANK0	D	GLOBAL	
+		_cbuffUnputByte	cinit	5A9	GLOBAL	
+		??_cbuffPutArray	cstackCOMMON	3	GLOBAL	
+		?_cbuffUnputByte	cstackCOMMON	0	GLOBAL	
+		cbuffClose@hCircBuffer	cstackCOMMON	0	GLOBAL	
+		??_cbuffPutByte	cstackCOMMON	1	GLOBAL	
+		__size_of_cbuffGetArray	(abs)	0	GLOBAL	
+		??_cbuffUnputByte	cstackCOMMON	0	GLOBAL	
+		__size_of_cbuffGetSpace	(abs)	0	GLOBAL	
+	51	SIGNAT	15
+		_cbuffCreate	12409
+	52	SIGNAT	16
+		_cbuffGetFill	4218
+	53	SIGNAT	16
+		_cbuffGetByte	8313
+	54	SIGNAT	16
+		_cbuffDestroy	4217
+	55	SIGNAT	20
+		_cbuffClearBuffer	4216
+	56	SIGNAT	8
+		_main	90
+	57	SIGNAT	16
+		_cbuffPutByte	8313
+	58	SIGNAT	13
+		_cbuffInit	88
+	59	SIGNAT	13
+		_cbuffOpen	4217
+	60	SIGNAT	17
+		_cbuffGetArray	12410
+	61	SIGNAT	17
+		_cbuffGetSpace	4218
+	62	SIGNAT	17
+		_cbuffPeekHead	8313
+	63	SIGNAT	17
+		_cbuffPeekTail	8313
+	64	SIGNAT	17
+		_cbuffPutArray	12410
+	65	SIGNAT	14
+		_cbuffClose	4217
+	66	SIGNAT	18
+		_cbuffUnputByte	4217
+	67	DABS	9
+		DABS	1,0x7E,2
+	68	SYM	500
+		C:\DOCUME~1\m91234\LOCALS~1\Temp\s3a8.		0	FILNAM
+		134	cinit	0	LINENO
+		135	cinit	1	LINENO
+		136	cinit	2	LINENO
+		137	cinit	3	LINENO
+		138	cinit	4	LINENO
+		139	cinit	5	LINENO
+		143	cinit	8	LINENO
+		144	cinit	9	LINENO
+		145	cinit	A	LINENO
+		146	cinit	B	LINENO
+		147	cinit	C	LINENO
+		148	cinit	D	LINENO
+		152	cinit	10	LINENO
+		153	cinit	11	LINENO
+		154	cinit	12	LINENO
+		155	cinit	13	LINENO
+		156	cinit	14	LINENO
+		157	cinit	15	LINENO
+		164	cinit	18	LINENO
+		165	cinit	19	LINENO
+		C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuffTest\circBufferTest.c		0	FILNAM
+		174	cinit	1A	LINENO
+		176	cinit	1B	LINENO
+	69	TEXT	86
+		cinit	0x0	0x4C
+	     0: 00 30 84 00 00 30 85 00 3A 30 80 31 00 20 80 31	.0„..0..:0.1. .1
+	    10: 00 30 84 00 00 30 85 00 2B 30 80 31 00 20 80 31	.0„..0..+0.1. .1
+	    20: 00 30 84 00 00 30 85 00 40 30 80 31 00 20 80 31	.0„..0..@0.1. .1
+	    30: 20 00 00 28 8F 01 8A 01 8B 01 8D 01 8E 01 80 01	 ..(...‹..Ž...
+	    40: 80 01 81 01 40 30 82 00 83 01 00 30            	....@0..ƒ..0
+	70	RELOC	499
+		0x0	COMPLEX		1
+		low bssBANK0
+		0x4	COMPLEX		1
+		high bssBANK0
+		0xA	RELBITS COMPLEX		7
+		(clrtext >> 0x8) & 0x7F
+		0xC	RELBITS COMPLEX		11
+		clrtext & 0x7FF
+		0xE	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x10	COMPLEX		1
+		low bssBANK1
+		0x14	COMPLEX		1
+		high bssBANK1
+		0x1A	RELBITS COMPLEX		7
+		(clrtext >> 0x8) & 0x7F
+		0x1C	RELBITS COMPLEX		11
+		clrtext & 0x7FF
+		0x1E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x20	COMPLEX		1
+		low bssBANK2
+		0x24	COMPLEX		1
+		high bssBANK2
+		0x2A	RELBITS COMPLEX		7
+		(clrtext >> 0x8) & 0x7F
+		0x2C	RELBITS COMPLEX		11
+		clrtext & 0x7FF
+		0x2E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x32	RELBITS COMPLEX		11
+		(0x1A + cinit) - (cinit & 0xFFFFF800)
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	bssBANK0	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x42	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x48	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	COMPLEX		1
+		(0x11 + bssBANK0) & 0xFF
+	71	TEXT	68
+		cinit	0x4C	0x3A
+	     0: 84 00 80 31 00 20 80 31 89 00 00 30 80 00 81 01	„..1. .1...0....
+	    10: 82 01 83 01 00 30 84 00 80 31 00 20 80 31 87 00	..ƒ..0„..1. .1‡.
+	    20: 00 30 80 00 81 01 08 30 82 00 83 01 84 01 80 31	.0.....0..ƒ.„..1
+	    30: 00 20 80 31 86 00 09 08 03 1D                  	. .1......
+	72	RELOC	509
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x2	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x4	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x6	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	COMPLEX		1
+		bssBANK1 & 0xFF
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	COMPLEX		1
+		(0x20 + bssBANK1) & 0xFF
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x1A	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x1C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	COMPLEX		1
+		(0x32 + bssBANK0) & 0xFF
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x30	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x32	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+	73	TEXT	70
+		cinit	0x86	0x3C
+	     0: 00 28 07 08 03 19 00 28 00 28 06 08 03 19 00 28	.(.....(.(.....(
+	    10: 00 28 00 30 80 00 01 30 81 00 40 30 82 00 83 01	.(.0...0..@0..ƒ.
+	    20: 00 30 84 00 80 31 00 20 80 31 89 00 00 30 80 00	.0„..1. .1...0..
+	    30: 81 01 20 30 82 00 83 01 00 30 84 00            	.. 0..ƒ..0„.
+	74	RELOC	503
+		0x0	RELBITS COMPLEX		11
+		(0x43 + cinit) - (cinit & 0xFFFFF800)
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		11
+		(0x48 + cinit) & 0x7FF
+		0x8	RELBITS COMPLEX		11
+		(0x47 + cinit) - (cinit & 0xFFFFF800)
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x4C + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		11
+		(0x4B + cinit) - (cinit & 0xFFFFF800)
+		0x12	COMPLEX		1
+		bssBANK2 & 0xFF
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x20	COMPLEX		1
+		(0x11 + bssBANK0) & 0xFF
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x26	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x28	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	COMPLEX		1
+		bssBANK1 & 0xFF
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x38	COMPLEX		1
+		(0x20 + bssBANK1) & 0xFF
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+	75	TEXT	64
+		cinit	0xC2	0x36
+	     0: 80 31 00 20 80 31 87 00 00 30 80 00 81 01 08 30	.1. .1‡..0.....0
+	    10: 82 00 83 01 00 30 84 00 80 31 00 20 80 31 86 00	..ƒ..0„..1. .1..
+	    20: 00 30 80 00 81 01 10 30 82 00 83 01 00 30 84 00	.0.....0..ƒ..0„.
+	    30: 80 31 00 20 80 31                              	.1. .1
+	76	RELOC	495
+		0x0	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x2	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x4	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	COMPLEX		1
+		(0x32 + bssBANK0) & 0xFF
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	COMPLEX		1
+		(0x1C + bssBANK0) & 0xFF
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x1A	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x1C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	COMPLEX		1
+		(0x27 + bssBANK0) & 0xFF
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x32	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x34	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+	77	SYM	502
+		177	cinit	1D	LINENO
+		C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.c		0	FILNAM
+		143	cinit	1F	LINENO
+		C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuffTest\circBufferTest.c		0	FILNAM
+		196	cinit	20	LINENO
+		198	cinit	2B	LINENO
+		201	cinit	36	LINENO
+		203	cinit	41	LINENO
+		209	cinit	43	LINENO
+		212	cinit	44	LINENO
+		218	cinit	47	LINENO
+		221	cinit	48	LINENO
+		227	cinit	4B	LINENO
+		235	cinit	4C	LINENO
+		236	cinit	59	LINENO
+		238	cinit	65	LINENO
+		240	cinit	71	LINENO
+		249	cinit	7D	LINENO
+		255	cinit	7F	LINENO
+		258	cinit	80	LINENO
+		264	cinit	84	LINENO
+	78	TEXT	76
+		cinit	0xF8	0x42
+	     0: 85 00 09 03 03 1D 00 28 07 08 02 3A 03 19 00 28	.......(...:...(
+	    10: 00 28 06 08 03 3A 03 1D 00 28 05 08 04 3A 03 19	.(...:...(...:..
+	    20: 00 28 00 28 10 30 00 20 80 31 91 00 11 03 03 19	.(.(.0. .1‘.....
+	    30: 00 28 06 08 00 20 80 31 91 00 91 08 03 19 00 28	.(... .1‘.‘....(
+	    40: 05 08                                          	..
+	79	RELOC	489
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		11
+		(0x7F + cinit) - (cinit & 0xFFFFF800)
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x85 + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		11
+		(0x84 + cinit) - (cinit & 0xFFFFF800)
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS COMPLEX		11
+		(0x88 + cinit) - (cinit & 0xFFFFF800)
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x8E + cinit) & 0x7FF
+		0x22	RELBITS COMPLEX		11
+		(0x8D + cinit) - (cinit & 0xFFFFF800)
+		0x26	RELBITS COMPLEX		11
+		(0x720 + cinit) & 0x7FF
+		0x28	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x94 + cinit) - (cinit & 0xFFFFF800)
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS COMPLEX		11
+		(0x720 + cinit) & 0x7FF
+		0x36	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS COMPLEX		11
+		(0x9B + cinit) - (cinit & 0xFFFFF800)
+		0x40	RELBITS RPSECT	cstackBANK0	7
+	80	TEXT	66
+		cinit	0x13A	0x38
+	     0: 00 20 80 31 91 00 91 08 03 19 00 28 00 30 80 00	. .1‘.‘....(.0..
+	    10: 81 01 10 30 82 00 83 01 00 30 84 00 80 31 00 20	...0..ƒ..0„..1. 
+	    20: 80 31 85 00 00 30 80 00 81 01 08 30 82 00 83 01	.1...0.....0..ƒ.
+	    30: 00 30 84 00 80 31 00 20                        	.0„..1. 
+	81	RELOC	497
+		0x0	RELBITS COMPLEX		11
+		(0x720 + cinit) & 0x7FF
+		0x2	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS COMPLEX		11
+		(0xA2 + cinit) - (cinit & 0xFFFFF800)
+		0xC	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	COMPLEX		1
+		(0x27 + bssBANK0) & 0xFF
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x1E	RELBITS COMPLEX		11
+		text112 & 0x7FF
+		0x20	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	COMPLEX		1
+		(0x32 + bssBANK0) & 0xFF
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	COMPLEX		1
+		(0x1C + bssBANK0) & 0xFF
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS COMPLEX		7
+		(text112 >> 0x8) & 0x7F
+		0x36	RELBITS COMPLEX		11
+		text112 & 0x7FF
+	82	TEXT	72
+		cinit	0x172	0x3E
+	     0: 80 31 86 00 04 3A 03 1D 00 28 05 08 03 3A 03 19	.1...:...(...:..
+	    10: 00 28 00 28 10 30 00 20 80 31 88 00 08 08 03 1D	.(.(.0. .1ˆ.....
+	    20: 00 28 09 08 00 20 80 31 88 00 07 08 00 20 80 31	.(... .1ˆ.... .1
+	    30: 90 00 88 08 03 19 00 28 90 08 03 1D 00 28      	.ˆ....(....(
+	83	RELOC	481
+		0x0	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0xBD + cinit) - (cinit & 0xFFFFF800)
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS COMPLEX		11
+		(0xC3 + cinit) & 0x7FF
+		0x12	RELBITS COMPLEX		11
+		(0xC2 + cinit) - (cinit & 0xFFFFF800)
+		0x16	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x18	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0xC9 + cinit) - (cinit & 0xFFFFF800)
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x26	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x2E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0xD4 + cinit) - (cinit & 0xFFFFF800)
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0xD9 + cinit) & 0x7FF
+	84	SYM	496
+		267	cinit	85	LINENO
+		273	cinit	88	LINENO
+		276	cinit	89	LINENO
+		282	cinit	8D	LINENO
+		290	cinit	8E	LINENO
+		292	cinit	92	LINENO
+		298	cinit	94	LINENO
+		306	cinit	95	LINENO
+		308	cinit	99	LINENO
+		314	cinit	9B	LINENO
+		318	cinit	9C	LINENO
+		320	cinit	A0	LINENO
+		326	cinit	A2	LINENO
+		335	cinit	A3	LINENO
+		337	cinit	AF	LINENO
+		339	cinit	BB	LINENO
+		345	cinit	BD	LINENO
+		348	cinit	BE	LINENO
+		354	cinit	C2	LINENO
+		361	cinit	C3	LINENO
+		363	cinit	C7	LINENO
+		369	cinit	C9	LINENO
+		376	cinit	CA	LINENO
+		378	cinit	CE	LINENO
+		380	cinit	D2	LINENO
+		386	cinit	D4	LINENO
+		389	cinit	D5	LINENO
+		395	cinit	D8	LINENO
+		402	cinit	D9	LINENO
+		404	cinit	DD	LINENO
+		410	cinit	DF	LINENO
+	85	TEXT	68
+		cinit	0x1B0	0x3A
+	     0: 00 28 09 08 00 20 80 31 84 00 04 08 03 1D 00 28	.(... .1„......(
+	    10: 07 08 00 20 80 31 84 00 04 08 03 1D 00 28 08 08	... .1„......(..
+	    20: 00 20 80 31 89 00 10 08 00 20 80 31 87 00 09 03	. .1..... .1‡...
+	    30: 03 1D 00 28 07 08 02 3A 03 19                  	...(...:..
+	86	RELOC	488
+		0x0	RELBITS COMPLEX		11
+		(0xD8 + cinit) - (cinit & 0xFFFFF800)
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x6	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0xDF + cinit) - (cinit & 0xFFFFF800)
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x14	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0xE6 + cinit) - (cinit & 0xFFFFF800)
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x6F2 + cinit) & 0x7FF
+		0x22	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x6F2 + cinit) & 0x7FF
+		0x2A	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		11
+		(0xF1 + cinit) - (cinit & 0xFFFFF800)
+		0x34	RELBITS RPSECT	cstackBANK0	7
+	87	TEXT	66
+		cinit	0x1EA	0x38
+	     0: 00 28 00 28 10 08 00 20 80 31 86 00 06 08 03 1D	.(.(... .1......
+	    10: 00 28 09 08 00 20 80 31 88 00 07 08 00 20 90 00	.(... .1ˆ.... .
+	    20: 08 08 80 31 00 20 80 31 01 08 8B 00 00 08 8A 00	...1. .1..‹.....
+	    30: 40 3A 0B 04 03 1D 00 28                        	@:.....(
+	88	RELOC	495
+		0x0	RELBITS COMPLEX		11
+		(0xF7 + cinit) & 0x7FF
+		0x2	RELBITS COMPLEX		11
+		(0xF6 + cinit) - (cinit & 0xFFFFF800)
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		11
+		(0x6F2 + cinit) & 0x7FF
+		0x8	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS COMPLEX		11
+		(0xFD + cinit) - (cinit & 0xFFFFF800)
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x16	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x701 + cinit) & 0x7FF
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x24	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x26	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x110 + cinit) - (cinit & 0xFFFFF800)
+	89	TEXT	72
+		cinit	0x222	0x3E
+	     0: 10 08 80 31 00 20 80 31 01 08 8B 00 00 08 8A 00	...1. .1..‹.....
+	    10: 20 3A 0B 04 03 1D 00 28 08 08 00 20 80 31 01 08	 :.....(... .1..
+	    20: 8E 00 00 08 8D 00 0E 04 03 1D 00 28 10 08 00 20	Ž.........(... 
+	    30: 80 31 01 08 8E 00 00 08 8D 00 0E 04 03 1D      	.1..Ž........
+	90	RELOC	493
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x4	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x6	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x11C + cinit) - (cinit & 0xFFFFF800)
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1A	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x1C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS COMPLEX		11
+		(0x126 + cinit) - (cinit & 0xFFFFF800)
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x30	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+	91	SYM	496
+		414	cinit	E0	LINENO
+		416	cinit	E4	LINENO
+		422	cinit	E6	LINENO
+		430	cinit	E7	LINENO
+		432	cinit	EB	LINENO
+		434	cinit	EF	LINENO
+		440	cinit	F1	LINENO
+		443	cinit	F2	LINENO
+		449	cinit	F6	LINENO
+		457	cinit	F7	LINENO
+		459	cinit	FB	LINENO
+		465	cinit	FD	LINENO
+		473	cinit	FE	LINENO
+		475	cinit	102	LINENO
+		481	cinit	105	LINENO
+		482	cinit	10D	LINENO
+		488	cinit	110	LINENO
+		491	cinit	111	LINENO
+		492	cinit	119	LINENO
+		498	cinit	11C	LINENO
+		501	cinit	11D	LINENO
+		502	cinit	124	LINENO
+		508	cinit	126	LINENO
+		511	cinit	127	LINENO
+		512	cinit	12E	LINENO
+		518	cinit	130	LINENO
+		525	cinit	131	LINENO
+		526	cinit	133	LINENO
+		528	cinit	134	LINENO
+		532	cinit	135	LINENO
+		533	cinit	136	LINENO
+	92	TEXT	78
+		cinit	0x260	0x44
+	     0: 00 28 41 30 8C 00 91 01 00 28 8C 0A 91 0A 11 08	.(A0Œ.‘..(Œ.‘...
+	    10: FF 3A 03 19 00 28 0C 08 80 00 10 08 00 20 80 31	.:...(....... .1
+	    20: 82 00 01 3A 03 19 00 28 11 08 FF 3A 03 19 00 28	...:...(...:...(
+	    30: 10 08 80 31 00 20 80 31 01 08 8B 00 00 08 8A 00	...1. .1..‹.....
+	    40: 0B 04 03 1D                                    	....
+	93	RELOC	495
+		0x0	RELBITS COMPLEX		11
+		(0x130 + cinit) - (cinit & 0xFFFFF800)
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x137 + cinit) - (cinit & 0xFFFFF800)
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS COMPLEX		11
+		(0x144 + cinit) & 0x7FF
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x1E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS COMPLEX		11
+		(0x135 + cinit) & 0x7FF
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x147 + cinit) - (cinit & 0xFFFFF800)
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x34	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x36	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+		0x40	RELBITS RPSECT	cstackBANK0	7
+	94	TEXT	72
+		cinit	0x2A4	0x3E
+	     0: 00 28 10 08 00 20 80 31 01 08 8E 00 00 08 8D 00	.(... .1..Ž....
+	    10: 20 3A 0E 04 03 1D 00 28 8F 01 41 30 8C 00 91 01	 :.....(.A0Œ.‘.
+	    20: 00 28 0F 08 0C 06 03 1D 00 28 8C 0A 91 0A 11 08	.(.......(Œ.‘...
+	    30: FF 3A 03 19 00 28 00 30 80 00 10 08 00 20      	.:...(.0..... 
+	95	RELOC	486
+		0x0	RELBITS COMPLEX		11
+		(0x152 + cinit) - (cinit & 0xFFFFF800)
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x6	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x15D + cinit) - (cinit & 0xFFFFF800)
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x169 + cinit) - (cinit & 0xFFFFF800)
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x166 + cinit) - (cinit & 0xFFFFF800)
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS COMPLEX		11
+		(0x176 + cinit) & 0x7FF
+		0x36	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+	96	TEXT	84
+		cinit	0x2E2	0x4A
+	     0: 80 31 82 00 01 3A 03 19 00 28 11 08 FF 3A 03 19	.1...:...(...:..
+	    10: 00 28 10 08 80 31 00 20 80 31 01 08 8B 00 00 08	.(...1. .1..‹...
+	    20: 8A 00 20 3A 0B 04 03 1D 00 28 10 08 00 20 80 31	.. :.....(... .1
+	    30: 01 08 8E 00 00 08 8D 00 0E 04 03 1D 00 28 61 30	..Ž.........(a0
+	    40: 8C 00 91 01 16 30 11 02 03 18                  	Œ.‘..0....
+	97	RELOC	509
+		0x0	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x163 + cinit) & 0x7FF
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS COMPLEX		11
+		(0x179 + cinit) - (cinit & 0xFFFFF800)
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x16	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x18	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x185 + cinit) - (cinit & 0xFFFFF800)
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x2E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x18F + cinit) - (cinit & 0xFFFFF800)
+		0x40	RELBITS RPSECT	cstackBANK0	7
+		0x42	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS RPSECT	cstackBANK0	7
+	98	SYM	496
+		528	cinit	137	LINENO
+		530	cinit	13B	LINENO
+		540	cinit	144	LINENO
+		546	cinit	147	LINENO
+		549	cinit	148	LINENO
+		550	cinit	150	LINENO
+		556	cinit	152	LINENO
+		559	cinit	153	LINENO
+		560	cinit	15A	LINENO
+		566	cinit	15D	LINENO
+		574	cinit	15E	LINENO
+		575	cinit	15F	LINENO
+		576	cinit	161	LINENO
+		578	cinit	162	LINENO
+		582	cinit	163	LINENO
+		588	cinit	166	LINENO
+		593	cinit	167	LINENO
+		594	cinit	168	LINENO
+		578	cinit	169	LINENO
+		580	cinit	16D	LINENO
+		602	cinit	176	LINENO
+		608	cinit	179	LINENO
+		611	cinit	17A	LINENO
+		612	cinit	182	LINENO
+		618	cinit	185	LINENO
+		621	cinit	186	LINENO
+		622	cinit	18D	LINENO
+		628	cinit	18F	LINENO
+		637	cinit	190	LINENO
+		638	cinit	192	LINENO
+		640	cinit	193	LINENO
+	99	TEXT	68
+		cinit	0x32C	0x3A
+	     0: 00 28 0C 08 80 00 10 08 00 20 80 31 82 00 01 3A	.(....... .1...:
+	    10: 03 1D 00 28 8C 0A 91 0A 00 28 00 28 10 08 80 31	...(Œ.‘..(.(...1
+	    20: 00 20 80 31 01 08 8B 00 00 08 8A 00 0A 3A 0B 04	. .1..‹......:..
+	    30: 03 1D 00 28 10 08 00 20 80 31                  	...(... .1
+	100	RELOC	496
+		0x0	RELBITS COMPLEX		11
+		(0x1A4 + cinit) & 0x7FF
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0xA	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x1A3 + cinit) & 0x7FF
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS COMPLEX		11
+		(0x193 + cinit) - (cinit & 0xFFFFF800)
+		0x1A	RELBITS COMPLEX		11
+		(0x1A3 + cinit) - (cinit & 0xFFFFF800)
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x20	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x22	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		11
+		(0x1AF + cinit) - (cinit & 0xFFFFF800)
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x38	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+	101	TEXT	80
+		cinit	0x366	0x46
+	     0: 01 08 8E 00 00 08 8D 00 16 3A 0E 04 03 1D 00 28	..Ž.....:.....(
+	    10: 00 30 80 00 10 08 00 20 80 31 82 00 01 3A 03 19	.0..... .1...:..
+	    20: 00 28 41 30 8C 00 91 01 16 30 11 02 03 18 00 28	.(A0Œ.‘..0.....(
+	    30: 0C 08 80 00 10 08 00 20 80 31 82 00 01 3A 03 1D	....... .1...:..
+	    40: 00 28 8C 0A 91 0A                              	.(Œ.‘.
+	102	RELOC	478
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x1BA + cinit) - (cinit & 0xFFFFF800)
+		0x10	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x18	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x1BB + cinit) & 0x7FF
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x1D8 + cinit) & 0x7FF
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x38	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x40	RELBITS COMPLEX		11
+		(0x1D7 + cinit) & 0x7FF
+		0x42	RELBITS RPSECT	cstackBANK0	7
+		0x44	RELBITS RPSECT	cstackBANK0	7
+	103	TEXT	68
+		cinit	0x3AC	0x3A
+	     0: 00 28 00 28 10 08 80 31 00 20 80 31 01 08 8B 00	.(.(...1. .1..‹.
+	    10: 00 08 8A 00 0A 3A 0B 04 03 1D 00 28 10 08 00 20	.....:.....(... 
+	    20: 80 31 01 08 8E 00 00 08 8D 00 16 3A 0E 04 03 1D	.1..Ž.....:....
+	    30: 00 28 10 08 00 20 10 08 80 31                  	.(... ...1
+	104	RELOC	497
+		0x0	RELBITS COMPLEX		11
+		(0x1C7 + cinit) - (cinit & 0xFFFFF800)
+		0x2	RELBITS COMPLEX		11
+		(0x1D7 + cinit) - (cinit & 0xFFFFF800)
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x8	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0xA	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x1A	RELBITS COMPLEX		11
+		(0x1E3 + cinit) - (cinit & 0xFFFFF800)
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x20	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x1EE + cinit) - (cinit & 0xFFFFF800)
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+	105	SYM	496
+		642	cinit	197	LINENO
+		644	cinit	1A0	LINENO
+		645	cinit	1A1	LINENO
+		646	cinit	1A2	LINENO
+		647	cinit	1A3	LINENO
+		658	cinit	1A4	LINENO
+		659	cinit	1AC	LINENO
+		665	cinit	1AF	LINENO
+		668	cinit	1B0	LINENO
+		669	cinit	1B7	LINENO
+		675	cinit	1BA	LINENO
+		679	cinit	1BB	LINENO
+		681	cinit	1C4	LINENO
+		682	cinit	1C6	LINENO
+		684	cinit	1C7	LINENO
+		686	cinit	1CB	LINENO
+		688	cinit	1D4	LINENO
+		689	cinit	1D5	LINENO
+		690	cinit	1D6	LINENO
+		691	cinit	1D7	LINENO
+		702	cinit	1D8	LINENO
+		703	cinit	1E0	LINENO
+		709	cinit	1E3	LINENO
+		712	cinit	1E4	LINENO
+		713	cinit	1EB	LINENO
+		719	cinit	1EE	LINENO
+		728	cinit	1EF	LINENO
+		730	cinit	1F1	LINENO
+		731	cinit	1F9	LINENO
+		737	cinit	1FC	LINENO
+		740	cinit	1FD	LINENO
+	106	TEXT	70
+		cinit	0x3E6	0x3C
+	     0: 00 20 80 31 01 08 8B 00 00 08 8A 00 20 3A 0B 04	. .1..‹..... :..
+	    10: 03 1D 00 28 10 08 00 20 80 31 01 08 8E 00 00 08	...(... .1..Ž...
+	    20: 8D 00 0E 04 03 1D 00 28 00 30 80 00 10 08 00 20	......(.0..... 
+	    30: 80 31 82 00 01 3A 03 19 00 28 00 30            	.1...:...(.0
+	107	RELOC	498
+		0x0	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x2	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x1FC + cinit) - (cinit & 0xFFFFF800)
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x18	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS COMPLEX		11
+		(0x206 + cinit) - (cinit & 0xFFFFF800)
+		0x28	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x4F8 + cinit) & 0x7FF
+		0x30	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS COMPLEX		11
+		(0x20F + cinit) - (cinit & 0xFFFFF800)
+		0x3A	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+	108	TEXT	84
+		cinit	0x422	0x4A
+	     0: 80 00 10 08 00 20 80 31 82 00 01 3A 03 19 00 28	..... .1...:...(
+	    10: 61 30 8C 00 91 01 0C 08 80 00 10 08 00 20 80 31	a0Œ.‘........ .1
+	    20: 8C 0A 91 0A 0A 30 11 02 03 1C 00 28 00 30 80 00	Œ.‘..0.....(.0..
+	    30: 10 08 00 20 80 31 82 00 01 3A 03 1D 00 28 0C 08	... .1...:...(..
+	    40: FF 3E 82 00 FF 30 03 18 00 30                  	.>...0...0
+	109	RELOC	495
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS COMPLEX		11
+		(0x532 + cinit) & 0x7FF
+		0x6	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x218 + cinit) - (cinit & 0xFFFFF800)
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x1E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS COMPLEX		11
+		(0x21C + cinit) & 0x7FF
+		0x2C	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		11
+		(0x4F8 + cinit) & 0x7FF
+		0x34	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x22F + cinit) - (cinit & 0xFFFFF800)
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+		0x42	RELBITS RPSECT	cstackBANK0	7
+	110	TEXT	76
+		cinit	0x46C	0x42
+	     0: 83 00 0F 08 02 06 03 04 03 1D 00 28 00 30 80 00	ƒ..........(.0..
+	    10: 10 08 00 20 80 31 82 00 01 3A 03 1D 00 28 0F 08	... .1...:...(..
+	    20: 61 3A 03 19 00 28 00 28 91 01 00 30 80 00 10 08	a:...(.(‘..0....
+	    30: 00 20 80 31 91 0A 06 30 11 02 03 1C 00 28 61 30	. .1‘..0.....(a0
+	    40: 8C 00                                          	Œ.
+	111	RELOC	501
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS COMPLEX		11
+		(0x23B + cinit) - (cinit & 0xFFFFF800)
+		0xC	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x532 + cinit) & 0x7FF
+		0x14	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x244 + cinit) - (cinit & 0xFFFFF800)
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS COMPLEX		11
+		(0x24A + cinit) & 0x7FF
+		0x26	RELBITS COMPLEX		11
+		(0x249 + cinit) - (cinit & 0xFFFFF800)
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2A	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x32	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x24B + cinit) & 0x7FF
+		0x40	RELBITS RPSECT	cstackBANK0	7
+	112	SYM	496
+		741	cinit	204	LINENO
+		747	cinit	206	LINENO
+		755	cinit	207	LINENO
+		761	cinit	20F	LINENO
+		764	cinit	210	LINENO
+		770	cinit	218	LINENO
+		777	cinit	219	LINENO
+		778	cinit	21B	LINENO
+		780	cinit	21C	LINENO
+		781	cinit	221	LINENO
+		778	cinit	222	LINENO
+		783	cinit	227	LINENO
+		789	cinit	22F	LINENO
+		792	cinit	230	LINENO
+		798	cinit	23B	LINENO
+		801	cinit	23C	LINENO
+		807	cinit	244	LINENO
+		810	cinit	245	LINENO
+		816	cinit	249	LINENO
+		824	cinit	24A	LINENO
+		826	cinit	24B	LINENO
+		824	cinit	250	LINENO
+		829	cinit	255	LINENO
+		830	cinit	257	LINENO
+		832	cinit	258	LINENO
+		833	cinit	25D	LINENO
+		830	cinit	25E	LINENO
+		835	cinit	263	LINENO
+		841	cinit	26B	LINENO
+		844	cinit	26C	LINENO
+		850	cinit	277	LINENO
+	113	TEXT	80
+		cinit	0x4AE	0x46
+	     0: 91 01 0C 08 80 00 10 08 00 20 80 31 8C 0A 91 0A	‘........ .1Œ.‘.
+	    10: 16 30 11 02 03 1C 00 28 00 30 80 00 10 08 00 20	.0.....(.0..... 
+	    20: 80 31 82 00 01 3A 03 1D 00 28 0C 08 FF 3E 82 00	.1...:...(...>..
+	    30: FF 30 03 18 00 30 83 00 0F 08 02 06 03 04 03 1D	.0...0ƒ.........
+	    40: 00 28 10 08 00 20                              	.(... 
+	114	RELOC	486
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0xA	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x258 + cinit) & 0x7FF
+		0x18	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS COMPLEX		11
+		(0x4F8 + cinit) & 0x7FF
+		0x20	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x26B + cinit) - (cinit & 0xFFFFF800)
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+		0x40	RELBITS COMPLEX		11
+		(0x277 + cinit) - (cinit & 0xFFFFF800)
+		0x42	RELBITS RPSECT	cstackBANK0	7
+		0x44	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+	115	TEXT	70
+		cinit	0x4F4	0x3C
+	     0: 80 31 31 30 8C 00 91 01 0C 08 80 00 10 08 00 20	.110Œ.‘........ 
+	    10: 80 31 82 00 01 3A 03 1D 00 28 8C 0A 00 28 00 28	.1...:...(Œ..(.(
+	    20: 91 0A 08 30 11 02 03 1C 00 28 8C 03 8C 03 91 01	‘..0.....(Œ.Œ.‘.
+	    30: 00 28 00 30 80 00 10 08 00 20 80 31            	.(.0..... .1
+	116	RELOC	495
+		0x0	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS COMPLEX		11
+		(0x289 + cinit) & 0x7FF
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x28A + cinit) - (cinit & 0xFFFFF800)
+		0x1E	RELBITS COMPLEX		11
+		(0x289 + cinit) - (cinit & 0xFFFFF800)
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x27E + cinit) & 0x7FF
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x2A7 + cinit) - (cinit & 0xFFFFF800)
+		0x32	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS COMPLEX		11
+		(0x4F8 + cinit) & 0x7FF
+		0x3A	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+	117	TEXT	82
+		cinit	0x530	0x48
+	     0: 82 00 00 3A 03 19 00 28 0F 08 0C 06 03 19 00 28	...:...(.......(
+	    10: 00 28 8C 03 91 0A 11 08 FF 3A 03 19 00 28 10 08	.(Œ.‘....:...(..
+	    20: 00 20 80 31 00 38 03 19 00 28 08 30 11 02 03 18	. .1.8...(.0....
+	    30: 00 28 10 08 80 31 00 20 80 31 01 08 8B 00 00 08	.(...1. .1..‹...
+	    40: 8A 00 20 3A 0B 04 03 1D                        	.. :....
+	118	RELOC	479
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		11
+		(0x2A3 + cinit) & 0x7FF
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x2A1 + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		11
+		(0x2A0 + cinit) - (cinit & 0xFFFFF800)
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x2AD + cinit) & 0x7FF
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x5A9 + cinit) & 0x7FF
+		0x22	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x28	RELBITS COMPLEX		11
+		(0x293 + cinit) & 0x7FF
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x2B0 + cinit) - (cinit & 0xFFFFF800)
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x36	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x38	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackBANK0	7
+		0x44	RELBITS RPSECT	cstackBANK0	7
+	119	TEXT	78
+		cinit	0x578	0x44
+	     0: 00 28 41 30 8C 00 91 01 0C 08 80 00 10 08 00 20	.(A0Œ.‘........ 
+	    10: 80 31 8C 0A 91 0A 0A 30 11 02 03 1C 00 28 00 30	.1Œ.‘..0.....(.0
+	    20: 80 00 10 08 00 20 80 31 82 00 01 3A 03 19 00 28	..... .1...:...(
+	    30: 41 30 8C 00 0C 08 80 00 10 08 00 20 80 31 82 00	A0Œ........ .1..
+	    40: 01 3A 03 1D                                    	.:..
+	120	RELOC	487
+		0x0	RELBITS COMPLEX		11
+		(0x2BC + cinit) - (cinit & 0xFFFFF800)
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x2C0 + cinit) & 0x7FF
+		0x1E	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x26	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x2CB + cinit) & 0x7FF
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS COMPLEX		11
+		(0x756 + cinit) & 0x7FF
+		0x3C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+	121	SYM	496
+		858	cinit	278	LINENO
+		859	cinit	27B	LINENO
+		860	cinit	27D	LINENO
+		862	cinit	27E	LINENO
+		864	cinit	287	LINENO
+		865	cinit	288	LINENO
+		866	cinit	289	LINENO
+		860	cinit	28A	LINENO
+		876	cinit	28F	LINENO
+		879	cinit	291	LINENO
+		882	cinit	292	LINENO
+		884	cinit	293	LINENO
+		886	cinit	29C	LINENO
+		892	cinit	2A0	LINENO
+		895	cinit	2A1	LINENO
+		896	cinit	2A2	LINENO
+		904	cinit	2A3	LINENO
+		882	cinit	2A7	LINENO
+		906	cinit	2AD	LINENO
+		912	cinit	2B0	LINENO
+		916	cinit	2B1	LINENO
+		917	cinit	2B9	LINENO
+		923	cinit	2BC	LINENO
+		930	cinit	2BD	LINENO
+		931	cinit	2BF	LINENO
+		933	cinit	2C0	LINENO
+		934	cinit	2C5	LINENO
+		931	cinit	2C6	LINENO
+		937	cinit	2CB	LINENO
+		939	cinit	2D4	LINENO
+		940	cinit	2D6	LINENO
+	122	TEXT	74
+		cinit	0x5BC	0x40
+	     0: 00 28 8C 0A 00 28 8C 03 8C 03 91 01 00 28 00 30	.(Œ..(Œ.Œ.‘..(.0
+	    10: 80 00 10 08 00 20 80 31 82 00 00 3A 03 19 00 28	..... .1...:...(
+	    20: 0F 08 0C 06 03 19 00 28 00 28 8C 03 91 0A 11 08	.......(.(Œ.‘...
+	    30: FF 3A 03 19 00 28 10 08 00 20 80 31 00 38 03 19	.:...(... .1.8..
+	123	RELOC	502
+		0x0	RELBITS COMPLEX		11
+		(0x2E1 + cinit) & 0x7FF
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS COMPLEX		11
+		(0x2D6 + cinit) - (cinit & 0xFFFFF800)
+		0x6	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS COMPLEX		11
+		(0x2F9 + cinit) - (cinit & 0xFFFFF800)
+		0xE	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS COMPLEX		11
+		(0x4F8 + cinit) & 0x7FF
+		0x16	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS COMPLEX		11
+		(0x2F5 + cinit) & 0x7FF
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS COMPLEX		11
+		(0x2F3 + cinit) & 0x7FF
+		0x28	RELBITS COMPLEX		11
+		(0x2F2 + cinit) - (cinit & 0xFFFFF800)
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS COMPLEX		11
+		(0x2FF + cinit) & 0x7FF
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS COMPLEX		11
+		(0x5A9 + cinit) & 0x7FF
+		0x3A	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+	124	TEXT	80
+		cinit	0x5FC	0x46
+	     0: 00 28 10 08 80 31 00 20 80 31 01 08 8B 00 00 08	.(...1. .1..‹...
+	    10: 8A 00 20 3A 0B 04 03 1D 00 28 08 08 00 20 80 31	.. :.....(... .1
+	    20: 10 08 00 20 80 31 91 01 11 08 00 3E 86 00 87 01	... .1‘....>..‡.
+	    30: 11 08 41 3E 81 00 91 0A 10 30 11 02 03 1C 00 28	..A>..‘..0.....(
+	    40: 00 30 80 00 10 30                              	.0...0
+	125	RELOC	501
+		0x0	RELBITS COMPLEX		11
+		(0x2E5 + cinit) & 0x7FF
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x6	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x8	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS COMPLEX		11
+		(0x30A + cinit) - (cinit & 0xFFFFF800)
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x1E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x24	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2A	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS COMPLEX		11
+		(0x312 + cinit) & 0x7FF
+		0x40	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x42	RELBITS RPSECT	cstackCOMMON	7
+	126	TEXT	74
+		cinit	0x642	0x40
+	     0: 81 00 82 01 10 08 00 20 80 31 01 08 8E 00 00 08	....... .1..Ž...
+	    10: 8D 00 10 3A 0E 04 03 1D 00 28 10 08 00 20 01 08	..:.....(... ..
+	    20: 8E 00 00 08 8D 00 10 08 80 31 00 20 80 31 01 08	Ž.......1. .1..
+	    30: 8B 00 00 08 8A 00 0D 08 10 3A 0E 04 03 1D 00 28	‹........:.....(
+	127	RELOC	504
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x6	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x8	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS COMPLEX		11
+		(0x32D + cinit) - (cinit & 0xFFFFF800)
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x4D7 + cinit) & 0x7FF
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x2A	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0x2C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS COMPLEX		11
+		(0x340 + cinit) - (cinit & 0xFFFFF800)
+	128	SYM	505
+		942	cinit	2DF	LINENO
+		940	cinit	2E0	LINENO
+		944	cinit	2E1	LINENO
+		947	cinit	2E3	LINENO
+		950	cinit	2E4	LINENO
+		952	cinit	2E5	LINENO
+		954	cinit	2EE	LINENO
+		960	cinit	2F2	LINENO
+		963	cinit	2F3	LINENO
+		964	cinit	2F4	LINENO
+		972	cinit	2F5	LINENO
+		950	cinit	2F9	LINENO
+		974	cinit	2FF	LINENO
+		975	cinit	307	LINENO
+		981	cinit	30A	LINENO
+		988	cinit	30B	LINENO
+		989	cinit	30E	LINENO
+		992	cinit	311	LINENO
+		994	cinit	312	LINENO
+		992	cinit	319	LINENO
+		997	cinit	31E	LINENO
+		999	cinit	32A	LINENO
+		1005	cinit	32D	LINENO
+		1009	cinit	32E	LINENO
+		1010	cinit	334	LINENO
+		1012	cinit	33C	LINENO
+		1018	cinit	340	LINENO
+		1022	cinit	341	LINENO
+		1028	cinit	345	LINENO
+		1032	cinit	346	LINENO
+		1034	cinit	347	LINENO
+	129	TEXT	90
+		cinit	0x682	0x50
+	     0: 0A 08 10 3A 0B 04 03 1D 00 28 91 01 00 30 80 00	...:.....(‘..0..
+	    10: 10 08 00 20 80 31 11 08 00 3E 86 00 87 01 01 08	... .1...>..‡...
+	    20: 0F 06 03 1D 00 28 91 0A 10 30 11 02 03 1C 00 28	.....(‘..0.....(
+	    30: 10 08 00 20 80 31 91 01 11 08 00 3E 86 00 87 01	... .1‘....>..‡.
+	    40: 11 08 61 3E 81 00 91 0A 10 30 11 02 03 1C 00 28	..a>..‘..0.....(
+	130	RELOC	507
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x345 + cinit) - (cinit & 0xFFFFF800)
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x14	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS COMPLEX		11
+		(0x353 + cinit) - (cinit & 0xFFFFF800)
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS COMPLEX		11
+		(0x347 + cinit) & 0x7FF
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x34	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x40	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS RPSECT	cstackBANK0	7
+		0x4A	RELBITS RPSECT	cstackBANK0	7
+		0x4E	RELBITS COMPLEX		11
+		(0x35D + cinit) & 0x7FF
+	131	TEXT	74
+		cinit	0x6D2	0x40
+	     0: 00 30 80 00 10 30 81 00 82 01 10 08 00 20 80 31	.0...0....... .1
+	    10: 01 08 8E 00 00 08 8D 00 10 3A 0E 04 03 1D 00 28	..Ž.....:.....(
+	    20: 00 30 80 00 10 30 81 00 82 01 10 08 00 20 80 31	.0...0....... .1
+	    30: 01 08 8E 00 00 08 8D 00 10 3A 0E 04 03 1D 00 28	..Ž.....:.....(
+	132	RELOC	486
+		0x0	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0xE	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS COMPLEX		11
+		(0x378 + cinit) - (cinit & 0xFFFFF800)
+		0x20	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x2E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS COMPLEX		11
+		(0x388 + cinit) - (cinit & 0xFFFFF800)
+	133	TEXT	80
+		cinit	0x712	0x46
+	     0: 00 30 80 00 10 30 81 00 82 01 10 08 00 20 80 31	.0...0....... .1
+	    10: 01 08 8E 00 00 08 8D 00 0E 04 03 1D 00 28 91 01	..Ž.........(‘.
+	    20: 11 08 00 3E 86 00 87 01 11 08 30 3E 81 00 91 0A	...>..‡...0>..‘.
+	    30: 10 30 11 02 03 1C 00 28 91 01 10 08 00 20 80 31	.0.....(‘.... .1
+	    40: 00 30 80 00 10 08                              	.0....
+	134	RELOC	503
+		0x0	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0xE	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackBANK0	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x397 + cinit) - (cinit & 0xFFFFF800)
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x399 + cinit) & 0x7FF
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x5A9 + cinit) & 0x7FF
+		0x3E	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x40	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x42	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackBANK0	7
+	135	TEXT	76
+		cinit	0x758	0x42
+	     0: 00 20 80 31 91 0A 08 30 11 02 03 1C 00 28 00 30	. .1‘..0.....(.0
+	    10: 80 00 10 30 81 00 82 01 10 08 00 20 80 31 01 08	...0....... .1..
+	    20: 8E 00 00 08 8D 00 10 3A 0E 04 03 1D 00 28 91 01	Ž.....:.....(‘.
+	    30: 00 30 80 00 10 08 00 20 80 31 91 0A 10 30 11 02	.0..... .1‘..0..
+	    40: 03 1C                                          	..
+	136	RELOC	493
+		0x0	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x2	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xC	RELBITS COMPLEX		11
+		(0x3A6 + cinit) & 0x7FF
+		0xE	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1A	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x1C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS COMPLEX		11
+		(0x3C2 + cinit) - (cinit & 0xFFFFF800)
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0x38	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+	137	SYM	493
+		1035	cinit	34C	LINENO
+		1042	cinit	353	LINENO
+		1032	cinit	354	LINENO
+		1050	cinit	359	LINENO
+		1053	cinit	35C	LINENO
+		1055	cinit	35D	LINENO
+		1053	cinit	364	LINENO
+		1058	cinit	369	LINENO
+		1059	cinit	375	LINENO
+		1066	cinit	378	LINENO
+		1069	cinit	379	LINENO
+		1070	cinit	385	LINENO
+		1077	cinit	388	LINENO
+		1080	cinit	389	LINENO
+		1082	cinit	395	LINENO
+		1088	cinit	397	LINENO
+		1097	cinit	398	LINENO
+		1099	cinit	399	LINENO
+		1097	cinit	3A0	LINENO
+		1102	cinit	3A5	LINENO
+		1104	cinit	3A6	LINENO
+		1105	cinit	3A9	LINENO
+		1102	cinit	3AE	LINENO
+		1108	cinit	3B3	LINENO
+		1109	cinit	3BF	LINENO
+		1115	cinit	3C2	LINENO
+		1120	cinit	3C3	LINENO
+		1122	cinit	3C4	LINENO
+		1120	cinit	3C9	LINENO
+	138	TEXT	84
+		cinit	0x79A	0x4A
+	     0: 00 28 91 01 00 30 80 00 10 08 00 20 80 31 11 08	.(‘..0..... .1..
+	    10: 00 3E 86 00 87 01 01 08 0F 06 03 1D 00 28 91 0A	.>..‡........(‘.
+	    20: 10 30 11 02 03 1C 00 28 10 08 00 20 80 31 91 01	.0.....(... .1‘.
+	    30: 11 08 00 3E 86 00 87 01 11 08 61 3E 81 00 91 0A	...>..‡...a>..‘.
+	    40: 10 30 11 02 03 1C 00 28 00 30                  	.0.....(.0
+	139	RELOC	495
+		0x0	RELBITS COMPLEX		11
+		(0x3C4 + cinit) & 0x7FF
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	COMPLEX		1
+		(0xF + cstackBANK0) & 0xFF
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS COMPLEX		11
+		(0x549 + cinit) & 0x7FF
+		0xC	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x10	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x3DB + cinit) - (cinit & 0xFFFFF800)
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS COMPLEX		11
+		(0x3CF + cinit) & 0x7FF
+		0x28	RELBITS RPSECT	cstackBANK0	7
+		0x2A	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x2C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+		0x42	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS COMPLEX		11
+		(0x3E5 + cinit) & 0x7FF
+		0x48	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+	140	TEXT	92
+		cinit	0x7E4	0x52
+	     0: 80 00 10 30 81 00 82 01 10 08 00 20 80 31 91 01	...0....... .1‘.
+	    10: 11 08 00 3E 86 00 87 01 81 01 91 0A 10 30 11 02	...>..‡...‘..0..
+	    20: 03 1C 00 28 00 30 80 00 10 30 81 00 82 01 10 08	...(.0...0......
+	    30: 00 20 80 31 01 08 8E 00 00 08 8D 00 10 3A 0E 04	. .1..Ž.....:..
+	    40: 03 1D 00 28 91 01 11 08 61 3E 82 00 00 30 03 18	...(‘...a>...0..
+	    50: 01 30                                          	.0
+	141	RELOC	506
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackBANK0	7
+		0xA	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0xC	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS RPSECT	cstackBANK0	7
+		0x12	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x22	RELBITS COMPLEX		11
+		(0x3FA + cinit) & 0x7FF
+		0x24	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS COMPLEX		11
+		(0x5F8 + cinit) & 0x7FF
+		0x32	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+		0x42	RELBITS COMPLEX		11
+		(0x413 + cinit) - (cinit & 0xFFFFF800)
+		0x44	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS RPSECT	cstackBANK0	7
+		0x4A	RELBITS RPSECT	cstackBANK0	7
+	142	TEXT	90
+		cinit	0x836	0x50
+	     0: 83 00 11 08 00 3E 86 00 87 01 01 08 02 06 03 04	ƒ....>..‡.......
+	    10: 03 1D 00 28 91 0A 10 30 11 02 03 1C 00 28 10 08	...(‘..0.....(..
+	    20: 00 20 80 31 91 01 11 08 00 3E 86 00 87 01 11 08	. .1‘....>..‡...
+	    30: 41 3E 81 00 91 0A 10 30 11 02 03 1C 00 28 00 30	A>..‘..0.....(.0
+	    40: 80 00 08 30 81 00 82 01 10 08 00 20 80 31 91 01	...0....... .1‘.
+	143	RELOC	505
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	RELBITS RPSECT	cstackBANK0	7
+		0x4	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x424 + cinit) - (cinit & 0xFFFFF800)
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1C	RELBITS COMPLEX		11
+		(0x415 + cinit) & 0x7FF
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x22	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS COMPLEX		11
+		(0x42E + cinit) & 0x7FF
+		0x3E	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x48	RELBITS RPSECT	cstackBANK0	7
+		0x4A	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x4C	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4E	RELBITS RPSECT	cstackBANK0	7
+	144	SYM	493
+		1125	cinit	3CE	LINENO
+		1127	cinit	3CF	LINENO
+		1128	cinit	3D4	LINENO
+		1135	cinit	3DB	LINENO
+		1125	cinit	3DC	LINENO
+		1144	cinit	3E1	LINENO
+		1147	cinit	3E4	LINENO
+		1149	cinit	3E5	LINENO
+		1147	cinit	3EC	LINENO
+		1152	cinit	3F1	LINENO
+		1154	cinit	3F9	LINENO
+		1156	cinit	3FA	LINENO
+		1154	cinit	3FF	LINENO
+		1159	cinit	404	LINENO
+		1160	cinit	410	LINENO
+		1166	cinit	413	LINENO
+		1170	cinit	414	LINENO
+		1172	cinit	415	LINENO
+		1178	cinit	424	LINENO
+		1170	cinit	425	LINENO
+		1187	cinit	42A	LINENO
+		1190	cinit	42D	LINENO
+		1192	cinit	42E	LINENO
+		1190	cinit	435	LINENO
+		1195	cinit	43A	LINENO
+		1197	cinit	442	LINENO
+		1199	cinit	443	LINENO
+		1197	cinit	448	LINENO
+		1202	cinit	44D	LINENO
+	145	TEXT	92
+		cinit	0x886	0x52
+	     0: 11 08 00 3E 86 00 87 01 81 01 91 0A 10 30 11 02	...>..‡...‘..0..
+	    10: 03 1C 00 28 00 30 80 00 10 30 81 00 82 01 10 08	...(.0...0......
+	    20: 00 20 80 31 01 08 8E 00 00 08 8D 00 08 3A 0E 04	. .1..Ž.....:..
+	    30: 03 1D 00 28 10 08 00 20 80 31 91 01 11 08 00 3E	...(... .1‘....>
+	    40: 86 00 87 01 11 08 30 3E 81 00 91 0A 10 30 11 02	..‡...0>..‘..0..
+	    50: 03 1C                                          	..
+	146	RELOC	499
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x2	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0xA	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x12	RELBITS COMPLEX		11
+		(0x443 + cinit) & 0x7FF
+		0x14	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x1E	RELBITS RPSECT	cstackBANK0	7
+		0x20	RELBITS COMPLEX		11
+		(0x5F8 + cinit) & 0x7FF
+		0x22	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x32	RELBITS COMPLEX		11
+		(0x45C + cinit) - (cinit & 0xFFFFF800)
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS COMPLEX		11
+		(0x7B5 + cinit) & 0x7FF
+		0x38	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+		0x3E	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x44	RELBITS RPSECT	cstackBANK0	7
+		0x4A	RELBITS RPSECT	cstackBANK0	7
+		0x4E	RELBITS RPSECT	cstackBANK0	7
+	147	TEXT	72
+		cinit	0x8D8	0x3E
+	     0: 00 28 00 30 80 00 10 30 81 00 82 01 10 08 00 20	.(.0...0....... 
+	    10: 80 31 01 08 8E 00 00 08 8D 00 00 30 80 00 08 30	.1..Ž.....0...0
+	    20: 81 00 82 01 10 08 00 20 80 31 01 08 8E 00 00 08	....... .1..Ž...
+	    30: 8D 00 00 30 80 00 10 30 81 00 82 01 10 08      	..0...0......
+	148	RELOC	506
+		0x0	RELBITS COMPLEX		11
+		(0x461 + cinit) & 0x7FF
+		0x2	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackBANK0	7
+		0xE	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x10	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackBANK0	7
+		0x1A	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x26	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x28	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x32	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+	149	TEXT	74
+		cinit	0x916	0x40
+	     0: 00 20 80 31 00 30 80 00 08 30 81 00 82 01 10 08	. .1.0...0......
+	    10: 00 20 80 31 01 08 8E 00 00 08 8D 00 00 30 80 00	. .1..Ž.....0..
+	    20: 10 30 81 00 82 01 10 08 00 20 80 31 01 08 8E 00	.0....... .1..Ž.
+	    30: 00 08 8D 00 91 01 11 08 00 3E 86 00 87 01 81 01	...‘....>..‡...
+	150	RELOC	496
+		0x0	RELBITS COMPLEX		11
+		(0x5F8 + cinit) & 0x7FF
+		0x2	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x4	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackBANK0	7
+		0x10	RELBITS COMPLEX		11
+		(0x5F8 + cinit) & 0x7FF
+		0x12	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackBANK0	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackBANK0	7
+		0x1C	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x674 + cinit) & 0x7FF
+		0x2A	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS RPSECT	cstackBANK0	7
+		0x34	RELBITS RPSECT	cstackBANK0	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x38	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+	151	TEXT	94
+		cinit	0x956	0x54
+	     0: 91 0A 10 30 11 02 03 1C 00 28 00 30 80 00 10 30	‘..0.....(.0...0
+	    10: 81 00 82 01 10 08 00 20 80 31 01 08 8E 00 00 08	....... .1..Ž...
+	    20: 8D 00 10 3A 0E 04 03 1D 00 28 91 01 11 08 30 3E	..:.....(‘...0>
+	    30: 82 00 00 30 03 18 01 30 83 00 11 08 00 3E 86 00	...0...0ƒ....>..
+	    40: 87 01 01 08 02 06 03 04 03 1D 00 28 91 0A 10 30	‡..........(‘..0
+	    50: 11 02 03 1C                                    	....
+	152	RELOC	488
+		0x0	RELBITS RPSECT	cstackBANK0	7
+		0x4	RELBITS RPSECT	cstackBANK0	7
+		0x8	RELBITS COMPLEX		11
+		(0x4A6 + cinit) & 0x7FF
+		0xA	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackBANK0	7
+		0x16	RELBITS COMPLEX		11
+		(0x5F8 + cinit) & 0x7FF
+		0x18	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackBANK0	7
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackBANK0	7
+		0x24	RELBITS RPSECT	cstackBANK0	7
+		0x28	RELBITS COMPLEX		11
+		(0x4BF + cinit) - (cinit & 0xFFFFF800)
+		0x2A	RELBITS RPSECT	cstackBANK0	7
+		0x2C	RELBITS RPSECT	cstackBANK0	7
+		0x30	RELBITS RPSECT	cstackBANK0	7
+		0x38	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackBANK0	7
+		0x3C	COMPLEX		1
+		(0x1 + bssBANK0) & 0xFF
+		0x44	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS RPSECT	cstackBANK0	7
+		0x4A	RELBITS COMPLEX		11
+		(0x4D0 + cinit) - (cinit & 0xFFFFF800)
+		0x4C	RELBITS RPSECT	cstackBANK0	7
+		0x50	RELBITS RPSECT	cstackBANK0	7
+	153	SYM	501
+		1203	cinit	459	LINENO
+		1210	cinit	45C	LINENO
+		1218	cinit	45D	LINENO
+		1221	cinit	460	LINENO
+		1223	cinit	461	LINENO
+		1221	cinit	468	LINENO
+		1226	cinit	46D	LINENO
+		1227	cinit	479	LINENO
+		1229	cinit	485	LINENO
+		1230	cinit	48D	LINENO
+		1232	cinit	499	LINENO
+		1234	cinit	4A5	LINENO
+		1236	cinit	4A6	LINENO
+		1234	cinit	4AB	LINENO
+		1239	cinit	4B0	LINENO
+		1240	cinit	4BC	LINENO
+		1246	cinit	4BF	LINENO
+		1250	cinit	4C0	LINENO
+		1252	cinit	4C1	LINENO
+		1258	cinit	4D0	LINENO
+		1250	cinit	4D1	LINENO
+		C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.c		0	FILNAM
+		662	cinit	4D7	LINENO
+		663	cinit	4F7	LINENO
+		833	cinit	4F8	LINENO
+	154	TEXT	112
+		cinit	0x9AA	0x66
+	     0: 00 28 00 28 8D 00 80 31 00 20 80 31 00 09 89 00	.(.(..1. .1....
+	    10: 01 09 8A 00 89 0A 03 19 8A 0A 0D 08 86 00 87 01	..............‡.
+	    20: 40 3F 09 02 8B 00 41 3F 0A 3B 8C 00 0D 08 02 3E	@?..‹.A?.;Œ....>
+	    30: 86 00 40 3F 0B 07 80 00 41 3F 0C 3D 81 00 80 0A	..@?....A?.=....
+	    40: 03 19 81 0A 08 00 83 00 09 3E 86 00 87 01 01 1B	......ƒ..>..‡...
+	    50: 00 34 03 08 86 00 40 3F 81 00 41 3F 82 00 03 08	.4....@?..A?....
+	    60: 04 3E 86 00 40 3F                              	.>..@?
+	155	RELOC	501
+		0x0	RELBITS COMPLEX		11
+		(0x4C1 + cinit) & 0x7FF
+		0x2	RELBITS COMPLEX		11
+		(0x4D6 + cinit) - (cinit & 0xFFFFF800)
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS COMPLEX		7
+		(text113 >> 0x8) & 0x7F
+		0x8	RELBITS COMPLEX		11
+		text113 & 0x7FF
+		0xA	RELBITS COMPLEX		7
+		(cinit >> 0x8) & 0x7F
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackBANK0	7
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3C	RELBITS RPSECT	cstackBANK0	7
+		0x3E	RELBITS RPSECT	cstackBANK0	7
+		0x42	RELBITS RPSECT	cstackBANK0	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+	156	TEXT	176
+		cinit	0xA10	0xA6
+	     0: 01 06 03 1D 00 28 41 3F 02 06 03 19 00 28 00 08	.....(A?.....(..
+	    10: 86 00 87 01 03 08 04 3E 84 00 85 01 00 3F 81 00	..‡....>„....?..
+	    20: 01 3F 82 00 01 08 FF 3E 84 00 FF 30 02 3D 00 28	.?.....>„..0.=.(
+	    30: 00 08 86 00 87 01 03 08 02 3E 84 00 85 01 00 3F	....‡....>„....?
+	    40: 81 00 01 3F 82 00 01 08 84 00 02 08 85 00 00 08	...?....„.......
+	    50: 81 00 01 34 83 00 09 3E 86 00 87 01 01 1B 00 34	...4ƒ..>..‡....4
+	    60: 00 08 86 00 03 08 06 3E 84 00 85 01 00 3F 81 00	.......>„....?..
+	    70: 01 3F 82 00 01 08 84 00 02 08 85 00 00 08 81 00	.?....„.........
+	    80: 01 34 85 00 09 3E 86 00 87 01 01 1B 00 34 00 08	.4...>..‡....4..
+	    90: 86 00 05 08 06 3E 84 00 85 01 00 3F 81 00 01 3F	.....>„....?...?
+	    A0: 82 00 01 08 84 00                              	....„.
+	157	RELOC	509
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS COMPLEX		11
+		(0x50D + cinit) & 0x7FF
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS COMPLEX		11
+		(0x520 + cinit) & 0x7FF
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS COMPLEX		11
+		(0x52E + cinit) - (cinit & 0xFFFFF800)
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x6E	RELBITS RPSECT	cstackCOMMON	7
+		0x72	RELBITS RPSECT	cstackCOMMON	7
+		0x74	RELBITS RPSECT	cstackCOMMON	7
+		0x78	RELBITS RPSECT	cstackCOMMON	7
+		0x82	RELBITS RPSECT	cstackCOMMON	7
+		0x8E	RELBITS RPSECT	cstackCOMMON	7
+		0x92	RELBITS RPSECT	cstackCOMMON	7
+		0x9C	RELBITS RPSECT	cstackCOMMON	7
+		0xA0	RELBITS RPSECT	cstackCOMMON	7
+		0xA2	RELBITS RPSECT	cstackCOMMON	7
+	158	TEXT	166
+		cinit	0xAB6	0x9C
+	     0: 02 08 85 00 00 08 81 00 05 08 06 3E 86 00 01 30	...........>...0
+	    10: 81 07 41 31 03 18 81 0A 05 08 06 3E 86 00 40 3F	..A1.......>..@?
+	    20: 81 00 41 3F 82 00 05 08 02 3E 86 00 40 3F 83 00	..A?.....>..@?ƒ.
+	    30: 41 3F 84 00 02 08 04 02 03 1D 00 28 01 08 03 02	A?„........(....
+	    40: 05 08 03 18 00 28 86 00 87 01 40 3F 81 00 41 3F	.....(..‡.@?..A?
+	    50: 82 00 05 08 06 3E 86 00 01 08 C0 3F 02 08 C1 3F	.....>....À?..Á?
+	    60: 05 08 04 3E 86 00 87 01 40 3F 81 00 41 3F 82 00	...>..‡.@?..A?..
+	    70: 05 08 06 3E 86 00 40 3F 01 06 03 1D 00 28 41 3F	...>..@?.....(A?
+	    80: 02 06 03 1D 00 28 05 08 09 3E 86 00 87 01 01 17	.....(...>..‡...
+	    90: 05 08 09 3E 86 00 87 01 81 13 01 34            	...>..‡....4
+	159	RELOC	508
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x8	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS COMPLEX		11
+		(0x57B + cinit) & 0x7FF
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS COMPLEX		11
+		(0x58C + cinit) & 0x7FF
+		0x4C	RELBITS RPSECT	cstackCOMMON	7
+		0x50	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x6A	RELBITS RPSECT	cstackCOMMON	7
+		0x6E	RELBITS RPSECT	cstackCOMMON	7
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+		0x78	RELBITS RPSECT	cstackCOMMON	7
+		0x7C	RELBITS COMPLEX		11
+		(0x59C + cinit) & 0x7FF
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+		0x84	RELBITS COMPLEX		11
+		(0x5A3 + cinit) & 0x7FF
+		0x86	RELBITS RPSECT	cstackCOMMON	7
+		0x90	RELBITS RPSECT	cstackCOMMON	7
+	160	TEXT	172
+		cinit	0xB52	0xA2
+	     0: 82 00 09 3E 86 00 87 01 01 1B 01 34 02 08 86 00	...>..‡....4....
+	    10: 40 3F 80 00 41 3F 81 00 02 08 04 3E 86 00 40 3F	@?..A?.....>..@?
+	    20: 00 06 03 1D 00 28 41 3F 01 06 03 19 00 28 02 08	.....(A?.....(..
+	    30: 04 3E 86 00 87 01 01 30 81 02 41 31 00 30 81 3B	.>..‡..0..A1.0.;
+	    40: 7F 31 00 28 02 08 02 3E 86 00 87 01 40 3F 80 00	.1.(...>..‡.@?..
+	    50: 41 3F 81 00 02 08 04 3E 86 00 00 08 C0 3F 01 08	A?.....>....À?..
+	    60: C1 3F 02 08 06 3E 86 00 87 01 40 3F 80 00 41 3F	Á?...>..‡.@?..A?
+	    70: 81 00 02 08 04 3E 86 00 40 3F 00 06 03 1D 00 28	.....>..@?.....(
+	    80: 41 3F 01 06 03 1D 00 28 02 08 09 3E 86 00 87 01	A?.....(...>..‡.
+	    90: 01 17 02 08 09 3E 86 00 87 01 81 13 00 34 89 00	.....>..‡....4..
+	    A0: 87 01                                          	‡.
+	161	RELOC	507
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS COMPLEX		11
+		(0x5BE + cinit) & 0x7FF
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS COMPLEX		11
+		(0x5CB + cinit) & 0x7FF
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x42	RELBITS COMPLEX		11
+		(0x5DA + cinit) - (cinit & 0xFFFFF800)
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x5A	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x6C	RELBITS RPSECT	cstackCOMMON	7
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+		0x72	RELBITS RPSECT	cstackCOMMON	7
+		0x7A	RELBITS RPSECT	cstackCOMMON	7
+		0x7E	RELBITS COMPLEX		11
+		(0x5EB + cinit) & 0x7FF
+		0x82	RELBITS RPSECT	cstackCOMMON	7
+		0x86	RELBITS COMPLEX		11
+		(0x5F2 + cinit) & 0x7FF
+		0x88	RELBITS RPSECT	cstackCOMMON	7
+		0x92	RELBITS RPSECT	cstackCOMMON	7
+		0x9E	RELBITS RPSECT	cstackCOMMON	7
+		0xA0	RELBITS RPSECT	cstackCOMMON	7
+	162	SYM	498
+		838	cinit	4FE	LINENO
+		840	cinit	50F	LINENO
+		846	cinit	520	LINENO
+		848	cinit	531	LINENO
+		793	cinit	532	LINENO
+		796	cinit	538	LINENO
+		797	cinit	548	LINENO
+		733	cinit	549	LINENO
+		735	cinit	54E	LINENO
+		738	cinit	54F	LINENO
+		741	cinit	55F	LINENO
+		744	cinit	567	LINENO
+		746	cinit	57B	LINENO
+		744	cinit	57C	LINENO
+		746	cinit	57E	LINENO
+		751	cinit	58B	LINENO
+		754	cinit	59E	LINENO
+		759	cinit	5A3	LINENO
+		761	cinit	5A8	LINENO
+		890	cinit	5A9	LINENO
+		892	cinit	5AE	LINENO
+		897	cinit	5AF	LINENO
+		899	cinit	5C0	LINENO
+		900	cinit	5CA	LINENO
+		905	cinit	5CB	LINENO
+		908	cinit	5DA	LINENO
+		910	cinit	5ED	LINENO
+		913	cinit	5F2	LINENO
+		915	cinit	5F7	LINENO
+		1092	cinit	5F8	LINENO
+		1093	cinit	5F9	LINENO
+	163	TEXT	152
+		cinit	0xBF4	0x8E
+	     0: 88 01 09 3E 86 00 87 01 01 1F 00 28 80 01 81 01	ˆ..>..‡....(....
+	    10: 08 00 00 08 86 00 87 01 09 08 06 3E 84 00 85 01	......‡....>„...
+	    20: 00 3F 83 00 01 3F 84 00 03 08 84 00 04 08 85 00	.?ƒ..?„...„.....
+	    30: 00 08 81 00 09 08 06 3E 86 00 01 30 81 07 41 31	.......>...0..A1
+	    40: 03 18 81 0A 80 0A 09 08 06 3E 86 00 40 3F 83 00	.........>..@?ƒ.
+	    50: 41 3F 84 00 09 08 02 3E 86 00 40 3F 85 00 41 3F	A?„....>..@?..A?
+	    60: 86 00 04 08 06 02 03 1D 00 28 03 08 05 02 09 08	.........(......
+	    70: 03 18 00 28 86 00 87 01 40 3F 83 00 41 3F 84 00	...(..‡.@?ƒ.A?„.
+	    80: 09 08 06 3E 86 00 03 08 C0 3F 04 08 C1 3F      	...>....À?..Á?
+	164	RELOC	501
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS COMPLEX		11
+		(0x664 + cinit) & 0x7FF
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS COMPLEX		11
+		(0x631 + cinit) & 0x7FF
+		0x6A	RELBITS RPSECT	cstackCOMMON	7
+		0x6C	RELBITS RPSECT	cstackCOMMON	7
+		0x6E	RELBITS RPSECT	cstackCOMMON	7
+		0x72	RELBITS COMPLEX		11
+		(0x642 + cinit) & 0x7FF
+		0x7A	RELBITS RPSECT	cstackCOMMON	7
+		0x7E	RELBITS RPSECT	cstackCOMMON	7
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+		0x86	RELBITS RPSECT	cstackCOMMON	7
+		0x8A	RELBITS RPSECT	cstackCOMMON	7
+	165	TEXT	130
+		cinit	0xC82	0x78
+	     0: 09 08 04 3E 86 00 87 01 40 3F 83 00 41 3F 84 00	...>..‡.@?ƒ.A?„.
+	    10: 09 08 06 3E 86 00 40 3F 03 06 03 1D 00 28 41 3F	...>..@?.....(A?
+	    20: 04 06 03 1D 00 28 09 08 09 3E 86 00 87 01 01 17	.....(...>..‡...
+	    30: 87 0A 03 19 88 0A 02 08 08 06 03 1D 00 28 01 08	‡...ˆ........(..
+	    40: 07 06 03 19 00 28 09 08 09 3E 86 00 87 01 01 1F	.....(...>..‡...
+	    50: 00 28 09 08 09 3E 86 00 87 01 81 13 08 08 81 00	.(...>..‡.......
+	    60: 07 08 80 00 08 00 89 00 87 01 88 01 09 3E 86 00	........‡.ˆ..>..
+	    70: 87 01 81 1F 00 28 80 01                        	‡....(..
+	166	RELOC	506
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS COMPLEX		11
+		(0x652 + cinit) & 0x7FF
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS COMPLEX		11
+		(0x659 + cinit) & 0x7FF
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3C	RELBITS COMPLEX		11
+		(0x662 + cinit) & 0x7FF
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS COMPLEX		11
+		(0x66A + cinit) & 0x7FF
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x50	RELBITS COMPLEX		11
+		(0x603 + cinit) & 0x7FF
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x66	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS RPSECT	cstackCOMMON	7
+		0x6A	RELBITS RPSECT	cstackCOMMON	7
+		0x74	RELBITS COMPLEX		11
+		(0x6E2 + cinit) & 0x7FF
+		0x76	RELBITS RPSECT	cstackCOMMON	7
+	167	TEXT	152
+		cinit	0xCFA	0x8E
+	     0: 81 01 08 00 00 08 86 00 87 01 01 08 83 00 09 08	........‡...ƒ...
+	    10: 04 3E 86 00 40 3F 84 00 41 3F 85 00 04 08 86 00	.>..@?„.A?......
+	    20: 05 08 87 00 03 08 81 00 09 08 04 3E 86 00 87 01	..‡........>..‡.
+	    30: 01 30 81 07 41 31 03 18 81 0A 80 0A 09 08 04 3E	.0..A1.........>
+	    40: 86 00 40 3F 83 00 41 3F 84 00 09 08 02 3E 86 00	..@?ƒ.A?„....>..
+	    50: 40 3F 85 00 41 3F 86 00 04 08 06 02 03 1D 00 28	@?..A?.........(
+	    60: 03 08 05 02 09 08 03 18 00 28 86 00 87 01 40 3F	.........(..‡.@?
+	    70: 83 00 41 3F 84 00 09 08 04 3E 86 00 03 08 C0 3F	ƒ.A?„....>....À?
+	    80: 04 08 C1 3F 09 08 06 3E 86 00 87 01 40 3F      	..Á?...>..‡.@?
+	168	RELOC	494
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x48	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x56	RELBITS RPSECT	cstackCOMMON	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5A	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS COMPLEX		11
+		(0x6AF + cinit) & 0x7FF
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS COMPLEX		11
+		(0x6C0 + cinit) & 0x7FF
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+		0x74	RELBITS RPSECT	cstackCOMMON	7
+		0x76	RELBITS RPSECT	cstackCOMMON	7
+		0x7C	RELBITS RPSECT	cstackCOMMON	7
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+		0x84	RELBITS RPSECT	cstackCOMMON	7
+	169	SYM	493
+		1096	cinit	5FB	LINENO
+		1098	cinit	600	LINENO
+		1104	cinit	603	LINENO
+		1107	cinit	614	LINENO
+		1109	cinit	61C	LINENO
+		1112	cinit	61D	LINENO
+		1114	cinit	631	LINENO
+		1112	cinit	632	LINENO
+		1114	cinit	634	LINENO
+		1119	cinit	641	LINENO
+		1122	cinit	654	LINENO
+		1125	cinit	659	LINENO
+		1129	cinit	65C	LINENO
+		1101	cinit	664	LINENO
+		1137	cinit	66A	LINENO
+		1139	cinit	66F	LINENO
+		1140	cinit	673	LINENO
+		1005	cinit	674	LINENO
+		1006	cinit	675	LINENO
+		1010	cinit	677	LINENO
+		1012	cinit	67C	LINENO
+		1019	cinit	67F	LINENO
+		1021	cinit	691	LINENO
+		1024	cinit	69A	LINENO
+		1028	cinit	69B	LINENO
+		1030	cinit	6AF	LINENO
+		1028	cinit	6B0	LINENO
+		1030	cinit	6B2	LINENO
+		1035	cinit	6BF	LINENO
+	170	TEXT	138
+		cinit	0xD88	0x80
+	     0: 83 00 41 3F 84 00 09 08 04 3E 86 00 40 3F 03 06	ƒ.A?„....>..@?..
+	    10: 03 1D 00 28 41 3F 04 06 03 1D 00 28 09 08 09 3E	...(A?.....(...>
+	    20: 86 00 87 01 81 17 87 0A 03 19 88 0A 02 08 08 06	..‡...‡...ˆ.....
+	    30: 03 1D 00 28 01 08 07 06 03 19 00 28 09 08 09 3E	...(.......(...>
+	    40: 86 00 87 01 81 1F 00 28 09 08 09 3E 86 00 87 01	..‡....(...>..‡.
+	    50: 01 13 08 08 81 00 07 08 80 00 08 00 80 00 09 3E	...............>
+	    60: 86 00 87 01 81 1E 00 34 00 08 09 3E 86 00 81 12	..‡....4...>....
+	    70: 00 08 08 3E 86 00 01 08 08 00 80 00 00 08 81 00	...>............
+	171	RELOC	495
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS COMPLEX		11
+		(0x6D0 + cinit) & 0x7FF
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS COMPLEX		11
+		(0x6D7 + cinit) & 0x7FF
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS COMPLEX		11
+		(0x6E0 + cinit) & 0x7FF
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS COMPLEX		11
+		(0x6E8 + cinit) & 0x7FF
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS COMPLEX		11
+		(0x67F + cinit) & 0x7FF
+		0x48	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x56	RELBITS RPSECT	cstackCOMMON	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS RPSECT	cstackCOMMON	7
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+		0x7A	RELBITS RPSECT	cstackCOMMON	7
+		0x7C	RELBITS RPSECT	bssBANK0	7
+		0x7E	RELBITS RPSECT	cstackCOMMON	7
+	172	TEXT	172
+		cinit	0xE08	0xA2
+	     0: 01 08 08 3E 86 00 87 01 01 08 00 06 03 1D 00 28	...>..‡........(
+	    10: 01 08 09 3E 86 00 81 1A 00 34 01 08 09 3E 86 00	...>.....4...>..
+	    20: 81 16 01 08 08 00 01 08 86 00 87 01 4A 3F 81 00	..........‡.J?..
+	    30: 81 08 03 19 00 34 00 28 81 00 00 08 82 00 08 3E	.....4.(.......>
+	    40: 86 00 87 01 01 08 01 06 03 1D 00 28 02 08 86 00	..‡........(....
+	    50: 4A 3F 80 00 01 34 02 08 86 00 87 01 4A 3F 82 00	J?...4....‡.J?..
+	    60: 08 3E 86 00 01 08 01 06 03 1D 00 28 00 08 0A 3E	.>.........(...>
+	    70: 86 00 02 08 0A 3E 84 00 85 01 00 08 81 00 01 34	.....>„........4
+	    80: 02 08 80 00 02 08 0A 3E 86 00 87 01 01 08 00 3A	.......>..‡....:
+	    90: 03 1D 00 28 02 08 0A 3E 86 00 87 01 81 08 03 19	...(...>..‡.....
+	    A0: 00 34                                          	.4
+	173	RELOC	483
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS COMPLEX		11
+		(0x717 + cinit) & 0x7FF
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x22	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS COMPLEX		11
+		(0x704 + cinit) - (cinit & 0xFFFFF800)
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	bssBANK0	7
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS COMPLEX		11
+		(0x744 + cinit) & 0x7FF
+		0x4C	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	bssBANK0	7
+		0x56	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+		0x66	RELBITS RPSECT	cstackCOMMON	7
+		0x6A	RELBITS COMPLEX		11
+		(0x74E + cinit) & 0x7FF
+		0x6C	RELBITS RPSECT	cstackCOMMON	7
+		0x72	RELBITS RPSECT	cstackCOMMON	7
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+		0x82	RELBITS RPSECT	cstackCOMMON	7
+		0x84	RELBITS RPSECT	cstackCOMMON	7
+		0x92	RELBITS COMPLEX		11
+		(0x72F + cinit) & 0x7FF
+		0x94	RELBITS RPSECT	cstackCOMMON	7
+	174	SYM	503
+		1041	cinit	6D2	LINENO
+		1044	cinit	6D7	LINENO
+		1047	cinit	6DA	LINENO
+		1016	cinit	6E2	LINENO
+		1054	cinit	6E8	LINENO
+		1056	cinit	6ED	LINENO
+		1057	cinit	6F1	LINENO
+		467	cinit	6F2	LINENO
+		471	cinit	6F8	LINENO
+		474	cinit	6FC	LINENO
+		409	cinit	701	LINENO
+		413	cinit	704	LINENO
+		416	cinit	70C	LINENO
+		419	cinit	711	LINENO
+		421	cinit	715	LINENO
+		432	cinit	717	LINENO
+		434	cinit	71C	LINENO
+		333	cinit	720	LINENO
+		337	cinit	723	LINENO
+		339	cinit	72A	LINENO
+		354	cinit	72E	LINENO
+		358	cinit	72F	LINENO
+		361	cinit	734	LINENO
+		367	cinit	73A	LINENO
+		340	cinit	743	LINENO
+		350	cinit	744	LINENO
+		354	cinit	746	LINENO
+		372	cinit	74E	LINENO
+		375	cinit	754	LINENO
+		372	cinit	755	LINENO
+		514	cinit	756	LINENO
+	175	TEXT	152
+		cinit	0xEAA	0x8E
+	     0: 00 28 85 00 09 3E 86 00 87 01 81 1B 00 34 00 08	.(...>..‡....4..
+	    10: 81 00 05 08 04 3E 86 00 40 3F 82 00 41 3F 83 00	.....>..@?..A?ƒ.
+	    20: 02 08 86 00 03 08 87 00 01 08 81 00 05 08 04 3E	......‡........>
+	    30: 86 00 87 01 01 30 81 07 41 31 03 18 81 0A 05 08	..‡..0..A1......
+	    40: 09 3E 86 00 01 13 05 08 04 3E 86 00 40 3F 81 00	.>.......>..@?..
+	    50: 41 3F 82 00 05 08 02 3E 86 00 40 3F 83 00 41 3F	A?.....>..@?ƒ.A?
+	    60: 84 00 02 08 04 02 03 1D 00 28 01 08 03 02 05 08	„........(......
+	    70: 03 18 00 28 86 00 87 01 40 3F 81 00 41 3F 82 00	...(..‡.@?..A?..
+	    80: 05 08 04 3E 86 00 01 08 C0 3F 02 08 C1 3F      	...>....À?..Á?
+	176	RELOC	509
+		0x0	RELBITS COMPLEX		11
+		(0x744 + cinit) - (cinit & 0xFFFFF800)
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1E	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS COMPLEX		11
+		(0x78C + cinit) & 0x7FF
+		0x6A	RELBITS RPSECT	cstackCOMMON	7
+		0x6C	RELBITS RPSECT	cstackCOMMON	7
+		0x6E	RELBITS RPSECT	cstackCOMMON	7
+		0x72	RELBITS COMPLEX		11
+		(0x79D + cinit) & 0x7FF
+		0x7A	RELBITS RPSECT	cstackCOMMON	7
+		0x7E	RELBITS RPSECT	cstackCOMMON	7
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+		0x86	RELBITS RPSECT	cstackCOMMON	7
+		0x8A	RELBITS RPSECT	cstackCOMMON	7
+	177	TEXT	132
+		cinit	0xF38	0x7A
+	     0: 05 08 06 3E 86 00 87 01 40 3F 81 00 41 3F 82 00	...>..‡.@?..A?..
+	    10: 05 08 04 3E 86 00 40 3F 01 06 03 1D 00 28 41 3F	...>..@?.....(A?
+	    20: 02 06 03 1D 01 34 05 08 09 3E 86 00 87 01 81 17	.....4...>..‡...
+	    30: 01 34 82 00 86 00 87 01 40 3F 80 00 41 3F 81 00	.4....‡.@?..A?..
+	    40: 02 08 04 3E 86 00 00 08 C0 3F 01 08 C1 3F 02 08	...>....À?..Á?..
+	    50: 86 00 40 3F 80 00 41 3F 81 00 02 08 06 3E 86 00	..@?..A?.....>..
+	    60: 00 08 C0 3F 01 08 C1 3F 02 08 09 3E 86 00 81 01	..À?..Á?...>....
+	    70: 02 08 09 3E 86 00 01 17 08 00                  	...>......
+	178	RELOC	359
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x1C	RELBITS COMPLEX		11
+		(0x7AD + cinit) & 0x7FF
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x46	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5A	RELBITS RPSECT	cstackCOMMON	7
+		0x60	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS RPSECT	cstackCOMMON	7
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+	179	TEXT	24
+		clrtext	0x0	0xC
+	     0: 64 00 80 01 01 31 89 0B 00 28 00 34            	d....1...(.4
+	180	RELOC	25
+		0x8	RELBITS COMPLEX		11
+		(0x1 + clrtext) & 0x7FF
+	181	SYM	506
+		516	cinit	75B	LINENO
+		519	cinit	75C	LINENO
+		521	cinit	76B	LINENO
+		525	cinit	774	LINENO
+		529	cinit	778	LINENO
+		531	cinit	78C	LINENO
+		529	cinit	78D	LINENO
+		531	cinit	78F	LINENO
+		536	cinit	79C	LINENO
+		542	cinit	7AF	LINENO
+		545	cinit	7B4	LINENO
+		695	cinit	7B5	LINENO
+		696	cinit	7C3	LINENO
+		698	cinit	7D0	LINENO
+		700	cinit	7D4	LINENO
+		701	cinit	7D8	LINENO
+		C:\DOCUME~1\m91234\LOCALS~1\Temp\s3a8.		0	FILNAM
+		124	clrtext	0	LINENO
+		126	clrtext	1	LINENO
+		127	clrtext	2	LINENO
+		128	clrtext	3	LINENO
+		129	clrtext	4	LINENO
+		130	clrtext	5	LINENO
+		C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.c		0	FILNAM
+	182	TEXT	16
+		text104	0x0	0x4
+	     0: 80 01 08 00                                    	....
+	183	RELOC	12
+		0x0	RELBITS RPSECT	bssBANK0	7
+	184	TEXT	148
+		text112	0x0	0x88
+	     0: 89 01 89 0A 01 08 00 04 03 19 00 34 03 08 02 04	...........4....
+	    10: 03 19 00 34 04 08 03 19 00 34 04 08 86 00 87 01	...4.....4....‡.
+	    20: 00 08 C0 3F 01 08 C1 3F 02 08 00 07 85 00 01 08	..À?..Á?........
+	    30: 03 18 89 0A 86 00 05 08 FF 3E 87 00 FF 30 06 3D	.........>‡..0.=
+	    40: 88 00 04 08 02 3E 86 00 07 08 C0 3F 08 08 C1 3F	ˆ....>....À?..Á?
+	    50: 04 08 04 3E 86 00 00 08 C0 3F 01 08 C1 3F 04 08	...>....À?..Á?..
+	    60: 06 3E 86 00 00 08 C0 3F 01 08 C1 3F 04 08 09 3E	.>....À?..Á?...>
+	    70: 86 00 81 01 04 08 09 3E 86 00 01 17 04 08 0A 3E	.......>.......>
+	    80: 86 00 81 01 80 08 03 1D                        	........
+	185	RELOC	508
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS RPSECT	cstackCOMMON	7
+		0x3A	RELBITS RPSECT	cstackCOMMON	7
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS RPSECT	cstackCOMMON	7
+		0x42	RELBITS RPSECT	cstackCOMMON	7
+		0x48	RELBITS RPSECT	cstackCOMMON	7
+		0x4C	RELBITS RPSECT	cstackCOMMON	7
+		0x50	RELBITS RPSECT	cstackCOMMON	7
+		0x56	RELBITS RPSECT	cstackCOMMON	7
+		0x5A	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x68	RELBITS RPSECT	cstackCOMMON	7
+		0x6C	RELBITS RPSECT	cstackCOMMON	7
+		0x74	RELBITS RPSECT	cstackCOMMON	7
+		0x7C	RELBITS RPSECT	cstackCOMMON	7
+		0x84	RELBITS RPSECT	bssBANK0	7
+	186	TEXT	116
+		text112	0x88	0x68
+	     0: 00 28 04 08 80 00 04 08 08 3E 86 00 81 01 81 0A	.(.......>......
+	    10: 00 28 00 08 8A 00 8A 08 03 19 00 28 0A 08 08 3E	.(.........(...>
+	    20: 86 00 87 01 01 08 09 06 03 1D 00 28 89 0A 09 08	..‡........(....
+	    30: FF 3A 03 19 00 34 00 28 0A 08 86 00 87 01 4A 3F	.:...4.(....‡.J?
+	    40: 00 28 04 08 08 3E 86 00 87 01 09 08 81 00 04 08	.(...>..‡.......
+	    50: 0A 3E 86 00 00 08 81 00 04 08 80 00 04 08 08 3E	.>.............>
+	    60: 86 00 87 01 01 08 08 00                        	..‡.....
+	187	RELOC	452
+		0x0	RELBITS COMPLEX		11
+		(0x4D + text112) & 0x7FF
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x4	RELBITS RPSECT	bssBANK0	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x10	RELBITS COMPLEX		11
+		(0x72 + text112) - (text112 & 0xFFFFF800)
+		0x12	RELBITS RPSECT	bssBANK0	7
+		0x14	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS COMPLEX		11
+		(0x65 + text112) & 0x7FF
+		0x1C	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x2A	RELBITS COMPLEX		11
+		(0x60 + text112) & 0x7FF
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS COMPLEX		11
+		(0x4D + text112) - (text112 & 0xFFFFF800)
+		0x38	RELBITS RPSECT	cstackCOMMON	7
+		0x40	RELBITS COMPLEX		11
+		(0x4E + text112) - (text112 & 0xFFFFF800)
+		0x42	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	bssBANK0	7
+		0x58	RELBITS RPSECT	cstackCOMMON	7
+		0x5A	RELBITS RPSECT	bssBANK0	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+	188	SYM	504
+		143	text104	0	LINENO
+		144	text104	1	LINENO
+		210	text112	0	LINENO
+		217	text112	2	LINENO
+		221	text112	A	LINENO
+		224	text112	D	LINENO
+		226	text112	14	LINENO
+		227	text112	28	LINENO
+		228	text112	2F	LINENO
+		230	text112	36	LINENO
+		232	text112	3A	LINENO
+		234	text112	3E	LINENO
+		241	text112	42	LINENO
+		243	text112	45	LINENO
+		244	text112	47	LINENO
+		245	text112	4C	LINENO
+		252	text112	4D	LINENO
+		277	text112	4E	LINENO
+		253	text112	4F	LINENO
+		255	text112	52	LINENO
+		259	text112	5A	LINENO
+		262	text112	5B	LINENO
+		277	text112	60	LINENO
+		253	text112	64	LINENO
+		281	text112	65	LINENO
+		285	text112	6B	LINENO
+		286	text112	70	LINENO
+		289	text112	72	LINENO
+	189	TEXT	142
+		text113	0x0	0x82
+	     0: 88 00 09 3E 86 00 87 01 81 1F 00 28 80 01 81 01	ˆ..>..‡....(....
+	    10: 08 00 08 08 09 3E 86 00 87 01 08 08 01 1F 00 28	.....>..‡......(
+	    20: 86 00 02 3E 84 00 85 01 40 3F 00 02 80 00 01 31	...>„...@?.....1
+	    30: 41 3F 00 3B 00 28 06 3E 86 00 87 01 08 08 84 00	A?.;.(.>..‡...„.
+	    40: 85 01 00 3F 82 00 01 3F 83 00 82 09 83 09 82 0A	...?...?ƒ...ƒ...
+	    50: 03 19 83 0A 08 08 04 3E 84 00 00 3F 02 02 84 00	..ƒ....>„..?..„.
+	    60: 01 3F 03 3B 85 00 08 08 02 3E 84 00 00 3F 04 07	.?.;.....>„..?..
+	    70: 86 00 01 3F 05 3D 87 00 40 3F 06 07 80 00 41 3F	...?.=‡.@?....A?
+	    80: 07 3D                                          	.=
+	190	RELOC	501
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0xA	RELBITS COMPLEX		11
+		(0x9 + text113) & 0x7FF
+		0xC	RELBITS RPSECT	cstackCOMMON	7
+		0xE	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x1A	RELBITS RPSECT	cstackCOMMON	7
+		0x1E	RELBITS COMPLEX		11
+		(0x46 + text113) & 0x7FF
+		0x2C	RELBITS RPSECT	cstackCOMMON	7
+		0x34	RELBITS COMPLEX		11
+		(0x41 + text113) - (text113 & 0xFFFFF800)
+		0x3C	RELBITS RPSECT	cstackCOMMON	7
+		0x44	RELBITS RPSECT	cstackCOMMON	7
+		0x48	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x4C	RELBITS RPSECT	cstackCOMMON	7
+		0x4E	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+		0x54	RELBITS RPSECT	cstackCOMMON	7
+		0x5C	RELBITS RPSECT	cstackCOMMON	7
+		0x5E	RELBITS RPSECT	cstackCOMMON	7
+		0x62	RELBITS RPSECT	cstackCOMMON	7
+		0x64	RELBITS RPSECT	cstackCOMMON	7
+		0x66	RELBITS RPSECT	cstackCOMMON	7
+		0x6E	RELBITS RPSECT	cstackCOMMON	7
+		0x70	RELBITS RPSECT	cstackCOMMON	7
+		0x74	RELBITS RPSECT	cstackCOMMON	7
+		0x76	RELBITS RPSECT	cstackCOMMON	7
+		0x7A	RELBITS RPSECT	cstackCOMMON	7
+		0x7C	RELBITS RPSECT	cstackCOMMON	7
+		0x80	RELBITS RPSECT	cstackCOMMON	7
+	191	TEXT	98
+		text113	0x82	0x56
+	     0: 81 00 80 0A 03 19 81 0A 08 00 04 3E 86 00 87 01	...........>..‡.
+	    10: 40 3F 82 00 41 3F 83 00 08 08 06 3E 86 00 40 3F	@?..A?ƒ....>..@?
+	    20: 84 00 41 3F 85 00 03 08 05 02 03 1D 00 28 02 08	„.A?.........(..
+	    30: 04 02 08 08 03 1C 00 28 04 3E 86 00 87 01 08 08	.......(.>..‡...
+	    40: 06 3E 84 00 85 01 40 3F 00 02 80 00 01 31 41 3F	.>„...@?.....1A?
+	    50: 00 3B 81 00 08 00                              	.;....
+	192	RELOC	306
+		0x0	RELBITS RPSECT	cstackCOMMON	7
+		0x2	RELBITS RPSECT	cstackCOMMON	7
+		0x6	RELBITS RPSECT	cstackCOMMON	7
+		0x12	RELBITS RPSECT	cstackCOMMON	7
+		0x16	RELBITS RPSECT	cstackCOMMON	7
+		0x18	RELBITS RPSECT	cstackCOMMON	7
+		0x20	RELBITS RPSECT	cstackCOMMON	7
+		0x24	RELBITS RPSECT	cstackCOMMON	7
+		0x26	RELBITS RPSECT	cstackCOMMON	7
+		0x28	RELBITS RPSECT	cstackCOMMON	7
+		0x2C	RELBITS COMPLEX		11
+		(0x5A + text113) & 0x7FF
+		0x2E	RELBITS RPSECT	cstackCOMMON	7
+		0x30	RELBITS RPSECT	cstackCOMMON	7
+		0x32	RELBITS RPSECT	cstackCOMMON	7
+		0x36	RELBITS COMPLEX		11
+		(0x1B + text113) & 0x7FF
+		0x3E	RELBITS RPSECT	cstackCOMMON	7
+		0x4A	RELBITS RPSECT	cstackCOMMON	7
+		0x52	RELBITS RPSECT	cstackCOMMON	7
+	193	TEXT	13
+		bssBANK0	0x3A	0x0
+	194	TEXT	13
+		bssBANK1	0x2B	0x0
+	195	TEXT	13
+		bssBANK2	0x40	0x0
+	196	TEXT	17
+		cstackCOMMON	0xE	0x0
+	197	TEXT	16
+		cstackBANK0	0x12	0x0
+	198	SYM	234
+		589	text113	0	LINENO
+		591	text113	6	LINENO
+		595	text113	9	LINENO
+		599	text113	D	LINENO
+		595	text113	E	LINENO
+		599	text113	10	LINENO
+		615	text113	1B	LINENO
+		599	text113	42	LINENO
+		610	text113	46	LINENO
+		625	text113	5A	LINENO
+		610	text113	5B	LINENO
+		625	text113	5D	LINENO
+		631	text113	6B	LINENO
+	199	LISTRELOC	42
+		'cbuffPIC16F1Test.rlf' -> 'cbuffPIC16F1Test.lst'
+	200	FNINFO	354
+		FNCALL	_cbuffGetFill -> _cbuffGetSpace
+		FNROOT	_main
+		FNCALL	_main -> _cbuffInit
+		FNCALL	_main -> _cbuffCreate
+		FNCALL	_main -> _cbuffDestroy
+		FNCALL	_main -> _cbuffOpen
+		FNCALL	_main -> _cbuffClose
+		FNCALL	_main -> _cbuffGetSpace
+		FNCALL	_main -> _cbuffGetFill
+		FNCALL	_main -> _cbuffPutByte
+		FNCALL	_main -> _cbuffGetByte
+		FNCALL	_main -> _cbuffClearBuffer
+		FNCALL	_main -> _cbuffPeekHead
+		FNCALL	_main -> _cbuffPeekTail
+		FNCALL	_main -> _cbuffUnputByte
+		FNCALL	_main -> _cbuffPutArray
+		FNCALL	_main -> _cbuffGetArray
+	201	END	2
+

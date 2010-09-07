@@ -1,0 +1,69 @@
+Performance test info:
+
+The test is performed here on a PIC24FJ128GA010 using the C30 compiler.
+
+All C30 compiler settings are the default settings for memory model and
+optimizer.
+
+All measurements are measured using MPLAB SIM in MPLAB V8.50.
+
+MPLAB           8.50.00.00    Certified
+Windows XP      5.1.2600.2 Service Pack 3n\a
+ICDDB           7.51.00.01    n\a
+MasterDB        2.24.08.73    n\a
+DLLInfoRec      8.62.01.0     Certified
+DMCI            1.10.0.5      Certified
+FieldOrientedControlTI1.00.09.00    Certified
+ICD2            8.46.4.1      Certified
+MemGauge        1.00.00.00    Certified
+MPAppInOut      1.0.0.0       Certified
+MPBootloader    1.0.0.5       Certified
+MPChecksum      2.22.02.15    Certified
+MPDebugger      3.10.00.00    Certified
+MPDevice        2.40.00.00    Certified
+MPDiff          1.01.00.00    Certified
+MPDisplay2      3.50.00.00    Certified
+MPDisplays      3.50.00.00    Certified
+MPEditor4       4.50.00.00    Certified
+MPEditorStg     1.02.00.00    Certified
+MPExpress       2.30.00.00    Certified
+MPForum         3.02.00.00    Certified
+MPICD3          1.0.3.18      Certified
+MPIceState      1.22.00.00    Certified
+MPIceStopwatch  1.22.00.00    Certified
+MPLAB SIM12     2.10.00.00    Certified
+MPLAB SIM16     2.10.01.01    Certified
+MPLAB SIM18     3.20.00.00    Certified
+MPLAB SIM30     4.30.00.00    Certified
+MPLAB SIM32     0.00.10.06    Certified
+MPLoader        2.22.00.00    Certified
+MPLogicDisplay  1.51.00.00    Certified
+MPMemory        2.3           Certified
+MPPICkit3       1.0.1.19      Certified
+MPPm3           2.40.1.43     Certified
+MPProgram       2.2           Certified
+MPProject       3.6.7         Certified
+MPRealICE       6.0.3.46      Certified
+MPRecorder      1.01.00.00    Certified
+MPSim           8.62.01.0     Certified
+MPSimBreakpoints1.60.0.0      Certified
+MPSimulator     1.60.00.2     Certified
+MPStimulus      2.52.00.00    Certified
+MPStopwatch     2.51.00.0     Certified
+MPTags          2.00.00.00    Certified
+MPTask          1.1.1.0       Certified
+MPTranslator    2.31.00.00    Certified
+MPUSrcvw4       4.00.01.06    Certified
+MPVDI           3.0.0.2       Certified
+MPWatchUpdateSupport1.1.2.0       Certified
+PICkit2         0.0.3.63      Certified
+RTOSTool        1.9.0.4       Certified
+SCLStimulus     3.60.00.00    Certified
+Suite_CCSPic    2.0.0.7       Uncertified
+Suite_dsPIC     3.9.0         Certified
+Suite_LSCProxy  2.1.2.0       Certified
+Suite_Microchip 3.10.3        Certified
+Suite_PIC32     5.1.6         Certified
+Vault_CVS       1.2.0.0       Certified
+Vault_PVCS      1.0.0.3       Certified
+Vault_VSS       1.4.0.2       Certified

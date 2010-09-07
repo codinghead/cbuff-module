@@ -1,0 +1,6 @@
+Performance test info:
+
+The test is performed here on a PIC24FJ128GA010 using the C30 compiler.
+
+All C30 compiler settings are the default settings for memory model and
+optimizer.

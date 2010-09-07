@@ -1,0 +1,3 @@
+@echo Compiling cbuff_x86_test with MinGW
+@echo ...please wait...
+gcc ..\circBufferTest.c ..\..\cbuff_module\cbuff.c -Wall -o cbuff_i386_test.exe

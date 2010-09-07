@@ -1,0 +1,12 @@
+  Address                  Symbol Name                        Value        
+
+    020    inBuffer                                                      ""
+    040    inBufferObj                                                     
+    040    startOfBuffer                                             0x3F20
+    042    endOfBuffer                                               0x2020
+    044    inPointer                                                 0x4001
+    046    outPointer                                                0x0000
+    048    bufferNumber                                                0x00
+    049    localFlag                                                   0x00
+    04A    nextCircBufferObj                                         0x0000
+    076    main@inBufferNum                                            0x01
