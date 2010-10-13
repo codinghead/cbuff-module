@@ -37,7 +37,7 @@
 *                            CIRCULAR BUFFER MODULE
 *
 *******************************************************************************/
-#define CIRCULAR_BUFFER_MODULE
+#define CIRCULAR_BUFFER_MODULE__
 
 /*******************************************************************************
 *                                 INCLUDE FILES

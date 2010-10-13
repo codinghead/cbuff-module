@@ -25,8 +25,8 @@
 *
 *******************************************************************************/
 
-#ifndef __CBUFF_MODULE_PRESENT__
-#define __CBUFF_MODULE_PRESENT__
+#ifndef CBUFF_MODULE_PRESENT__
+#define CBUFF_MODULE_PRESENT__
 
 /*******************************************************************************
 *                                 INCLUDE FILES
