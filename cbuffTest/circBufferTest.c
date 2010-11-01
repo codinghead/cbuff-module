@@ -318,7 +318,7 @@ int main(void)
     
     x = cbuffDestroy(testBuffer1Num);
     
-    if (x == CBUFF_DESTROY_FAIL)
+    if (x != CBUFF_DESTROY_OK)
     {
         /* Failed to destroy a buffer that was allocated */
 #ifdef __i386__
@@ -330,7 +330,7 @@ int main(void)
     
     x = cbuffDestroy(testBuffer2Num);
     
-    if (x == CBUFF_DESTROY_FAIL)
+    if (x != CBUFF_DESTROY_OK)
     {
         /* Failed to destroy a buffer that was allocated */
 #ifdef __i386__
