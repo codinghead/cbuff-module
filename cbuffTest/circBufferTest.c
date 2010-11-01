@@ -787,8 +787,10 @@ int main(void)
     }
     
     /***************************************************************************
-    * TEST 16 - Check cbuffPeekHead and cbuffPeekTail don't read anything from an
-    *           empty buffer
+    * TEST 16 - Check cbuffPeekHead and cbuffPeekTail don't read anything from 
+    *           an empty buffer
+    * NOTE: This test relies upon the status of the previous test, i.e. that the
+    *       buffers used are empty!
     ***************************************************************************/
     if ((cbuffPeekHead(hOutBuffer, &readData)) == CBUFF_GET_OK)
     {
@@ -812,13 +814,18 @@ int main(void)
     
     /***************************************************************************
     * TEST 17 - Put some data in the buffer and then peek the head and tail
+    *
     ***************************************************************************/
+    /* Empty buffers to start with known state */
+    cbuffClearBuffer(hOutBuffer);
+    
     writeData = 'a';
     for (x = 0; x < 10; x++)
     {
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
     }    
+    
     if ((cbuffPeekHead(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek head data */
@@ -828,6 +835,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     if (readData != (writeData-1))
     {
         /* ERROR - peeked incorrect head data */
@@ -837,6 +845,7 @@ int main(void)
         while(1);
 #endif
     } 
+    
     if ((cbuffPeekTail(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek tail data */
@@ -846,6 +855,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     if (readData != 'a')
     {
         /* ERROR - peeked incorrect tail data */
@@ -858,6 +868,7 @@ int main(void)
     
     /***************************************************************************
     * TEST 18 - Check cbuffPeekHead works when inPointer points to startOfBuffer
+    * NOTE: This test relies upon the status of the previous test!
     ***************************************************************************/
     /* Read some bytes out of buffer */
     for (x = 0; x < 6; x++)
