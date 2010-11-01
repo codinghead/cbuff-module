@@ -369,7 +369,7 @@ int main(void)
     }
     
     /***************************************************************************
-    * TEST 6 - Ensure we can't get handle to buffer that doesn't exist
+    * TEST 6 - Ensure we can't get handle to buffers that doesn't exist
     ***************************************************************************/
     hInBuffer = cbuffOpen(16);
     
@@ -381,7 +381,19 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
+    
+    hInBuffer = cbuffOpen(5);
+    
+    if (hInBuffer != (CBUFFOBJ *) 0)
+    {
+        /* Managed to get a pointer to a buffer object that doesn't exist */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }  
 
     /***************************************************************************
     * TEST 7 - Ensure we can get handle to properly created buffers
