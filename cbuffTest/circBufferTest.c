@@ -9,10 +9,10 @@
 * Tests the circular buffer module's functionality
 *
 * Filename : circBufferTest.c
-* Programmer(s) : Suart Cording aka CODINGHEAD 
-* 
+* Programmer(s) : Suart Cording aka CODINGHEAD
+*
 ********************************************************************************
-* Note(s) : 
+* Note(s) :
 *       - 1st Nov 2010 - removed versioning info from file - versioning is now
 *         done in GIT
 * V0.04 - 9th June 2010 - added support for i386 architecture in tests
@@ -23,7 +23,7 @@
 *         dependent on the controller/compiler selected. NOTE: Currently only
 *         PIC18 and PIC24/dsPIC are supported. PIC32 needs some set up of the
 *         memory bus for memory accesses to work. PIC16F1 didn't work first
-*         time - didn't determine cause of the failure - and compiles with a 
+*         time - didn't determine cause of the failure - and compiles with a
 *         warning.
 * V0.02 - 16th March 2010 - added new tests to check new functionality in V0.02
 *         of the Circular Buffer Module
@@ -149,20 +149,20 @@ static CBUFFOBJ		    	testBuffer2Obj;
 /*******************************************************************************
 * main()
 *
-* Description: 
+* Description:
 *   Main application code
 *
 * See also:
 *
-* Arguments: 
+* Arguments:
 *   void
 *
-* Returns: 
+* Returns:
 *   void
 *
 * Callers: C start-up code
 *
-* Notes : 
+* Notes :
 *
 *******************************************************************************/
 #if	defined(__18CXX)
@@ -189,18 +189,18 @@ int main(void)
 #endif
                                         /* Initialise buffer module           */
     cbuffInit();
-    
+
     /***************************************************************************
     * TEST 1 - Try to create some buffer objects without passing the correct
     *          parameters. Each attempt should fail
     ***************************************************************************/
     inBufferNum = cbuffCreate((CBUFF *) 0, INBUFFERSIZE, &inBufferObj);
-    
+
     outBufferNum = cbuffCreate(outBuffer, 0, &outBufferObj);
-    
-    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE, 
+
+    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE,
     								 (CBUFFOBJ *) 0);
-    								 
+
     if (inBufferNum != 0)
     {
         /* Managed to create buffer with invalid parameters */
@@ -228,18 +228,18 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
-    * TEST 2 - Create some buffer objects 
+    * TEST 2 - Create some buffer objects
     ***************************************************************************/
-    
+
     inBufferNum = cbuffCreate(inBuffer, INBUFFERSIZE, &inBufferObj);
     outBufferNum = cbuffCreate(outBuffer, OUTBUFFERSIZE, &outBufferObj);
-    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE, 
+    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE,
     								 &testBuffer1Obj);
-    testBuffer2Num = cbuffCreate(testBuffer2, TESTBUFFER2SIZE, 
+    testBuffer2Num = cbuffCreate(testBuffer2, TESTBUFFER2SIZE,
     								 &testBuffer2Obj);
- 
+
                                         /* Check that we get a buffer number  */
                                         /* back. Also check which buffer      */
                                         /* number we got. The buffer number   */
@@ -283,13 +283,13 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 3 - Try to destroy some buffer objects that don't exist
     ***************************************************************************/
-    
+
     x = cbuffDestroy(16);
-    
+
     if (x == CBUFF_DESTROY_OK)
     {
         /* Destroyed a buffer that was not allocated */
@@ -299,9 +299,9 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     x = cbuffDestroy(5);
-    
+
     if (x == CBUFF_DESTROY_OK)
     {
         /* Destroyed a buffer that was not allocated */
@@ -311,13 +311,13 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 4 - Destroy the two testBufferObjs
     ***************************************************************************/
-    
+
     x = cbuffDestroy(testBuffer1Num);
-    
+
     if (x != CBUFF_DESTROY_OK)
     {
         /* Failed to destroy a buffer that was allocated */
@@ -327,9 +327,9 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     x = cbuffDestroy(testBuffer2Num);
-    
+
     if (x != CBUFF_DESTROY_OK)
     {
         /* Failed to destroy a buffer that was allocated */
@@ -339,16 +339,16 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 5 - Create the two testBufferObjs again but in reverse order
     *          to test 2 - should assign buffer numbers in reverse order
     ***************************************************************************/
-    testBuffer2Num = cbuffCreate(testBuffer2, TESTBUFFER2SIZE, 
+    testBuffer2Num = cbuffCreate(testBuffer2, TESTBUFFER2SIZE,
     								 &testBuffer2Obj);
-    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE, 
+    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE,
     								 &testBuffer1Obj);
-    
+
     if (testBuffer1Num != 4)
     {
         /* If testBuffer1Num isn't 4, allocation didn't work */
@@ -367,12 +367,12 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 6 - Ensure we can't get handle to buffers that doesn't exist
     ***************************************************************************/
     hInBuffer = cbuffOpen(16);
-    
+
     if (hInBuffer != (CBUFFOBJ *) 0)
     {
         /* Managed to get a pointer to a buffer object that doesn't exist */
@@ -382,9 +382,9 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     hInBuffer = cbuffOpen(5);
-    
+
     if (hInBuffer != (CBUFFOBJ *) 0)
     {
         /* Managed to get a pointer to a buffer object that doesn't exist */
@@ -393,15 +393,15 @@ int main(void)
 #else
         while(1);
 #endif
-    }  
+    }
 
     /***************************************************************************
     * TEST 7 - Ensure we can get handle to properly created buffers
     ***************************************************************************/
     hInBuffer = cbuffOpen(inBufferNum);
-    
+
     hOutBuffer = cbuffOpen(outBufferNum);
-    
+
     if (hInBuffer == (CBUFFOBJ *) 0)
     {
         /* Failed to get handle to valid, available buffer */
@@ -419,13 +419,13 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
 
     /***************************************************************************
     * TEST 8 - Try to obtain handle to open buffers - should fail
     ***************************************************************************/
     hDummyHandle = cbuffOpen(inBufferNum);
-    
+
     if (hDummyHandle != (CBUFFOBJ *) 0)
     {
         /* Managed to get handle to a buffer that is already open */
@@ -435,9 +435,9 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     hDummyHandle = cbuffOpen(outBufferNum);
-        
+
     if (hDummyHandle != (CBUFFOBJ *) 0)
     {
         /* Managed to get handle to a buffer that is already open */
@@ -446,16 +446,16 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
-    
+    }
+
     /***************************************************************************
     * TEST 9 - Try to release handles to open buffers
     ***************************************************************************/
-    
+
     inBufferNum = cbuffClose(hInBuffer);
-    
+
     outBufferNum = cbuffClose(hOutBuffer);
-    
+
     if (inBufferNum != 1)
     {
         /* Failed to close buffer object */
@@ -464,7 +464,7 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
     if (outBufferNum != 2)
     {
         /* Failed to close buffer object */
@@ -474,13 +474,13 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 10 - Try to release handles to buffer which is not open
     ***************************************************************************/
-    
+
     testBuffer1Num = cbuffClose(hOutBuffer);
-    
+
     if (testBuffer1Num != 0)
     {
         /* Managed to release a buffer object that was already released */
@@ -489,17 +489,17 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
-    
+    }
+
     /***************************************************************************
     * Open two main buffers for further tests
     ***************************************************************************/
-    
+
     hInBuffer = cbuffOpen(inBufferNum);
-    
+
     hOutBuffer = cbuffOpen(outBufferNum);
-    
-    
+
+
     /***************************************************************************
     * TEST 11 - Check sizes of both buffers are correctly calculated
     ***************************************************************************/
@@ -513,7 +513,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
     {
@@ -524,7 +524,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hInBuffer);
     if (dataInBuffer != 0)
     {
@@ -535,7 +535,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != 0)
     {
@@ -546,7 +546,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 12 - Fill buffers - ensure we can't overrun using cbuffPutByte
     ***************************************************************************/
@@ -574,7 +574,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 0)
     {
@@ -585,7 +585,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != OUTBUFFERSIZE)
     {
@@ -596,7 +596,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 13 - Read buffers - ensure we can't underrun using cbuffGetByte and
     *           check contents was stored correctly
@@ -638,7 +638,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
     {
@@ -649,7 +649,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != 0)
     {
@@ -660,7 +660,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 14 - Check buffer sizes calculate correctly when there is some data
     *           in the buffer, and also when for head-before-tail and tail-
@@ -686,7 +686,7 @@ int main(void)
 #endif
         }
     }
-    
+
     /* Check sizes are correctly calculated */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 10 )
@@ -698,7 +698,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != (OUTBUFFERSIZE - 10))
     {
@@ -709,7 +709,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /* Read out buffer contents*/
     while(cbuffGetByte(hOutBuffer, &readData) == CBUFF_GET_OK);
     /* Add some data to buffer so that inPointer buffer wrap occurs */
@@ -733,7 +733,7 @@ int main(void)
 #endif
         }
     }
-    
+
     /* Check sizes are correctly calculated */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 10 )
@@ -755,14 +755,14 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 15 - Clear this buffer and ensure that function calls return that
     *           buffer is empty
     ***************************************************************************/
     /* Clear this buffer to start new tests */
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Check buffer is empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
@@ -774,7 +774,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != 0)
     {
@@ -785,9 +785,9 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
-    * TEST 16 - Check cbuffPeekHead and cbuffPeekTail don't read anything from 
+    * TEST 16 - Check cbuffPeekHead and cbuffPeekTail don't read anything from
     *           an empty buffer
     * NOTE: This test relies upon the status of the previous test, i.e. that the
     *       buffers used are empty!
@@ -801,7 +801,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     if ((cbuffPeekTail(hOutBuffer, &readData)) == CBUFF_GET_OK)
     {
         /* ERROR - peeked tail data that isn't there */
@@ -810,22 +810,22 @@ int main(void)
 #else
         while(1);
 #endif
-    } 
-    
+    }
+
     /***************************************************************************
     * TEST 17 - Put some data in the buffer and then peek the head and tail
     *
     ***************************************************************************/
     /* Empty buffers to start with known state */
     cbuffClearBuffer(hOutBuffer);
-    
+
     writeData = 'a';
     for (x = 0; x < 10; x++)
     {
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
-    }    
-    
+    }
+
     if ((cbuffPeekHead(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek head data */
@@ -835,7 +835,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     if (readData != (writeData-1))
     {
         /* ERROR - peeked incorrect head data */
@@ -844,8 +844,8 @@ int main(void)
 #else
         while(1);
 #endif
-    } 
-    
+    }
+
     if ((cbuffPeekTail(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek tail data */
@@ -855,7 +855,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     if (readData != 'a')
     {
         /* ERROR - peeked incorrect tail data */
@@ -865,7 +865,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 18 - Check cbuffPeekHead works when inPointer points to startOfBuffer
     * NOTE: This test relies upon the status of the previous test!
@@ -874,16 +874,16 @@ int main(void)
     for (x = 0; x < 6; x++)
     {
         cbuffGetByte(hOutBuffer, &readData);
-    } 
-    
+    }
+
     /* Write enough bytes to get inPointer on startOfBuffer boundary */
     writeData = 'a';
     for (x = 0; x < 22; x++)
     {
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
-    }    
-    
+    }
+
     if ((cbuffPeekHead(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek head data */
@@ -893,7 +893,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     if (readData != (writeData-1))
     {
         /* ERROR - peeked incorrect head data */
@@ -902,8 +902,8 @@ int main(void)
 #else
         while(1);
 #endif
-    } 
-    
+    }
+
     /***************************************************************************
     * TEST 19 - Check cbuffUnputByte function
     ***************************************************************************/
@@ -915,7 +915,7 @@ int main(void)
         if (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
         {
             writeData++;
-        }    
+        }
         else
         {
             /* ERROR - couldn't put byte in buffer */
@@ -924,9 +924,9 @@ int main(void)
 #else
             while(1);
 #endif
-        }    
+        }
     }
-    
+
     writeData-=2;
     /* unput the data and check that it matches what we wrote */
     /* Also check we can't unput more data than is there      */
@@ -948,15 +948,15 @@ int main(void)
                 }
                 writeData--;
                 x++;
-            }    
-        } 
-        else 
+            }
+        }
+        else
         {
             /* If we can't unput data, break from loop */
-            break;   
-        }       
+            break;
+        }
     } while(x < 0xFF);
-    
+
     /* Check we weren't able to read too much data */
     if (x >= 8)
     {
@@ -966,8 +966,8 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
-    
+    }
+
     /* Check buffer is now empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
@@ -979,7 +979,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 20 - Try to unput over the wrap boundary
     ***************************************************************************/
@@ -988,15 +988,15 @@ int main(void)
     {
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
-    }    
+    }
     /* Read data out again */
     while (cbuffGetByte(hOutBuffer, &readData) == CBUFF_GET_OK);
     /* Fill buffer so we wrap the boundary */
     writeData = 'A';
     while (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
     {
-        writeData++;   
-    }    
+        writeData++;
+    }
     writeData-=2;
     /* unput the data and check that it matches what we wrote */
     /* Also check we can't unput more data than is there and the wrap-around works */
@@ -1018,13 +1018,13 @@ int main(void)
                 }
                 writeData--;
                 x++;
-            }    
-        } 
-        else 
+            }
+        }
+        else
         {
             /* If we can't unput data, break from loop */
-            break;   
-        }       
+            break;
+        }
     } while(x < 0xFF);
     /* Check buffer is now empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
@@ -1037,21 +1037,21 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     /***************************************************************************
     * TEST 21 - Try to put data in circular buffer from an array
     ***************************************************************************/
     cbuffClearBuffer(hInBuffer);
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Fill buffer with test data */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = x + 'A';
     }
-    
+
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
-    
+
     if (dataInBuffer != 16)
     {
         /* ERROR - didn't write expected number of bytes in buffer */
@@ -1061,10 +1061,10 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     dataInBuffer = cbuffGetFill(hOutBuffer);
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
-    
+
     if (dataInBuffer != 16)
     {
         /* ERROR - buffer fill doesn't match expected value */
@@ -1074,7 +1074,7 @@ int main(void)
         while(1);
 #endif
     }
-    
+
     if (spaceRemainingInBuffer != 16)
     {
         /* ERROR - bytes remaining doesn't match expected value */
@@ -1097,20 +1097,20 @@ int main(void)
 #else
         while(1);
 #endif
-        }    
+        }
     }
-       
+
     /***************************************************************************
     * TEST 22 - Try to overfill a circular buffer from an array
     ***************************************************************************/
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Fill buffer with test data */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = x + 'a';
     }
-    
+
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
     {
@@ -1134,7 +1134,7 @@ int main(void)
 #endif
     }
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
-    
+
     if (dataInBuffer != 0)
     {
         /* ERROR - managed to put data into a full buffer */
@@ -1143,8 +1143,8 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
-    
+    }
+
     /***************************************************************************
     * TEST 23 - Try write a circular buffer from an array over the circ buff
     *           boundary
@@ -1159,7 +1159,7 @@ int main(void)
     {
         cbuffUnputByte(hOutBuffer);
         cbuffGetByte(hOutBuffer, &readData);
-    }    
+    }
     /* Put data in the buffer from an array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
@@ -1170,13 +1170,13 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
     /* Read data out and check all is ok */
     /* First, read sixteen bytes out */
     for (x = 0; x < 16; x++)
     {
         cbuffGetByte(hOutBuffer, &readData);
-    } 
+    }
     /* Read data out again and compare */
     for(x = 0; x < 16; x++)
     {
@@ -1190,20 +1190,20 @@ int main(void)
 #else
             while(1);
 #endif
-        }    
+        }
     }
-    
+
     /***************************************************************************
     * TEST 24 - Try to read data out of circular buffer into an array
     ***************************************************************************/
     /* Empty buffer */
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Put new data in array */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = x + 'a';
-    }    
+    }
     /* Put data in the buffer from an array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     /* Clear local array */
@@ -1221,7 +1221,7 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
     /* Check what we read is correct */
     for(x = 0; x < 16; x++)
     {
@@ -1233,20 +1233,20 @@ int main(void)
 #else
         while(1);
 #endif
-        }    
+        }
     }
-    
+
     /***************************************************************************
     * TEST 25 - Try to underflow a circular buffer when reading to array
     ***************************************************************************/
     /* Empty buffer */
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Put new data in array */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = x + 'A';
-    }    
+    }
     /* Put some data from array in the buffer */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 8);
     /* Clear local array */
@@ -1265,19 +1265,19 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
-    
+    }
+
     /***************************************************************************
     * TEST 26 - Try to read circular buffer into array over buffer boundary
     ***************************************************************************/
     /* Empty buffer */
     cbuffClearBuffer(hOutBuffer);
-    
+
     /* Put new data in array */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = x + '0';
-    }    
+    }
     /* Put some data in the buffer with data from array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 8);
@@ -1313,9 +1313,9 @@ int main(void)
 #else
         while(1);
 #endif
-        }    
+        }
     }
-        
+
     /* Congratulations! If we stop here all tests passed */
 #ifdef __i386__
     printf("*** All tests for -cbuff- passed ***");
