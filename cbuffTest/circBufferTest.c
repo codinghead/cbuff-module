@@ -983,14 +983,19 @@ int main(void)
     /***************************************************************************
     * TEST 20 - Try to unput over the wrap boundary
     ***************************************************************************/
+    /* Start with an empty buffer */
+    cbuffClearBuffer(hOutBuffer);
+    
     writeData = 'A';
     for (x = 0; x < 10; x++)
     {
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
     }
+    
     /* Read data out again */
     while (cbuffGetByte(hOutBuffer, &readData) == CBUFF_GET_OK);
+    
     /* Fill buffer so we wrap the boundary */
     writeData = 'A';
     while (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
@@ -998,6 +1003,7 @@ int main(void)
         writeData++;
     }
     writeData-=2;
+    
     /* unput the data and check that it matches what we wrote */
     /* Also check we can't unput more data than is there and the wrap-around works */
     x = 0;
@@ -1026,6 +1032,7 @@ int main(void)
             break;
         }
     } while(x < 0xFF);
+    
     /* Check buffer is now empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
