@@ -513,6 +513,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
     {
@@ -523,6 +524,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffGetFill(hInBuffer);
     if (dataInBuffer != 0)
     {
@@ -533,6 +535,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != 0)
     {
