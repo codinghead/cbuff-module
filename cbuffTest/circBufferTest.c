@@ -905,7 +905,7 @@ int main(void)
     } 
     
     /***************************************************************************
-    * TEST 19 - Check uncbuffPutByte function
+    * TEST 19 - Check cbuffUnputByte function
     ***************************************************************************/
     /* Put some data in empty buffer */
     cbuffClearBuffer(hOutBuffer);
@@ -925,7 +925,8 @@ int main(void)
             while(1);
 #endif
         }    
-    }    
+    }
+    
     writeData-=2;
     /* unput the data and check that it matches what we wrote */
     /* Also check we can't unput more data than is there      */
@@ -955,6 +956,7 @@ int main(void)
             break;   
         }       
     } while(x < 0xFF);
+    
     /* Check we weren't able to read too much data */
     if (x >= 8)
     {
@@ -965,6 +967,7 @@ int main(void)
         while(1);
 #endif
     }    
+    
     /* Check buffer is now empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
