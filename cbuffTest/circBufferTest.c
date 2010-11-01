@@ -762,6 +762,7 @@ int main(void)
     ***************************************************************************/
     /* Clear this buffer to start new tests */
     cbuffClearBuffer(hOutBuffer);
+    
     /* Check buffer is empty */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != OUTBUFFERSIZE)
@@ -773,6 +774,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != 0)
     {
