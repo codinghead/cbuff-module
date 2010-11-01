@@ -9,11 +9,12 @@
 * Tests the circular buffer module's functionality
 *
 * Filename : circBufferTest.c
-* Version : V0.03
 * Programmer(s) : Suart Cording aka CODINGHEAD 
 * 
 ********************************************************************************
 * Note(s) : 
+*       - 1st Nov 2010 - removed versioning info from file - versioning is now
+*         done in GIT
 * V0.04 - 9th June 2010 - added support for i386 architecture in tests
 *         - code now runs on all Microchip architectures except PIC16F1 when
 *           compiling with Microchip compilers
