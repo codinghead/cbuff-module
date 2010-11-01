@@ -798,7 +798,8 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
+    
     if ((cbuffPeekTail(hOutBuffer, &readData)) == CBUFF_GET_OK)
     {
         /* ERROR - peeked tail data that isn't there */
