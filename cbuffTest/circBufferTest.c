@@ -298,7 +298,19 @@ int main(void)
 #else
         while(1);
 #endif
-    }    
+    }
+    
+    x = cbuffDestroy(5);
+    
+    if (x == CBUFF_DESTROY_OK)
+    {
+        /* Destroyed a buffer that was not allocated */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
     
     /***************************************************************************
     * TEST 4 - Destroy the two testBufferObjs
