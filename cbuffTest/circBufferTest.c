@@ -686,6 +686,7 @@ int main(void)
 #endif
         }
     }
+    
     /* Check sizes are correctly calculated */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 10 )
@@ -697,6 +698,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != (OUTBUFFERSIZE - 10))
     {
@@ -707,6 +709,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     /* Read out buffer contents*/
     while(cbuffGetByte(hOutBuffer, &readData) == CBUFF_GET_OK);
     /* Add some data to buffer so that inPointer buffer wrap occurs */
@@ -730,6 +733,7 @@ int main(void)
 #endif
         }
     }
+    
     /* Check sizes are correctly calculated */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 10 )

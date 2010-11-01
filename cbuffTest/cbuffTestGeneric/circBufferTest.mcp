@@ -1,7 +1,7 @@
 [HEADER]
 magic_cookie={66E99B07-E706-4689-9E80-9B2582898A13}
 file_version=1.0
-device=PIC32MX360F512L
+device=PIC24HJ256GP610A
 [PATH_INFO]
 BuildDirPolicy=BuildDirIsProjectDir
 dir_src=
@@ -12,11 +12,11 @@ dir_inc=
 dir_lib=C:\MCC18\lib
 dir_lkr=
 [CAT_FILTERS]
-filter_src=*.c;*.as;*.asm;*.usb
-filter_inc=*.h;
-filter_obj=*.obj;*.p1;*.hex
-filter_lib=*.lib;*.lpp
-filter_lkr=*.unknown
+filter_src=*.s;*.c
+filter_inc=*.h;*.inc
+filter_obj=*.o
+filter_lib=*.a
+filter_lkr=*.gld
 [CAT_SUBFOLDERS]
 subfolder_src=
 subfolder_inc=
@@ -36,15 +36,17 @@ file_000=no
 file_001=no
 file_002=no
 [FILE_INFO]
-file_000=circBufferTest.c
-file_001=C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.c
+file_000=C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.c
+file_001=C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c
 file_002=C:\MyMPLABWork\Personal\CODINGHEAD\MASTERS2010-1422GSM\circBufferIV\cbuff_module\cbuff.h
 [SUITE_INFO]
-suite_guid={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+suite_guid={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 suite_state=
 [TOOL_SETTINGS]
-TS{3FF1D5F2-E530-4850-9F70-F61D55BD1AC9}= C9=5,4,3,2,1
-TS{3FF1D5F2-E530-4850-9F70-F61D55BD1AC9}_alt=yes
+TS{7D9C6ECE-785D-44CB-BA22-17BF2E119622}=-g
+TS{25AC22BD-2378-4FDB-BFB6-7345A15512D3}=-g -Wall
+TS{7DAC9A1D-4C45-45D6-B25A-D117C74E8F5A}=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TS{509E5861-1E2A-483B-8B6B-CA8DB7F2DD78}=
 [INSTRUMENTED_TRACE]
 enable=0
 transport=0
