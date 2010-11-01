@@ -875,6 +875,7 @@ int main(void)
     {
         cbuffGetByte(hOutBuffer, &readData);
     } 
+    
     /* Write enough bytes to get inPointer on startOfBuffer boundary */
     writeData = 'a';
     for (x = 0; x < 22; x++)
@@ -882,6 +883,7 @@ int main(void)
         cbuffPutByte(hOutBuffer, writeData);
         writeData++;
     }    
+    
     if ((cbuffPeekHead(hOutBuffer, &readData)) != CBUFF_GET_OK)
     {
         /* ERROR - couldn't peek head data */
@@ -891,6 +893,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     if (readData != (writeData-1))
     {
         /* ERROR - peeked incorrect head data */
