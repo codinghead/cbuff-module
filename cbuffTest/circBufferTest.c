@@ -549,7 +549,7 @@ int main(void)
     ***************************************************************************/
     writeData = 'A';
     x = 0;
-    /* Fill buffer until cbuffPutByte tells us we can't read any more */
+    /* Fill buffer until cbuffPutByte tells us we can't write any more */
     while (x < 0xFF)
     {
         if ((cbuffPutByte(hOutBuffer, writeData)) == CBUFF_PUT_OK)
@@ -571,6 +571,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
     if (spaceRemainingInBuffer != 0)
     {
@@ -581,6 +582,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffGetFill(hOutBuffer);
     if (dataInBuffer != OUTBUFFERSIZE)
     {
