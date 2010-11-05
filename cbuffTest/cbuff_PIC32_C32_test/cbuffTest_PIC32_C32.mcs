@@ -1,3 +1,58 @@
 [Header]
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
+[File000]
+Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC32_C32_test\cbuff.o
+Folder=Intermediary
+DeviceName=PIC32MX795F512H
+LanguageToolSuiteID={14495C23-81F8-43F3-8A44-859C583D7760}
+LanguageToolID={430F471F-7ECB-4852-A80D-DEF9A5C8E751}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C32\bin\pic32-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C32\lib;C:\Program Files\Microchip\MPLAB C32\pic32mx\lib||$(LKRDIR)||
+SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File001]
+Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC32_C32_test\circBufferTest.o
+Folder=Intermediary
+DeviceName=PIC32MX795F512H
+LanguageToolSuiteID={14495C23-81F8-43F3-8A44-859C583D7760}
+LanguageToolID={430F471F-7ECB-4852-A80D-DEF9A5C8E751}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C32\bin\pic32-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C32\lib;C:\Program Files\Microchip\MPLAB C32\pic32mx\lib||$(LKRDIR)||
+SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File002]
+Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC32_C32_test\cbuffTest_PIC32_C32.elf
+Folder=Output
+DeviceName=PIC32MX795F512H
+LanguageToolSuiteID={14495C23-81F8-43F3-8A44-859C583D7760}
+LanguageToolID={C68E5105-1196-4333-A0BF-3DC57271E614}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C32\bin\pic32-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C32\lib;C:\Program Files\Microchip\MPLAB C32\pic32mx\lib||$(LKRDIR)||
+SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map"
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File003]
+Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC32_C32_test\cbuffTest_PIC32_C32.hex
+Folder=Output
+DeviceName=PIC32MX795F512H
+LanguageToolSuiteID={14495C23-81F8-43F3-8A44-859C583D7760}
+LanguageToolID={C68E5105-1196-4333-A0BF-3DC57271E614}
+LanguageToolLocation=C:\Program Files\Microchip\MPLAB C32\bin\pic32-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)|C:\Program Files\Microchip\MPLAB C32\lib;C:\Program Files\Microchip\MPLAB C32\pic32mx\lib||$(LKRDIR)||
+SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map"
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[TOOL_LOC_STAMPS]
+tool_loc{430F471F-7ECB-4852-A80D-DEF9A5C8E751}=C:\Program Files\Microchip\MPLAB C32\bin\pic32-gcc.exe
+tool_loc{C68E5105-1196-4333-A0BF-3DC57271E614}=C:\Program Files\Microchip\MPLAB C32\bin\pic32-ld.exe
