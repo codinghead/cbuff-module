@@ -943,7 +943,11 @@ unsigned char cbuffUnputByte(HCBUFF  hCircBuffer)
 *    that was read back into the circular buffer. It assumes the data that was
 *    read out is still in the buffer. If the data has since been overwritten,
 *    i.e. buffer is now full, the function will fail in its attempt
-* 3. This function does not allow overflow of the buffer
+* 3. This function does not allow underflow of the buffer
+* 4. If the buffer was not filled with data, then either random values or the
+*    values left over after a 'cbuffClearBuffer' will be 'ungot'. The buffer
+*    can still be 'ungot' until the tail pointer goes back to the point 
+*    where it reaches the head pointer.
 *******************************************************************************/
 unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
 {
@@ -954,6 +958,9 @@ unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
     {
         return 1;
     }
+#if 0
+    /* No point checking if buffer is empty. We intend to put a byte back     */
+    /* in! This will make it not empty.                                       */
                                         /* Check to see if we can unget at    */
                                         /* all. If buffer is empty, do        */
                                         /* nothing                            */
@@ -961,6 +968,7 @@ unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
     {
         return 1;
     }  
+#endif
                                         /* unget the last byte - check first  */
                                         /* that pointer in not on start       */
                                         /* boundary                           */
@@ -968,13 +976,15 @@ unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
     {
         hCircBuffer->outPointer--;
     }    
-                                        /* For boundary case implent wrap-    */
-                                        /* around                             */
+                                        /* For boundary case implementnt      */
+                                        /* wraparound                         */
     else
     {
         hCircBuffer->outPointer = hCircBuffer->endOfBuffer;
     }    
     
+                                        /* Buffer is now officially not empty */
+    hCircBuffer->localFlag &= ~CBUFF_EMPTY;
     return 0;
 }
 

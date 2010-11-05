@@ -1091,7 +1091,7 @@ int main(void)
     {
         if(!cbuffUngetByte(hOutBuffer))
         {
-            if (cbuffPeekHead(hOutBuffer, &readData) != CBUFF_GET_FAIL)
+            if (cbuffPeekTail(hOutBuffer, &readData) != CBUFF_GET_FAIL)
             {
                 if (readData != writeData)
                 {
@@ -1102,7 +1102,7 @@ int main(void)
                     while(1);
 #endif
                 }
-                writeData++;
+                writeData--;
                 x++;
             }
         }
