@@ -1046,6 +1046,97 @@ int main(void)
     }
 
     /***************************************************************************
+    * TEST 20a - Check cbuffUngetByte function
+    ***************************************************************************/
+    /* Put some data in empty buffer */
+    cbuffClearBuffer(hOutBuffer);
+    writeData = 'a';
+    for (x = 0; x < 8; x++)
+    {
+        if (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
+        {
+            writeData++;
+        }
+        else
+        {
+            /* ERROR - couldn't put byte in buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+
+    /* Take out four bytes of data */
+    for (x = 0; x < 4; x++)
+    {
+        if (cbuffGetByte(hOutBuffer, &readData) != CBUFF_GET_OK)
+        {
+            /* ERROR - couldn't get byte from buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+    
+    writeData-=5;
+    
+    /* unget the data and check that it matches what we wrote */
+    /* Also check we can't unput more data than is there      */
+    x = 0;
+    do
+    {
+        if(!cbuffUngetByte(hOutBuffer))
+        {
+            if (cbuffPeekHead(hOutBuffer, &readData) != CBUFF_GET_FAIL)
+            {
+                if (readData != writeData)
+                {
+                    /* ERROR - unput byte didn't move pointer correctly */
+#ifdef __i386__
+                    assert(0);
+#else
+                    while(1);
+#endif
+                }
+                writeData++;
+                x++;
+            }
+        }
+        else
+        {
+            /* If we can't unput data, break from loop */
+            break;
+        }
+    } while(x < 0xFF);
+
+    /* Check we weren't able to read too much data */
+    if (x >= 4)
+    {
+        /* ERROR - unput too many bytes */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
+
+    /* Check buffer is contains 8 bytes empty */
+    spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
+    if (spaceRemainingInBuffer != 8)
+    {
+        /* ERROR - we have an incorrect buffer size return value */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
+
+    /***************************************************************************
     * TEST 21 - Try to put data in circular buffer from an array
     ***************************************************************************/
     cbuffClearBuffer(hInBuffer);
