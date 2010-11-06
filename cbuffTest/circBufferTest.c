@@ -1046,12 +1046,14 @@ int main(void)
     }
 
     /***************************************************************************
-    * TEST 20a - Check cbuffUngetByte function
+    * TEST 20a - Check cbuffUngetByte function - first fill the buffer with
+    *            some known data, then remove some, then unget it i.e. put it
+    *            back. 
     ***************************************************************************/
     /* Put some data in empty buffer */
     cbuffClearBuffer(hOutBuffer);
     writeData = 'a';
-    for (x = 0; x < 8; x++)
+    for (x = 0; x < OUTBUFFERSIZE; x++)
     {
         if (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
         {
@@ -1068,8 +1070,8 @@ int main(void)
         }
     }
 
-    /* Take out four bytes of data */
-    for (x = 0; x < 4; x++)
+    /* Take out all the bytes of data */
+    for (x = 0; x < OUTBUFFERSIZE; x++)
     {
         if (cbuffGetByte(hOutBuffer, &readData) != CBUFF_GET_OK)
         {
@@ -1082,10 +1084,10 @@ int main(void)
         }
     }
     
-    writeData-=5;
+    writeData-=1;
     
-    /* unget the data and check that it matches what we wrote */
-    /* Also check we can't unput more data than is there      */
+    /* unget all the data and check that it matches what we wrote */
+    /* Also check we can't unput more data than is there          */
     x = 0;
     do
     {
@@ -1113,8 +1115,8 @@ int main(void)
         }
     } while(x < 0xFF);
 
-    /* Check we weren't able to read too much data */
-    if (x >= 4)
+    /* Check we weren't able to unget more data than available */
+    if (x != OUTBUFFERSIZE)
     {
         /* ERROR - unput too many bytes */
 #ifdef __i386__
@@ -1124,9 +1126,9 @@ int main(void)
 #endif
     }
 
-    /* Check buffer is contains 8 bytes empty */
+    /* Check buffer contains has no space */
     spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
-    if (spaceRemainingInBuffer != 8)
+    if (spaceRemainingInBuffer != 0)
     {
         /* ERROR - we have an incorrect buffer size return value */
 #ifdef __i386__
