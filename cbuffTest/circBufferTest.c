@@ -1139,6 +1139,135 @@ int main(void)
     }
 
     /***************************************************************************
+    * TEST 20b - Check cbuffUngetByte functions over the wrap boundary - 
+    *            prefill buffer with some data to move the pointers away from
+    *            the start of the buffer boundary. Then fill the buffer with 
+    *            some known data, then remove some, then unget it i.e. put it
+    *            back. 
+    ***************************************************************************/
+    /* Put some data in empty buffer to move pointers away from start address */
+    cbuffClearBuffer(hOutBuffer);
+    writeData = '1';
+    for (x = 0; x < 8; x++)
+    {
+        if (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
+        {
+            writeData++;
+        }
+        else
+        {
+            /* ERROR - couldn't put byte in buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+
+    /* Take out all that data */
+    for (x = 0; x < 8; x++)
+    {
+        if (cbuffGetByte(hOutBuffer, &readData) != CBUFF_GET_OK)
+        {
+            /* ERROR - couldn't get byte from buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+    
+    /* Now fill the buffer with data; wraps across boundary */
+    writeData = 'A';
+    for (x = 0; x < OUTBUFFERSIZE; x++)
+    {
+        if (cbuffPutByte(hOutBuffer, writeData) == CBUFF_PUT_OK)
+        {
+            writeData++;
+        }
+        else
+        {
+            /* ERROR - couldn't put byte in buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+
+    /* Take out all that data */
+    for (x = 0; x < OUTBUFFERSIZE; x++)
+    {
+        if (cbuffGetByte(hOutBuffer, &readData) != CBUFF_GET_OK)
+        {
+            /* ERROR - couldn't get byte from buffer */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+        
+    writeData-=1;
+    
+    /* unget all the data and check that it matches what we wrote */
+    /* Also check we can't unput more data than is there - this   */
+    /* 'ungets' over the wrap boundary                            */
+    x = 0;
+    do
+    {
+        if(!cbuffUngetByte(hOutBuffer))
+        {
+            if (cbuffPeekTail(hOutBuffer, &readData) != CBUFF_GET_FAIL)
+            {
+                if (readData != writeData)
+                {
+                    /* ERROR - unput byte didn't move pointer correctly */
+#ifdef __i386__
+                    assert(0);
+#else
+                    while(1);
+#endif
+                }
+                writeData--;
+                x++;
+            }
+        }
+        else
+        {
+            /* If we can't unput data, break from loop */
+            break;
+        }
+    } while(x < 0xFF);
+
+    /* Check we weren't able to unget more data than available */
+    if (x != OUTBUFFERSIZE)
+    {
+        /* ERROR - unput too many bytes */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
+
+    /* Check buffer contains has no space */
+    spaceRemainingInBuffer = cbuffGetSpace(hOutBuffer);
+    if (spaceRemainingInBuffer != 0)
+    {
+        /* ERROR - we have an incorrect buffer size return value */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
+    
+    /***************************************************************************
     * TEST 21 - Try to put data in circular buffer from an array
     ***************************************************************************/
     cbuffClearBuffer(hInBuffer);
