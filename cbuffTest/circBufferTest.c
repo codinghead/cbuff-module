@@ -1387,12 +1387,14 @@ int main(void)
     {
         testBuffer2[x] = x + '0';
     }
+    
     /* Remove eight bytes from buffer tail, and read eight bytes out */
     for (x = 0; x < 8; x++)
     {
         cbuffUnputByte(hOutBuffer);
         cbuffGetByte(hOutBuffer, &readData);
     }
+    
     /* Put data in the buffer from an array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
@@ -1404,12 +1406,14 @@ int main(void)
         while(1);
 #endif
     }
+    
     /* Read data out and check all is ok */
     /* First, read sixteen bytes out */
     for (x = 0; x < 16; x++)
     {
         cbuffGetByte(hOutBuffer, &readData);
     }
+    
     /* Read data out again and compare */
     for(x = 0; x < 16; x++)
     {
