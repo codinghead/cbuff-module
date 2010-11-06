@@ -1565,6 +1565,10 @@ int main(void)
         }
     }
 
+    /***************************************************************************
+    * !!! END OF TESTS !!!
+    ***************************************************************************/
+    
     /* Congratulations! If we stop here all tests passed */
 #ifdef __i386__
     printf("*** All tests for -cbuff- passed ***");
