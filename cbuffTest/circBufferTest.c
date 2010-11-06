@@ -1487,13 +1487,16 @@ int main(void)
     {
         testBuffer2[x] = x + 'A';
     }
+    
     /* Put some data from array in the buffer */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 8);
+    
     /* Clear local array */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = 0;
     }
+    
     /* Try to read more that is there */
     dataInBuffer = cbuffGetArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 8)
