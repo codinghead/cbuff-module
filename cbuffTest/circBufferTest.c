@@ -1521,19 +1521,24 @@ int main(void)
     {
         testBuffer2[x] = x + '0';
     }
+    
     /* Put some data in the buffer with data from array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 8);
+    
     /* Read the some data out */
     dataInBuffer = cbuffGetArray(hOutBuffer, testBuffer2, 16);
     dataInBuffer = cbuffGetArray(hOutBuffer, testBuffer2, 8);
+    
     /* Put some more data in the buffer, writing over buffer boundary */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
+    
     /* Clear local array */
     for(x = 0; x < 16; x++)
     {
         testBuffer2[x] = 0;
     }
+    
     /* Read out over the boundary into the array */
     dataInBuffer = cbuffGetArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
@@ -1545,6 +1550,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     /* Check what we read is correct */
     for(x = 0; x < 16; x++)
     {
