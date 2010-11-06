@@ -1441,6 +1441,7 @@ int main(void)
     {
         testBuffer2[x] = x + 'a';
     }
+    
     /* Put data in the buffer from an array */
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     /* Clear local array */
@@ -1448,6 +1449,7 @@ int main(void)
     {
         testBuffer2[x] = 0;
     }
+    
     /* Read buffer out into local array */
     dataInBuffer = cbuffGetArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
@@ -1459,6 +1461,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     /* Check what we read is correct */
     for(x = 0; x < 16; x++)
     {
