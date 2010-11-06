@@ -1353,6 +1353,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
     if (dataInBuffer != 16)
     {
@@ -1364,6 +1365,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     dataInBuffer = cbuffPutArray(hOutBuffer, testBuffer2, 16);
 
     if (dataInBuffer != 0)
