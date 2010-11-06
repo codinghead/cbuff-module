@@ -1270,6 +1270,7 @@ int main(void)
     /***************************************************************************
     * TEST 21 - Try to put data in circular buffer from an array
     ***************************************************************************/
+    /* Clear buffers */
     cbuffClearBuffer(hInBuffer);
     cbuffClearBuffer(hOutBuffer);
 
@@ -1313,6 +1314,7 @@ int main(void)
         while(1);
 #endif
     }
+    
     /* Read data out again and compare */
     for(x = 0; x < 16; x++)
     {
