@@ -66,14 +66,6 @@
 
 /*******************************************************************************
 * Summary:
-*   Max number of buffers we can support as used in cbuffCreate() (in reality
-* the limit lies at (MAXCBUFFS - 2) because 0 is reserved for case where
-* buffer is not open, and 0xFF cannot be used)
-*******************************************************************************/
-#define MAX_CBUFFS       	0xFF
-
-/*******************************************************************************
-* Summary:
 *   Bit flag used to signal buffer is open and in use as used in cbuffOpen()
 *   and cbuffClose()
 *******************************************************************************/
@@ -99,13 +91,20 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Global variable startOfCbuffObjs
+* Local global variable startOfCbuffObjs
 * Summary:
 *   Pointer to linked list of Circular Buffer Objects. Local scope only within
 *   this module
 *******************************************************************************/
 static CBUFFOBJ * startOfCbuffObjs;
 
+/*******************************************************************************
+* Local global variable activeCbuffObjects
+* Summary:
+*   Used to note how many Circular Buffer Objects are active. Each bit in this
+* variable relates to one active buffer object.
+*******************************************************************************/
+static CBUFFNUM activeCbuffObjects;
 
 /*******************************************************************************
 *                             LOCAL FUNCTION PROTOTYPES
@@ -142,6 +141,8 @@ void cbuffInit(void)
 {
                                         /* Initialise the linked list pointer */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
+                                        /* Clear active buffers allocated     */
+    activeCbuffObjects = 0;
 }
 
 /*******************************************************************************
@@ -172,6 +173,8 @@ void cbuffDeinit(void)
 {
                                         /* Clear the linked list pointer      */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
+                                        /* Clear active buffers allocated     */
+    activeCbuffObjects = 0;
 }
 
 
@@ -191,15 +194,16 @@ void cbuffDeinit(void)
 *						objects
 *
 * Returns:
-*   - 1 to MAX_CBUFFS  	- number the buffer has been assigned if it was possible
-*                       to allocate it
+*   - 0x0001 to 0x8000  - a value with a single bit set indicating the number 
+*                       the buffer has been assigned if it was possible to 
+*                       allocate it
 *   - 0		            - if the buffer allocation failed
 *
 * Callers:
 *   User application
 *
 * Notes :
-* 1. Module can only handle a maximum of (MAX_CBUFF-2) buffers
+* 1. Module can only handle a maximum of 16 buffers
 * 2. It is recommended that the 'sizeOfBuffer' should always be at least 3 or
 *    greater to be useful. This will, however, not be checked by this function
 *******************************************************************************/
@@ -208,7 +212,7 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                        CBUFFOBJ     * newCircBufferObj)
 {
     CBUFFOBJ * localCircBufferObj;
-    CBUFFNUM   circBuffNum = 1;      /* Assign starting buffer number, 1,  */
+    CBUFFNUM circBuffNum = 0x0001;      /* Assign starting buffer number, 1,  */
                                         /* for use when searching for the     */
                                         /* next free buffer number            */
                                         /* 0 reserved for alloc failed!       */
@@ -221,78 +225,81 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* our buffer object                  */
         if (newCircBufferObj != (CBUFFOBJ *) 0)
         {
-                                        /* Setup buffer object                */
-            newCircBufferObj->startOfBuffer = buffer;
-            newCircBufferObj->endOfBuffer   = buffer + (sizeof(CBUFF) *
-                                              (sizeOfBuffer - 1));
-            newCircBufferObj->inPointer  = buffer;
-            newCircBufferObj->outPointer = buffer;
-                                        /* Clear all flags                    */
-            newCircBufferObj->localFlag = 0x00;
-                                        /* Set buffer empty flag              */
-            newCircBufferObj->localFlag |= CBUFF_EMPTY;
-                                        /* Ensure we point to NULL            */
-            newCircBufferObj->nextCircBufferObj = (CBUFFOBJ *) 0;
-
                                         /* Find place for buffer object in    */
                                         /* the linked list and assign number  */
                                         /* If there is nothing in the list,   */
                                         /* just put this object in the first  */
                                         /* position                           */
-            if (startOfCbuffObjs == (CBUFFOBJ *) 0)
+            if (activeCbuffObjects == 0 && startOfCbuffObjs == (CBUFFOBJ *) 0)
             {
-                startOfCbuffObjs = newCircBufferObj;
-                newCircBufferObj->bufferNumber = 1;
-            }
-                                        /* Otherwise find last item in list   */
-                                        /* and add this at end                */
-            else
-            {
-                                        /* First find a free buffer number    */
-                                        /* for this buffer                    */
-                localCircBufferObj = startOfCbuffObjs;
-                while (localCircBufferObj != (CBUFFOBJ *) 0)
-                {
-                    if (localCircBufferObj->bufferNumber == circBuffNum)
-                    {
-                                        /* Found a buffer with this number    */
-                                        /* Increment buff num and try again   */
-                        circBuffNum ++;
-                                        /* Check we are not trying to assign  */
-                                        /* more buffers than we can handle    */
-                        if (circBuffNum >= MAX_CBUFFS)
-                        {
-                                        /* If we get here we allocated all    */
-                                        /* the buffer objects we can handle.  */
-                                        /* Inform caller allocation failed    */
-                            goto AllocFailed;
-                        }
-                                        /* Restart search from first object   */
-                        localCircBufferObj = startOfCbuffObjs;
-                    }
-                    else
-                    {
-                                        /* Otherwise search next object in    */
+                                        /* Insert buffer object at start of   */
                                         /* list                               */
-                        localCircBufferObj =
-                                          localCircBufferObj->nextCircBufferObj;
-                    }
-                }
-                                        /* We have a free buffer number       */
-                newCircBufferObj->bufferNumber = circBuffNum;
-
-                                        /* Add this object to start of the    */
-                                        /* buffer object list                 */
-                newCircBufferObj->nextCircBufferObj = startOfCbuffObjs;
-                startOfCbuffObjs = newCircBufferObj;
+                startOfCbuffObjects = newCircBufferObj;
+                                        /* Setup buffer object                */
+                startOfCbuffObjects->startOfBuffer = buffer;
+                startOfCbuffObjects->endOfBuffer   = buffer + (sizeof(CBUFF) *
+                                              (sizeOfBuffer - 1));
+                startOfCbuffObjects->inPointer  = buffer;
+                startOfCbuffObjects->outPointer = buffer;
+                                        /* Clear all flags                    */
+                startOfCbuffObjects->localFlag = 0x00;
+                                        /* Set buffer empty flag              */
+                startOfCbuffObjects->localFlag |= CBUFF_EMPTY;
+                                        /* Ensure we point to NULL            */
+                startOfCbuffObjects->nextCircBufferObj = (CBUFFOBJ *) 0;
+                                        /* Assign it a number                 */
+                startOfCbuffObjects->bufferNumber = circBuffNum;
+                                        /* Return buffer number               */
+                startOfCbuffObjects->bufferNumber;
             }
-
-            return newCircBufferObj->bufferNumber;
+                                        /* Otherwise, if we haven't allocated */
+                                        /* all the cbuff objects we can       */
+                                        /* support, insert another            */
+            else if (activeCbuffObjects != 0xFFFF)
+            {
+                                        /* Insert this object at the start of */
+                                        /* the list                           */
+                localCircBufferObj = startOfCbuffObjs;
+                startOfCbuffObjs = newCircBufferObj;
+                                        /* Setup buffer object                */
+                startOfCbuffObjects->startOfBuffer = buffer;
+                startOfCbuffObjects->endOfBuffer   = buffer + (sizeof(CBUFF) *
+                                              (sizeOfBuffer - 1));
+                startOfCbuffObjects->inPointer  = buffer;
+                startOfCbuffObjects->outPointer = buffer;
+                                        /* Clear all flags                    */
+                startOfCbuffObjects->localFlag = 0x00;
+                                        /* Set buffer empty flag              */
+                startOfCbuffObjects->localFlag |= CBUFF_EMPTY;
+                                        /* Ensure we point to NULL            */
+                startOfCbuffObjects->nextCircBufferObj = (CBUFFOBJ *) 0;
+                                        /* Find a free cbuff number for this  */
+                                        /* buffer                             */
+                                        /* Cbuff Number '1' is assigned, so   */
+                                        /* start looking from '2' for a free  */
+                                        /* number                             */
+                circBuffNum <<= 1;
+                
+                do
+                {
+                    if (!(activeCbuffObjects & circBuffNum))
+                    {
+                                        /* Assign the buffer number           */
+                        activeCbuffObjects |= circBuffNum;
+                        startOfCbuffObjects->bufferNumber = circBuffNum;
+                        return startOfCbuffObjects->bufferNumber;
+                    }
+                                        /* That wasn't free; try next bit     */
+                    circBuffNum <<= 1;
+                                        /* Mask just in case unsigned int is  */
+                                        /* bigger than 16-bits                */
+                    circBuffNum &= 0xFFFF;
+                } while(circBuffNum != 0x0000);
+            }
         }
 	}
                                         /* If buffer allocation failed,       */
                                         /* return 0 to callee                 */
-AllocFailed:
     return 0;
 }
 

@@ -105,7 +105,7 @@ typedef unsigned char CBUFF;
 *   (cbuffCreate) and to define which buffer should be used when acquiring a 
 *   handle (cbuffOpen)
 *******************************************************************************/
-typedef unsigned char CBUFFNUM;
+typedef unsigned int CBUFFNUM;
 
 /*******************************************************************************
 * New data type CBUFFOBJ
