@@ -104,7 +104,7 @@ static CBUFFOBJ * startOfCbuffObjs;
 *   Used to note how many Circular Buffer Objects are active. Each bit in this
 * variable relates to one active buffer object.
 *******************************************************************************/
-static CBUFFNUM activeCbuffObjects;
+static CBUFFNUM activeCbuffObjs;
 
 /*******************************************************************************
 *                             LOCAL FUNCTION PROTOTYPES
@@ -142,7 +142,7 @@ void cbuffInit(void)
                                         /* Initialise the linked list pointer */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
                                         /* Clear active buffers allocated     */
-    activeCbuffObjects = 0;
+    activeCbuffObjs = 0;
 }
 
 /*******************************************************************************
@@ -174,7 +174,7 @@ void cbuffDeinit(void)
                                         /* Clear the linked list pointer      */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
                                         /* Clear active buffers allocated     */
-    activeCbuffObjects = 0;
+    activeCbuffObjs = 0;
 }
 
 
@@ -230,49 +230,50 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* If there is nothing in the list,   */
                                         /* just put this object in the first  */
                                         /* position                           */
-            if (activeCbuffObjects == 0 && startOfCbuffObjs == (CBUFFOBJ *) 0)
+            if (activeCbuffObjs == 0 && startOfCbuffObjs == (CBUFFOBJ *) 0)
             {
                                         /* Insert buffer object at start of   */
                                         /* list                               */
-                startOfCbuffObjects = newCircBufferObj;
+                startOfCbuffObjs = newCircBufferObj;
                                         /* Setup buffer object                */
-                startOfCbuffObjects->startOfBuffer = buffer;
-                startOfCbuffObjects->endOfBuffer   = buffer + (sizeof(CBUFF) *
+                startOfCbuffObjs->startOfBuffer = buffer;
+                startOfCbuffObjs->endOfBuffer   = buffer + (sizeof(CBUFF) *
                                               (sizeOfBuffer - 1));
-                startOfCbuffObjects->inPointer  = buffer;
-                startOfCbuffObjects->outPointer = buffer;
+                startOfCbuffObjs->inPointer  = buffer;
+                startOfCbuffObjs->outPointer = buffer;
                                         /* Clear all flags                    */
-                startOfCbuffObjects->localFlag = 0x00;
+                startOfCbuffObjs->localFlag = 0x00;
                                         /* Set buffer empty flag              */
-                startOfCbuffObjects->localFlag |= CBUFF_EMPTY;
+                startOfCbuffObjs->localFlag |= CBUFF_EMPTY;
                                         /* Ensure we point to NULL            */
-                startOfCbuffObjects->nextCircBufferObj = (CBUFFOBJ *) 0;
+                startOfCbuffObjs->nextCircBufferObj = (CBUFFOBJ *) 0;
                                         /* Assign it a number                 */
-                startOfCbuffObjects->bufferNumber = circBuffNum;
+                activeCbuffObjs |= circBuffNum;
+                startOfCbuffObjs->bufferNumber = circBuffNum;
                                         /* Return buffer number               */
-                startOfCbuffObjects->bufferNumber;
+                return startOfCbuffObjs->bufferNumber;
             }
                                         /* Otherwise, if we haven't allocated */
                                         /* all the cbuff objects we can       */
                                         /* support, insert another            */
-            else if (activeCbuffObjects != 0xFFFF)
+            else if (activeCbuffObjs != 0xFFFF)
             {
                                         /* Insert this object at the start of */
                                         /* the list                           */
                 localCircBufferObj = startOfCbuffObjs;
                 startOfCbuffObjs = newCircBufferObj;
                                         /* Setup buffer object                */
-                startOfCbuffObjects->startOfBuffer = buffer;
-                startOfCbuffObjects->endOfBuffer   = buffer + (sizeof(CBUFF) *
-                                              (sizeOfBuffer - 1));
-                startOfCbuffObjects->inPointer  = buffer;
-                startOfCbuffObjects->outPointer = buffer;
+                startOfCbuffObjs->startOfBuffer = buffer;
+                startOfCbuffObjs->endOfBuffer   = buffer + (sizeof(CBUFF) *
+                                                  (sizeOfBuffer - 1));
+                startOfCbuffObjs->inPointer  = buffer;
+                startOfCbuffObjs->outPointer = buffer;
                                         /* Clear all flags                    */
-                startOfCbuffObjects->localFlag = 0x00;
+                startOfCbuffObjs->localFlag = 0x00;
                                         /* Set buffer empty flag              */
-                startOfCbuffObjects->localFlag |= CBUFF_EMPTY;
+                startOfCbuffObjs->localFlag |= CBUFF_EMPTY;
                                         /* Ensure we point to NULL            */
-                startOfCbuffObjects->nextCircBufferObj = (CBUFFOBJ *) 0;
+                startOfCbuffObjs->nextCircBufferObj = (CBUFFOBJ *) 0;
                                         /* Find a free cbuff number for this  */
                                         /* buffer                             */
                                         /* Cbuff Number '1' is assigned, so   */
@@ -282,12 +283,12 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                 
                 do
                 {
-                    if (!(activeCbuffObjects & circBuffNum))
+                    if (!(activeCbuffObjs & circBuffNum))
                     {
                                         /* Assign the buffer number           */
-                        activeCbuffObjects |= circBuffNum;
-                        startOfCbuffObjects->bufferNumber = circBuffNum;
-                        return startOfCbuffObjects->bufferNumber;
+                        activeCbuffObjs |= circBuffNum;
+                        startOfCbuffObjs->bufferNumber = circBuffNum;
+                        return startOfCbuffObjs->bufferNumber;
                     }
                                         /* That wasn't free; try next bit     */
                     circBuffNum <<= 1;
