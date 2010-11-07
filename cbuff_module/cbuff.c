@@ -9,11 +9,12 @@
 * Provides a universal 'unsigned char' circular buffer.
 *
 * Filename : cbuff.c
-* Version : V0.03
 * Programmer(s) : Suart Cording aka CODINGHEAD
 *
 ********************************************************************************
 * Note(s) :
+*       - 7th Nov 2010 - removed versioning info from file - versioning is now
+*         done in GIT
 * V0.03 - 7th May 2010 - renamed all API calls and typedefs so that circular
 * buffer related function names, data types etc. begin with "cbuff".
 *                      - removed Summary of CBUFF_OVERRUN in cbuff.h as it

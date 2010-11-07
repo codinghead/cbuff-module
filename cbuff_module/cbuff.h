@@ -10,12 +10,11 @@
 * file are 'public' and to be used by end user
 *
 * Filename : cbuff.h
-* Version : V0.03
 * Programmer(s) : Suart Cording aka CODINGHEAD 
 * 
 ********************************************************************************
 * Note(s) : 
-* See the cbuff.c file for the version changes and notes for this module
+* See the git versioning notes for version information
 *
 *******************************************************************************/
 
