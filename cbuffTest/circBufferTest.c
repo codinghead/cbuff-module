@@ -247,36 +247,36 @@ int main(void)
                                         /* that the algorithm assigned        */
                                         /* consecutive numbers. If it didn't  */
                                         /* there might be a bug.              */
-    if (inBufferNum != 1)
+    if (inBufferNum != 0x0001)
     {
-        /* If inBufferNum isn't 1, allocation didn't work */
+        /* If inBufferNum isn't 0x0001, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
         while(1);
 #endif
     }
-    if (outBufferNum != 2)
+    if (outBufferNum != 0x0002)
     {
-        /* If outBufferNum isn't 2, allocation didn't work */
+        /* If outBufferNum isn't 0x0002, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
         while(1);
 #endif
     }
-    if (testBuffer1Num != 3)
+    if (testBuffer1Num != 0x0004)
     {
-        /* If testBuffer1Num isn't 3, allocation didn't work */
+        /* If testBuffer1Num isn't 0x0004, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
         while(1);
 #endif
     }
-    if (testBuffer2Num != 4)
+    if (testBuffer2Num != 0x0008)
     {
-        /* If testBuffer2Num isn't 4, allocation didn't work */
+        /* If testBuffer2Num isn't 0x0008, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
@@ -288,7 +288,7 @@ int main(void)
     * TEST 3 - Try to destroy some buffer objects that don't exist
     ***************************************************************************/
 
-    x = cbuffDestroy(16);
+    x = cbuffDestroy(0x8000);
 
     if (x == CBUFF_DESTROY_OK)
     {
@@ -300,7 +300,7 @@ int main(void)
 #endif
     }
 
-    x = cbuffDestroy(5);
+    x = cbuffDestroy(0x0400);
 
     if (x == CBUFF_DESTROY_OK)
     {
@@ -349,18 +349,18 @@ int main(void)
     testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE,
     								 &testBuffer1Obj);
 
-    if (testBuffer1Num != 4)
+    if (testBuffer1Num != 0x0008)
     {
-        /* If testBuffer1Num isn't 4, allocation didn't work */
+        /* If testBuffer1Num isn't 0x0008, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
         while(1);
 #endif
     }
-    if (testBuffer2Num != 3)
+    if (testBuffer2Num != 0x0004)
     {
-        /* If testBuffer2Num isn't 3, allocation didn't work */
+        /* If testBuffer2Num isn't 0x0004, allocation didn't work */
 #ifdef __i386__
         assert(0);
 #else
@@ -371,7 +371,7 @@ int main(void)
     /***************************************************************************
     * TEST 6 - Ensure we can't get handle to buffers that doesn't exist
     ***************************************************************************/
-    hInBuffer = cbuffOpen(16);
+    hInBuffer = cbuffOpen(0x8000);
 
     if (hInBuffer != (CBUFFOBJ *) 0)
     {
@@ -383,7 +383,7 @@ int main(void)
 #endif
     }
 
-    hInBuffer = cbuffOpen(5);
+    hInBuffer = cbuffOpen(0x0400);
 
     if (hInBuffer != (CBUFFOBJ *) 0)
     {
@@ -456,7 +456,7 @@ int main(void)
 
     outBufferNum = cbuffClose(hOutBuffer);
 
-    if (inBufferNum != 1)
+    if (inBufferNum != 0x0001)
     {
         /* Failed to close buffer object */
 #ifdef __i386__
@@ -465,7 +465,7 @@ int main(void)
         while(1);
 #endif
     }
-    if (outBufferNum != 2)
+    if (outBufferNum != 0x0002)
     {
         /* Failed to close buffer object */
 #ifdef __i386__
