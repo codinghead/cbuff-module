@@ -41,3 +41,4 @@ funclist
 
 # Ignore extraneous Open Office files
 *.odt#
+*.ods#
