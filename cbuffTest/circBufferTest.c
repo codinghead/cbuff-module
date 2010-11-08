@@ -256,6 +256,46 @@ int main(void)
     } while (x != 0x0000);
     
     /***************************************************************************
+    * TEST 1b - Try to create more than 16 buffers - this test should fail
+    *           after 16 buffers have been created. Each buffer is created 
+    *           with the same paramters. This would result in working code! It 
+    *           is done only for test purposes.
+    ***************************************************************************/
+    
+    for (x = 0; x < 16; x++)
+    {
+        testBuffer2Num = cbuffCreate(testBuffer2, TESTBUFFER2SIZE, 
+                                        &testBuffer2Obj);
+        if (testBuffer2Num == 0)
+        {
+            /* Couldn't create a buffer with valid parameters */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+    }
+    
+    /* Now try to create a 17th buffer - should fail */
+    testBuffer1Num = cbuffCreate(testBuffer1, TESTBUFFER1SIZE, 
+                                        &testBuffer1Obj);
+    if (testBuffer1Num != 0)
+    {
+    /* Managed to create a buffer although no space exists in linked list */
+#ifdef __i386__
+        assert(0);
+#else
+        while(1);
+#endif
+    }
+    
+    /* Deinitialise buffer module now and then reinit - best way to start */
+    /* a clean state for the following tests                              */
+    cbuffDeinit();
+    cbuffInit();
+    
+    /***************************************************************************
     * TEST 2 - Create some buffer objects
     ***************************************************************************/
 
