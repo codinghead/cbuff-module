@@ -174,6 +174,7 @@ int main(void)
     CBUFF               writeData = 0;
     CBUFF               readData = 0;
     unsigned char       x;              /* used for 'for' loops               */
+    unsigned char       y;
     unsigned int        spaceRemainingInBuffer = 0;
     unsigned int        dataInBuffer = 0;
     CBUFFNUM			inBufferNum;
@@ -229,6 +230,31 @@ int main(void)
 #endif
     }
 
+    /***************************************************************************
+    * TEST 1a - Try to destroy buffers when none exist - should fail
+    ***************************************************************************/
+    x = 0x0001;
+    
+    do
+    {
+        y = cbuffDestroy(x);
+    
+        if (y != CBUFF_DESTROY_FAIL)
+        {
+            /* Managed to destroy buffer although none exist */
+#ifdef __i386__
+            assert(0);
+#else
+            while(1);
+#endif
+        }
+        
+        /* Shift value to test next potential buffer */
+        x <<= 1;
+        /* Mask to ensure that value doesn't get bigger than 0x8000 */
+        x &= 0xFFFF;
+    } while (x != 0x0000);
+    
     /***************************************************************************
     * TEST 2 - Create some buffer objects
     ***************************************************************************/

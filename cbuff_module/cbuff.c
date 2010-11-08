@@ -272,8 +272,9 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                 startOfCbuffObjs->localFlag = 0x00;
                                         /* Set buffer empty flag              */
                 startOfCbuffObjs->localFlag |= CBUFF_EMPTY;
-                                        /* Ensure we point to NULL            */
-                startOfCbuffObjs->nextCircBufferObj = (CBUFFOBJ *) 0;
+                                        /* Ensure we point to next buffer     */
+                                        /* object                             */
+                startOfCbuffObjs->nextCircBufferObj = localCircBufferObj;
                                         /* Find a free cbuff number for this  */
                                         /* buffer                             */
                                         /* Cbuff Number '1' is assigned, so   */
@@ -328,60 +329,66 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
 * Notes :
 * 1. Caller must have 'created' (cbuffCreate) at least one circular buffer
 *    object before calling this function
-* 2. Destroying a buffer object does not delete the buffes content, nor free
+* 2. Destroying a buffer object does not delete the buffer's content, nor free
 *    the associated CBUFFOBJ memory used
+* 3. An open buffer cannot be destroyed. Such a case returns a FAIL
 *******************************************************************************/
 unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
 {
-    /* #### ToDo: need to check if buffer is currently open before destroying */
     CBUFFOBJ * localCircBufferObj;
-    CBUFFOBJ * tempCircBufferObj;
-
-                                        /* Search through the list of objects */
-                                        /* and remove selected object         */
-                                        /* Find first object in list          */
-    localCircBufferObj = startOfCbuffObjs;
-
-                                        /* If the object is the first in the  */
-                                        /* list, simply remove first object   */
-    if (localCircBufferObj->bufferNumber == bufferNumber)
+    CBUFFOBJ * previousCircBufferObj;
+                                        /* Make sure there is something to    */
+                                        /* remove                             */
+    if (startOfCbuffObjs != (CBUFFOBJ *) 0)
     {
-        startOfCbuffObjs = localCircBufferObj->nextCircBufferObj;
-        return CBUFF_DESTROY_OK;
-    }
-
-                                        /* Parse through list of objects      */
-                                        /* until we find the object or find   */
-                                        /* no object with that number         */
-    do
-    {
-                                        /* Save pointer to currect object in  */
-                                        /* case next object will be removed   */
-        tempCircBufferObj = localCircBufferObj;
-                                        /* Ensure that this object actaully   */
-                                        /* points to another object and not   */
-                                        /* to NULL                            */
-        if(localCircBufferObj->nextCircBufferObj != (CBUFFOBJ *) 0)
+                                        /* Check if first object is the one   */
+                                        /* we are looking for                 */
+        if (startOfCbuffObjs->bufferNumber == bufferNumber)
         {
-                                        /* Point to that next object in       */
-                                        /* list...                            */
-            localCircBufferObj = localCircBufferObj->nextCircBufferObj;
-                                        /* ...and see if it is the            */
-                                        /* buffer we are searching for        */
-            if (localCircBufferObj->bufferNumber == bufferNumber)
-            {
-                                        /* If so, remove this item from list  */
-                                        /* by pointing previous object to     */
-                                        /* where this object points           */
-                tempCircBufferObj->nextCircBufferObj =
-                    localCircBufferObj->nextCircBufferObj;
-                return CBUFF_DESTROY_OK;
-            }
+                                        /* Copy where this object is pointing */
+                                        /* to into startOfCbuffObjs           */
+            startOfCbuffObjs = startOfCbuffObjs->nextCircBufferObj;
+                                        /* Clear this buffers bit in the      */
+                                        /* active buffers variable            */
+            activeCbuffObjs &= ~bufferNumber;
+                                        /* Destroyed the desired object       */
+            return CBUFF_DESTROY_OK;
         }
-
-    } while(localCircBufferObj->nextCircBufferObj != (CBUFFOBJ *) 0);
-
-                                       /* Couldn't find the desired object    */
+                                        /* Otherwise loop through all objects */
+                                        /* if there are some                  */
+        else if (startOfCbuffObjs->nextCircBufferObj != (CBUFFOBJ *) 0)
+        {
+                                        /* Keep a copy of previous object     */
+                                        /* pointer                            */
+            previousCircBufferObj = startOfCbuffObjs;
+                                        /* Get next object in the list        */
+            localCircBufferObj = startOfCbuffObjs->nextCircBufferObj;
+                                        /* Loop through each item and check   */
+            do
+            {
+                if (localCircBufferObj->bufferNumber == bufferNumber)
+                {
+                                        /* Remove this buffer from list       */
+                    previousCircBufferObj->nextCircBufferObj = 
+                                          localCircBufferObj->nextCircBufferObj;
+                                        /* Clear this buffers bit in the      */
+                                        /* active buffers variable            */
+                    activeCbuffObjs &= ~bufferNumber;
+                                        /* Destroyed the desired object       */
+                    return CBUFF_DESTROY_OK;
+                }
+                else
+                {
+                                        /* That wasn't it                     */
+                                        /* Move to next object in the list    */
+                    previousCircBufferObj = localCircBufferObj;
+                    localCircBufferObj = localCircBufferObj->nextCircBufferObj;
+                }
+            } while (localCircBufferObj != (CBUFFOBJ *) 0);
+        }
+        
+    }
+                                        /* Couldn't find the desired object   */
     return CBUFF_DESTROY_FAIL;
 }
 
