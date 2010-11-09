@@ -43,5 +43,8 @@ funclist
 *.odt#
 *.ods#
 
-# Ignore ZIP files
+# Ignore compressed and archive files
 *.zip
+*.gz
+*.7z
+*.tar
