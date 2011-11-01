@@ -4,18 +4,56 @@
 *
 *******************************************************************************/
 
-/*******************************************************************************
+/******************************************************************************/
+/**
+* \file cbuff.c
+* \mainpage
+* \image html cbuff-module_final_small.png
+* \image latex cbuff-module_final_small.eps
+* \section intro Introduction
+* The CBUFF Module is designed to be a universal 'unsigned char' circular buffer
+* module.
 *
-* Provides a universal 'unsigned char' circular buffer.
+* It is designed to be processor architecture independant, and allows the 
+* programmer using it to maintain control of the resources the module needs 
+* whilst only requiring minimal resources itself. Specifically defined for 
+* microcontroller based applications with minimal flash and RAM memory.
 *
-* Filename : cbuff.c
-* Programmer(s) : Suart Cording aka CODINGHEAD
+* \section contactInfo Contact Information
+* For more information and the latest release, please visit this projects home
+* page at http://cbuff-module.kenai.com/
+* To participate in the project or for other enquiries, please contact Stuart
+* Cording at codinghead@gmail.com
+*
+* \section license Licensing Information
+* Copyright (c) 2010 Stuart Cording
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* \author Stuart Cording aka CODINGHEAD
 *
 ********************************************************************************
-* Note(s) :
-*       - 7th Nov 2010 - removed versioning info from file - versioning is now
-*         done in GIT
-* V0.03 - 7th May 2010 - renamed all API calls and typedefs so that circular
+* \note
+* - 7th Nov 2010 - removed versioning info from file - versioning is now
+* done in GIT
+*
+* - V0.03 7th May 2010 - renamed all API calls and typedefs so that circular
 * buffer related function names, data types etc. begin with "cbuff".
 *                      - removed Summary of CBUFF_OVERRUN in cbuff.h as it
 * was not being used (possibilty of overrun was removed in V0.01)
@@ -28,7 +66,7 @@
 * used for the evaluation of the "bufferNumber" element. Problem should have
 * been apparent on other architectures too.
 *
-* V0.02 - 16th March 2010 - re-wrote the API to allow the creation of buffers
+* - V0.02 16th March 2010 - re-wrote the API to allow the creation of buffers
 * to which a handle can then be obtained with the "open" function"
 *
 *******************************************************************************/
@@ -38,7 +76,11 @@
 *                            CIRCULAR BUFFER MODULE
 *
 *******************************************************************************/
-#define CIRCULAR_BUFFER_MODULE__
+/** \def CBUFF_MODULE__
+* Defines that the CBUFF module is present. To be used by other software modules
+* to check for the presence of the CBUFF module.
+*******************************************************************************/
+#define CBUFF_MODULE__
 
 /*******************************************************************************
 *                                 INCLUDE FILES
@@ -49,27 +91,30 @@
 *                                 LOCAL DEFINES
 *******************************************************************************/
 
+/** \cond CBUFFLocalDefines                                                   */
 /*******************************************************************************
-* Summary:
-*   Bit flag used to signal buffer full in cbuffPutByte(), cbuffGetSpace(),
-* cbuffGetByte(), cbuffUnputByte(), cbuffPutArray()
+* The CBUFF_FULL bit flag is used to indicate that the associated buffer is full
+* in 'hCircBuffer->localFlag'. The following functions use this definition:
+* See Also: cbuffPutByte(), cbuffGetSpace(), cbuffGetByte(), cbuffUnputByte(),
+* cbuffPutArray(), CBUFFOBJ
 *******************************************************************************/
 #define CBUFF_FULL         (0x01 << 7)
 
 /*******************************************************************************
-* Summary:
-*   Bit flag used to signal buffer empty in cbuffCreate(), cbuffPutByte(),
-* cbuffClearBuffer(), cbuffGetByte(), cbuffPeekHead(), cbuffUnputByte(),
-* cbuffPutArray(), cbuffGetArray()
+* Bit flag used to signal buffer is empty. The following functions use this
+* definition: 
+* See Also: cbuffCreate(), cbuffPutByte(), cbuffClearBuffer(), cbuffGetByte(), 
+* cbuffPeekHead(), cbuffUnputByte(), cbuffPutArray(), cbuffGetArray(), CBUFFOBJ
 *******************************************************************************/
 #define CBUFF_EMPTY        (0x01 << 6)
 
 /*******************************************************************************
-* Summary:
-*   Bit flag used to signal buffer is open and in use as used in cbuffOpen()
-*   and cbuffClose()
+* Bit flag used to signal that the buffer is open and in use. The following 
+* functions use this definition:
+* See Also: cbuffOpen(), cbuffClose(), , CBUFFOBJ
 *******************************************************************************/
 #define CBUFF_OPEN         (0x01 << 5)
+/** \endcond                                                                  */
 
 /*******************************************************************************
 *                                LOCAL CONSTANTS
@@ -91,20 +136,20 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Local global variable startOfCbuffObjs
-* Summary:
-*   Pointer to linked list of Circular Buffer Objects. Local scope only within
-*   this module
+* static CBUFFOBJ * startOfCbuffObjs 
+* Pointer to a linked list of the created circular buffer objects. 
+* Note: This has only local scope only within this module
 *******************************************************************************/
 static CBUFFOBJ * startOfCbuffObjs;
 
 /*******************************************************************************
-* Local global variable activeCbuffObjects
-* Summary:
-*   Used to note how many Circular Buffer Objects are active. Each bit in this
-* variable relates to one active buffer object.
+* static CBUFFNUM activeCbuffObjs
+* Used to note how many circular buffer objects exist. Each bit in this variable
+* relates to one active buffer object.
+* Note: This has only local scope only within this module
 *******************************************************************************/
 static CBUFFNUM activeCbuffObjs;
+
 
 /*******************************************************************************
 *                             LOCAL FUNCTION PROTOTYPES
@@ -115,26 +160,27 @@ static CBUFFNUM activeCbuffObjs;
 *                            LOCAL CONFIGURATION ERRORS
 *******************************************************************************/
 
-/*******************************************************************************
-* cbuffInit()
+/******************************************************************************/
+/** \addtogroup CBUFFinitDeinitFunctions Initialise/Deinitialise Functions
+* CBUFF Module's functions used to initialise and deinitialise the module.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffInit()
+* \endcond
 *
-* Summary:
-*   Initializes the circular buffer module
+* \brief Initialises the circular buffer module.
 *
-* See also:
-*   cbuffDeinit()
+* Initialises all global variables needed by the CBUFF module. Must be called 
+* before using any of the other functions in this module. No check will be made
+* to ensure that you did actually initialise the module before using it, so it
+* is up to you!
 *
-* Arguments:
-*   void        - none
+* \sa cbuffDeinit()
 *
-* Returns:
-*   void
-*
-* Callers:
-*   User application
-*
-* Notes :
-* 1. Must be called before using any functions in this module
+* \note
+* -# Must be called before using any functions in the CBUFF module
 *
 *******************************************************************************/
 void cbuffInit(void)
@@ -145,29 +191,27 @@ void cbuffInit(void)
     activeCbuffObjs = 0;
 }
 
-/*******************************************************************************
-* cbuffDeinit()
+/******************************************************************************/
+/** \cond
+* Function - cbuffDeinit()
+* \endcond
 *
-* Summary:
-*   Deinitializes the circular buffer module
+* \brief Deinitialises the circular buffer module.
 *
-* See also:
-*   cbuffInit()
+* Initialises all global variables needed by the CBUFF module. Must be called 
+* before using any of the other functions in this module. No check will be made
+* to ensure that you did actually initialise the module before using it, so it
+* is up to you!
 *
-* Arguments:
-*   void        - none
+* \sa cbuffInit()
 *
-* Returns:
-*   void
-*
-* Callers:
-*   User application
-*
-* Notes :
-* 1. Caller is reposible for returning all current handles and deallocating
-*    all buffers before calling cbuffDeinit()
-* 2. The content of any buffers will remain in memory after this function is
-*    called
+* \note
+* -# Caller is reposible for returning all current handles and deallocating
+*   all buffers before calling cbuffDeinit()
+* \warning
+* - The content of any buffers will remain in memory after this function is
+*   called. If you have any data there that you don't want other to see, ensure
+*   that you clear the buffer's contents before deinitialising this module.
 *******************************************************************************/
 void cbuffDeinit(void)
 {
@@ -176,36 +220,40 @@ void cbuffDeinit(void)
                                         /* Clear active buffers allocated     */
     activeCbuffObjs = 0;
 }
+/**
+* @} 
+*******************************************************************************/
 
-
-/*******************************************************************************
-* cbuffCreate()
+/** \addtogroup CBUFFcreateDestroyFunctions Create/Destroy Functions
+* CBUFF Module's functions used to create and destroy buffer objects
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffCreate()
+* \endcond
 *
-* Summary:
-*   Allocates a new circular buffer object in the linked list
+* \brief Creates a new buffer object and adds it to the global linked list of 
+* buffers.
 *
-* See also:
-*   cbuffDestroy()
+* New buffer object will be added to the global linked list of buffers providing
+* that there is space for another buffer. In total 16 buffers can be supported
+* simultaneously.
 *
-* Arguments:
-*   buffer	    		- a buffer defined by the caller
-*   sizeOfBuffer		- size of aformentioned buffer in bytes
-*	newCircBufferObj	- buffer object to insert into linked list of buffer
-*						objects
+* \sa cbuffDestroy()
 *
-* Returns:
-*   - 0x0001 to 0x8000  - a value with a single bit set indicating the number 
-*                       the buffer has been assigned if it was possible to 
-*                       allocate it
-*   - 0		            - if the buffer allocation failed
+* \param buffer             - a buffer defined by the caller
+* \param sizeOfBuffer       - size of aformentioned buffer in bytes
+* \param newCircBufferObj   - buffer object to insert into linked list of buffer
+*						      objects
 *
-* Callers:
-*   User application
+* \retval     0 - failed to create the buffer
+* \retval   >=1 - the number asigned to the buffer created
 *
-* Notes :
-* 1. Module can only handle a maximum of 16 buffers
-* 2. It is recommended that the 'sizeOfBuffer' should always be at least 3 or
-*    greater to be useful. This will, however, not be checked by this function
+* \note
+* -# The CBUFF module can only handle up to a maximum of 16 buffers
+* -# It is recommended that the 'sizeOfBuffer' should always be at least 3 or
+*    greater to be useful. This will, however, not be checked by this function.
 *******************************************************************************/
 CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                        unsigned int   sizeOfBuffer,
@@ -305,33 +353,31 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
     return 0;
 }
 
-
-/*******************************************************************************
-* cbuffDestroy()
+/******************************************************************************/
+/** \cond
+* Function - cbuffDestroy()
+* \endcond
 *
-* Summary:
-*   Destroys an existing circular buffer object removing it from the linked list
+* \brief Destroys an exisiting buffer object and removes it to the global linked
+* list of buffers.
 *
-* See also:
-*   cbuffCreate()
+* The buffer object will be removed from the global linked list of buffers,
+* providing that the buffer exists and that the buffer has been closed.
 *
-* Arguments:
-*   CBUFFNUM	    	- number of buffer to destroy (as returned by
-*                       cbuffClose() )
+* \sa cbuffCreate()
 *
-* Returns:
-*  - CBUFF_DESTROY_FAIL - failed to destroy requested object
-*  - CBUFF_DESTROY_OK   - destroyed request object successfully
+* \param bufferNumber       - number of buffer to destroy as returned by
+*                             cbuffClose()
 *
-* Callers:
-*   User application
+* \retval   CBUFF_DESTROY_FAIL  - failed to destroy requested object
+* \retval   CBUFF_DESTROY_OK    - destroyed requested object successfully
 *
-* Notes :
-* 1. Caller must have 'created' (cbuffCreate) at least one circular buffer
-*    object before calling this function
-* 2. Destroying a buffer object does not delete the buffer's content, nor free
-*    the associated CBUFFOBJ memory used
-* 3. An open buffer cannot be destroyed. Such a case returns a FAIL
+* \note
+* -# Caller must have 'created' (cbuffCreate()) at least one circular buffer
+*   object before calling this function
+* -# Destroying a buffer object does not delete the buffer's content, nor free
+*   the associated CBUFFOBJ memory used
+* -# An open buffer cannot be destroyed. Such a case returns a FAIL
 *******************************************************************************/
 unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
 {
@@ -391,31 +437,36 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Couldn't find the desired object   */
     return CBUFF_DESTROY_FAIL;
 }
+/**
+* @} 
+*******************************************************************************/
 
-
-/*******************************************************************************
-* cbuffOpen()
+/** \addtogroup CBUFFopenCLoseFunctions Open/Close Functions
+* CBUFF Module's functions used to open and close buffer objects that have been
+* created.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffOpen()
+* \endcond
 *
-* Summary:
-*   Opens a circular buffer for use by caller and initialises an HCBUFFOBJ
-*   handle to it
+* \brief Opens a circular buffer for use by caller and initialises an HCBUFFOBJ
+* handle to it
 *
-* See also:
-*   cbuffClose()
+* The buffer requested will be initialised for first use. The buffer requested
+* by bufferNumber must exist, otherwise this function will fail.
 *
-* Arguments:
-*   bufferNumber    - number of an existing circular buffer object to use
+* \sa cbuffClose()
 *
-* Returns:
-*   - NULL	        - if buffer couldn't be created
-*   - handle        - if buffer was created properly
+* \param bufferNumber       - number of an existing buffer to use
 *
-* Callers:
-*   User application
+* \retval   NULL	- if buffer couldn't be created
+* \retval   handle  - if buffer was created properly
 *
-* Notes :
-* 1. Caller must have created (cbuffCreate) at least one circular buffer object
-*    before calling this function
+* \note
+* -# Caller must have created (cbuffCreate()) at least one circular buffer
+*    object before calling this function
 *******************************************************************************/
 HCBUFF cbuffOpen(CBUFFNUM bufferNumber)
 {
@@ -454,29 +505,27 @@ HCBUFF cbuffOpen(CBUFFNUM bufferNumber)
     return (CBUFFOBJ *) 0;
 }
 
-/*******************************************************************************
-* cbuffClose()
+/******************************************************************************/
+/** \cond
+* Function - cbuffClose()
+* \endcond
 *
-* Summary:
-*   Closes a circular buffer and releases the handle to it
+* \brief Closes a circular buffer and releases the handle to it
 *
-* See also:
-*   cbuffOpen()
+* The buffer requested will be closed and will no longer be available for use.
+* Attempting to put or get data will fail until the buffer is reopened. Any data
+* that is in the memory where the buffer exists will be retained.
 *
-* Arguments:
-*   hCircBuffer     - handle to the open buffer
+* \sa cbuffOpen()
 *
-* Returns:
-*   - >0  	        - number of buffer object if buffer was open
-*   - 0             - if the buffer object was not open
+* \param hCircBuffer        - handle of the open buffer to be closed
 *
-* Callers:
-*   User application
+* \retval   >0  - number of buffer object closed if buffer was open
+* \retval   0   - if the buffer object was not open
 *
-* Notes :
-* 1. Caller must have 'allocated' at least one circular buffer object before
-*    calling this function
-*
+* \note
+* -# Caller must have 'allocated' and opened at least one circular buffer object
+*    before calling this function
 *******************************************************************************/
 CBUFFNUM cbuffClose(HCBUFF hCircBuffer)
 {
@@ -497,29 +546,36 @@ CBUFFNUM cbuffClose(HCBUFF hCircBuffer)
         return (CBUFFNUM) 0;
     }
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffPutByte()
+/** \addtogroup CBUFFputGetFunctions Put/Get Functions
+* CBUFF Module's functions used to put data into and retrieve date from buffers
+* that have been created and open. Data can be either added/retrieved on a
+* single piece of data basis, or multiple pieces of data basis.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffPutByte()
+* \endcond
 *
-* Summary:
-*   Puts a single CBUFF into the buffer
+* \brief Puts a single CBUFF into the buffer
 *
-* See also:
-*   cbuffPutArray(), cbuffGetByte(), cbuffGetArray()
+* The CBUFF value provided will be added to the buffer requested. This function
+* will fail only if the buffer is full.
 *
-* Arguments:
-*   hCircBuffer         - handle to HCBUFF variable for this buffer instance
-*   data                - the CBUFF data to be put into the buffer
+* \sa cbuffPutArray(), cbuffGetByte(), cbuffGetArray()
 *
-* Returns:
-*   - CBUFF_PUT_OK      - operation was successful
-*   - CBUFF_PUT_FAIL    - operation failed due to buffer being full
+* \param hCircBuffer        - handle of the open buffer to be used
+* \param data               - the CBUFF value to be added to the buffer
 *
-* Callers:
-*   User application.
+* \retval   #CBUFF_PUT_OK   - operation was successful
+* \retval   #CBUFF_PUT_FAIL - operation failed due to buffer being full
 *
-* Notes :
-* 1. cbuffOpen() must have been successfully called before using this
+* \note
+* -# cbuffOpen() must have been successfully called before using this
 *    function
 *******************************************************************************/
 unsigned char cbuffPutByte(HCBUFF hCircBuffer,
@@ -561,30 +617,35 @@ unsigned char cbuffPutByte(HCBUFF hCircBuffer,
 
     return CBUFF_PUT_OK;
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffGetSpace()
+/** \addtogroup CBUFFspaceFillFunctions Space/Fill Functions
+* CBUFF Module's functions used to determine how full a buffer is, or how much
+* space remains in the chosen buffer.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffGetSpace()
+* \endcond
 *
-* Summary:
-*   Returns how much space remains in buffer in CBUFFs
+* \brief Returns how much more data room the buffer can accept
 *
-* See also:
-*   cbuffGetFill()
+* Use this function to find out how much space remains in the chosen buffer.
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
+* \sa cbuffGetFill()
 *
-* Returns:
-*   - unsigned int  - number of bytes space remaining in buffer
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
 *
-* Callers:
-*   User application, cbuffGetFill()
+* \returns  amount of space remaining in the buffer
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
 *******************************************************************************/
-unsigned int cbuffGetSpace(HCBUFF     hCircBuffer)
+unsigned int cbuffGetSpace(HCBUFF hCircBuffer)
 {
 #if 0
     unsigned int localEndOfBuffer;
@@ -647,28 +708,25 @@ unsigned int cbuffGetSpace(HCBUFF     hCircBuffer)
     }
 }
 
-/*******************************************************************************
-* cbuffGetFill()
+/******************************************************************************/
+/** \cond
+* Function - cbuffGetFill()
+* \endcond
 *
-* Summary:
-*   Returns how many CBUFFs remain in buffer
+* \brief Returns how much data is in the buffer
 *
-* See also:
-*   cbuffGetSpace()
+* Use this function to find out how much space has been used in the buffer or,
+* alternatively, how much data the buffer contains.
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
+* \sa cbuffGetSpace()
 *
-* Returns:
-*   - unsigned int  - number of bytes data remaining in buffer
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
 *
-* Callers:
-*   User application
+* \returns  number of CBUFF bytes of data in the buffer
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
-*
 *******************************************************************************/
 unsigned int cbuffGetFill(HCBUFF hCircBuffer)
 {
@@ -678,35 +736,41 @@ unsigned int cbuffGetFill(HCBUFF hCircBuffer)
     return ( (hCircBuffer->endOfBuffer - hCircBuffer->startOfBuffer +
               sizeof(CBUFF)) - cbuffGetSpace(hCircBuffer) );
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffClearBuffer()
+/** \addtogroup CBUFFclearBufferFunctions Clear Buffer Functions
+* CBUFF Module's functions used to reset the chosen buffer back to an empty 
+* state.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffClearBuffer()
+* \endcond
 *
-* Summary:
-*   Resets in and out pointers in the requested buffer and marks the buffer as
-*   empty. The data currently in the buffer is *not* deleted.
+* \brief Resets the buffers head and tail pointers and marks buffer as empty
 *
-* See also:
+* The head and tail pointers in the requested buffer will be reset to point at
+* the beginning of the buffer and the buffer will be marked as empty. The data
+* currently in the buffer is, however, *not* deleted.
 *
-* Arguments:
-*   hCircBuffer       - handle to HCBUFF variable for this buffer instance
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
 *
-* Returns:
-*   - void
-*
-* Callers:
-*   User application
-*
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
-*    function
-* 2. The associated buffer itself is not emptied. Any data in the buffer will
+* \note
+* -# openCircBuffer() must have been successfully called before using this
+*    function.
+* -# The associated buffer itself is not emptied. Any data in the buffer will
 *    still be in memory after this function is called, although it won't be
 *    accessible by this module anymore because the module thinks the buffer
-*    is empty
+*    is empty.
 *
+* \todo Consider renaming this function to 'cbuffResetBuffer()' and using this
+*       function name for the function to acutally clear all of the data in the
+*       buffer.
 *******************************************************************************/
-void cbuffClearBuffer(HCBUFF                hCircBuffer)
+void cbuffClearBuffer(HCBUFF hCircBuffer)
 {
                                         /* Reset buffer pointers              */
     hCircBuffer->inPointer  = hCircBuffer->startOfBuffer;
@@ -716,31 +780,39 @@ void cbuffClearBuffer(HCBUFF                hCircBuffer)
                                         /* Set buffer empty flag              */
     hCircBuffer->localFlag |= CBUFF_EMPTY;
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffGetByte()
+/** \addtogroup CBUFFputGetFunctions
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffGetByte()
+* \endcond
 *
-* Summary:
-*   Removes and returns one CBUFF from chosen buffer
+* \brief Removes and returns one CBUFF from chosen buffer
 *
-* See also:
-*   cbuffGetArray(), cbuffPutByte(), cbuffPutArray()
+* A single byte is removed from the buffer indicated by hCircBuffer and written
+* into * data. This function will not allow the buffer to underflow. The buffer
+* must exist and be open before calling this function.
 *
-* Arguments:
-*   hCircBuffer         - handle to HCBUFF variable for this buffer instance
-*   data                - pointer to variable to store read byte
+* \sa cbuffGetArray(), cbuffPutByte(), cbuffPutArray()
 *
-* Returns:
-*   - CBUFF_GET_OK      - operation completed successfully
-*   - CBUFF_GET_FAIL    - operation failed due to buffer being empty
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
+* \param data               - pointer to variable to store read byte
 *
-* Callers:
-*   User application
+* \retval   #CBUFF_GET_OK   - operation completed successfully
+* \retval   #CBUFF_GET_FAIL - operation failed due to buffer being empty 
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
-*    function
-* 2. This function does not allow a buffer underflow
+* \note
+* - openCircBuffer() must have been successfully called before using this
+*   function
+* - This function does not allow a buffer underflow
+*
+* \todo Check if *data doesn't need a const to prevent the function modifying 
+* the pointer.
 *******************************************************************************/
 unsigned char cbuffGetByte(HCBUFF       hCircBuffer,
                            CBUFF      * data)
@@ -777,31 +849,46 @@ unsigned char cbuffGetByte(HCBUFF       hCircBuffer,
 
     return CBUFF_GET_OK;
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffPeekTail()
+/** \addtogroup CBUFFpeekBufferFunctions Peek Buffer Head/Tail Functions
+* CBUFF Module's functions used to peek into the head or the tail of the chosen
+* buffer. These functions return the last data value written into the buffer or
+* the next data value that would be read out of the buffer if it were to be
+* read.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffPeekTail()
+* \endcond
 *
-* Summary:
-*   Returns value of the next CBUFF that would be read from buffer without
-*   removing it
+* \brief Returns value of the next CBUFF that would be read from buffer without
+* actually removing it
 *
-* See also:
-*   cbuffPeekHead()
+* This function allows the caller to see what piece if data would be returned if
+* it were to be removed from the buffer (using cbuffGetByte() for example). This
+* is particularly useful when evaluating data received that uses some sort of 
+* 'stop' or 'start' byte as part of the protocol e.g. new NMEA GPS Data always 
+* starts with a ';'
 *
-* Arguments:
-*   hCircBuffer         - handle to HCBUFF variable for this buffer instance
-*   data                - variable to return next data value that would be read
-*                       from buffer
-* Returns:
-*   - CBUFF_GET_OK      - operation completed successfully
-*   - CBUFF_GET_FAIL    - operation failed due to buffer being empty
+* \sa cbuffPeekHead()
 *
-* Callers:
-*   User application
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
+* \param data               - pointer to variable to store read byte
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \retval   #CBUFF_GET_OK   - operation completed successfully
+* \retval   #CBUFF_GET_FAIL - operation failed due to buffer being empty 
+*
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
+* -# This function does not allow a buffer underflow
+*
+* \todo Check if *data doesn't need a const to prevent the function modifying 
+* the pointer.
 *******************************************************************************/
 unsigned char cbuffPeekTail(HCBUFF   hCircBuffer,
                            CBUFF  * data)
@@ -819,29 +906,33 @@ unsigned char cbuffPeekTail(HCBUFF   hCircBuffer,
     }
 }
 
-/*******************************************************************************
-* cbuffPeekHead()
+/******************************************************************************/
+/** \cond
+* Function - cbuffPeekHead()
+* \endcond
 *
-* Summary:
-*   Returns value of last CBUFF written into the circular buffer
+* \brief Returns value of the last data item that was stored in the buffer.
 *
-* See also:
-*   cbuffGetTail()
+* This function allows the caller to see the most recent piece of data that was 
+* written into the buffer (using cbuffPutByte() for example). This could be 
+* useful when evaluating data received that uses some sort of 'stop' or 'start' 
+* byte as part of the protocol and you want advance warning of this as the data
+* is put into the buffer e.g. new NMEA GPS Data always starts with a ';'
 *
-* Arguments:
-*   hCircBuffer         - handle to HCBUFF variable for this buffer instance
-*   data                - variable to return read value
+* \sa cbuffPeekTail()
 *
-* Returns:
-*   - CBUFF_GET_OK      - operation completed successfully
-*   - CBUFF_GET_FAIL    - operation failed due to buffer being empty
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
+* \param data               - pointer to variable to store read byte
 *
-* Callers:
-*   User application
+* \retval   #CBUFF_GET_OK   - operation completed successfully
+* \retval   #CBUFF_GET_FAIL - operation failed due to buffer being empty 
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
+*
+* \todo Check if *data doesn't need a const to prevent the function modifying 
+* the pointer.
 *******************************************************************************/
 unsigned char cbuffPeekHead(HCBUFF   hCircBuffer,
                             CBUFF  * data)
@@ -869,34 +960,40 @@ unsigned char cbuffPeekHead(HCBUFF   hCircBuffer,
         return CBUFF_GET_FAIL;
     }
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffUnputByte()
+/** \addtogroup CBUFFunputUngetFunctions Unput/Unget Buffer Functions
+* CBUFF Module's functions used to return the last data value read back into the
+* buffer, or to remove the last data value written into the buffer from the 
+* buffer.
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffUnputByte()
+* \endcond
 *
-* Summary:
-*   Removes the last CBUFF written into the buffer with cbuffPutByte(),
-*   cbuffPutArray()
+* \brief Removes the last data item that was stored in the buffer.
 *
-* See also:
-*   cbuffUngetByte()
+* This function allows the caller to remove the most recent piece of data that
+* was written into the buffer (using cbuffPutByte() for example).
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
+* \sa cbuffUngetByte()
 *
-* Returns:
-*   - 0 (zero) if successful
-*   - non-zero if there was no data to put back
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
 *
-* Callers:
-*   User application
+* \retval   0 (zero)    - if successful
+* \retval   non-zero    - if there was no data to remove
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
-* 2. This function does not allow underflow of the buffer
-* 3. If the last data byte has since been removed from the buffer, i.e. the
+* -# This function does not allow underflow of the buffer
+* -# If the last data byte has since been removed from the buffer, i.e. the
 *    buffer is now empty, this function will fail in its attempt
-* 4. The data itself is not removed; only the head pointer to the buffer is
+* -# The data itself is not removed; only the head pointer to the buffer is
 *    moved back one position
 *******************************************************************************/
 unsigned char cbuffUnputByte(HCBUFF  hCircBuffer)
@@ -932,37 +1029,34 @@ unsigned char cbuffUnputByte(HCBUFF  hCircBuffer)
     return 0;
 }
 
-/*******************************************************************************
-* cbuffUngetByte()
+/******************************************************************************/
+/** \cond
+* Function - cbuffUngetByte()
+* \endcond
 *
-* Summary:
-*   Puts the last CBUFF read from the buffer (with cbuffGetByte() or
-*   cbuffGetArray() ) back into the chosen buffer
+* \brief Returns the last data item that was removed from the buffer.
 *
-* See also:
-*   cbuffUnputByte()
+* This function allows the caller to return the most recent piece of data that
+* was written into the buffer (using cbuffGetByte() for example). 
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
+* \sa cbuffUnputByte()
 *
-* Returns:
-*   - 0 (zero) if successful
-*   - non-zero if there was no data to put back
+* \param hCircBuffer        - handle to HCBUFF variable for this buffer instance
 *
-* Callers:
-*   User application
+* \retval   0 (zero)    - if successful
+* \retval   non-zero    - if there was no data to return
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
-* 2. this function only shifts the outPointer back; it doesn't write the data
+* -# this function only shifts the outPointer back; it doesn't write the data
 *    that was read back into the circular buffer. It assumes the data that was
 *    read out is still in the buffer. If the data has since been overwritten,
 *    i.e. buffer is now full, the function will fail in its attempt
-* 3. This function does not allow underflow of the buffer
-* 4. If the buffer was not filled with data, then either random values or the
+* -# This function does not allow underflow of the buffer
+* -# If the buffer was not filled with data, then either random values or the
 *    values left over after a 'cbuffClearBuffer' will be 'ungot'. The buffer
-*    can still be 'ungot' until the tail pointer goes back to the point
+*    can still be 'ungot' until the tail pointer gets back to the point
 *    where it reaches the head pointer.
 *******************************************************************************/
 unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
@@ -996,35 +1090,37 @@ unsigned char  cbuffUngetByte(HCBUFF  hCircBuffer)
     hCircBuffer->localFlag &= ~CBUFF_EMPTY;
     return 0;
 }
+/**
+* @} 
+*******************************************************************************/
 
-/*******************************************************************************
-* cbuffPutArray()
+/** \addtogroup CBUFFputGetFunctions
+* @{ 
+*******************************************************************************/
+/******************************************************************************/
+/** \cond
+* Function - cbuffPutArray()
+* \endcond
 *
-* Summary:
-*   Copies as much content of a CBUFF array from the caller into the chosen
-*   buffer object as possible
+* \brief Allows more than one piece of data to be written into the buffer.
 *
-* See also:
-*   cbuffPutByte(), cbuffGetbyte(), cbuffGetArray()
+* This function allows the caller to write as much data as possible into the
+* chosen buffer object until all the data is consumed, or the buffer becomes 
+* full.
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
-*   data            - pointer to an array containing the data to be copied into
-*                   the buffer
-*   noOfBytes       - number of bytes that the caller wants to write into the
-*                   buffer
+* \sa cbuffGetArray(), cbuffPutByte(), cbuffGetByte()
 *
-* Returns:
-*   number of bytes actually copied into the buffer (could be 0 if buffer was
-*   full)
+* \param hCircBuffer    - handle to HCBUFF variable for this buffer instance
+* \param data           - pointer to data to be written to buffer
+* \param noOfBytes      - number of bytes being requested to write into buffer        
 *
-* Callers:
-*   User application
+* \returns  number of bytes actually written in the buffer (may be 0 if buffer
+            is full)
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
-* 2. This function will not allow the buffer to overflow
+* -# This function will not allow the buffer to overflow
 *******************************************************************************/
 unsigned int  cbuffPutArray(HCBUFF               hCircBuffer,
                             const CBUFF        * data,
@@ -1083,35 +1179,32 @@ unsigned int  cbuffPutArray(HCBUFF               hCircBuffer,
     return bytesWritten;
 }
 
-/*******************************************************************************
-* cbuffGetArray()
+/******************************************************************************/
+/** \cond
+* Function - cbuffGetArray()
+* \endcond
 *
-* Summary:
-*   Removes up to the requested number of CBUFFs from the chosen buffer object
-*   and writes it into the CBUFF array passed by the caller
+* \brief Allows more than one piece of data to be read from the buffer.
 *
-* See also:
-*   cbuffGetByte(), cbuffPutByte(), cbuffPutArray()
+* This function allows the caller to read as much data as possible from the
+* chosen buffer object until either all the data has been read, or the 
+* destination array is full.
 *
-* Arguments:
-*   hCircBuffer     - handle to HCBUFF variable for this buffer instance
-*   data            - pointer to an array into which the data is to be written
-*   noOfBytes       - number of bytes that the caller wants to write into the
-*                   array
+* \sa cbuffPutArray(), cbuffPutByte(), cbuffGetByte()
 *
-* Returns:
-*   - number of bytes actually copied into the buffer (could be 0 if buffer was
-*   full)
+* \param hCircBuffer    - handle to HCBUFF variable for this buffer instance
+* \param data           - pointer to location to store data read from buffer
+* \param noOfBytes      - number of bytes being requested to be read from buffer        
 *
-* Callers:
-*   User application
+* \returns  number of bytes actually read from the buffer (may be 0 if buffer
+            is empty)
 *
-* Notes :
-* 1. openCircBuffer() must have been successfully called before using this
+* \note
+* -# openCircBuffer() must have been successfully called before using this
 *    function
-* 2. This function doesn't allow the buffer to underflow
-* 3. User must ensure that *data points to space of free memory large enough
-*    to accomodate noOfBytes of data
+* -# This function doesn't allow the buffer to underflow
+* -# User must ensure that CBUFF * data points to a space of free memory large 
+*    enough to accomodate noOfBytes of data
 *******************************************************************************/
 unsigned int  cbuffGetArray(HCBUFF               hCircBuffer,
                             CBUFF              * data,
@@ -1165,6 +1258,9 @@ unsigned int  cbuffGetArray(HCBUFF               hCircBuffer,
 
     return bytesRead;
 }
+/**
+* @} 
+*******************************************************************************/
 
 
 /*******************************************************************************
