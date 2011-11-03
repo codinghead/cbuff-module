@@ -54,7 +54,7 @@
     #include <pic.h>
 #elif	defined(__PICC18__) /* HI-TECH PICC-18 compiler */
     // PIC18 processor
-    #include <pic18.h>
+    #include <htc.h>
 #elif	defined(__DSPICC__) /* HI-TECH dsPICC compiler */
     // dsPIC or PIC24 processor
     #include <dspic.h>
@@ -81,6 +81,8 @@
 	#pragma config POSCMOD=XT, FNOSC=PRIPLL
 	#pragma config FPLLIDIV=DIV_2, FPLLMUL=MUL_20, FPLLODIV=DIV_1
 	#pragma config FPBDIV=DIV_2, FWDTEN=OFF, CP=OFF, BWP=OFF
+#elif defined(__AVR32__)
+	#include<avr32/io.h>
 #elif defined(__i386__)
     #include <stdio.h>
     #include <assert.h>
