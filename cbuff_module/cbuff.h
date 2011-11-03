@@ -168,7 +168,7 @@ struct CBUFFTYPE {
 * buffer that has been created. One variable is needed per buffer created.
 * Used by cbuffCreate()
 *******************************************************************************/
-typedef CBUFFTYPE CBUFFOBJ;
+typedef struct CBUFFTYPE CBUFFOBJ;
 
 /******************************************************************************/
 /**
