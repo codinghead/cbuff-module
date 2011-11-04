@@ -83,6 +83,8 @@
 	#pragma config FPBDIV=DIV_2, FWDTEN=OFF, CP=OFF, BWP=OFF
 #elif defined(__AVR32__)
 	#include<avr32/io.h>
+#elif defined(__AVR__)
+	#include<avr/io.h>
 #elif defined(__i386__)
     #include <stdio.h>
     #include <assert.h>
