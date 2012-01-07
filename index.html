@@ -1,1 +1,128 @@
-My GitHub Page
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>CBUFF Module - A Circular Buffer</title></head><body>
+<big><span style="font-weight: bold;">CBUFF Module - A Circular Buffer</span></big><br>
+
+<img style="width: 200px; height: 200px;" alt="CBUFF-Module-Logo" src="images/cbuff-module_final.png"><br>
+
+<hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Table Of Contents</span></big><br>
+
+<ul>
+
+  <li><a href="index.html#News">News - we've moved...</a></li>
+  <li><a href="#Introduction_to_the_CBUFF_Module">Introduction to the
+CBUFF Module</a></li>
+
+  <li><a href="#Key_Software_Capabilities">Key Software Capabilities</a></li>
+  <li><a href="#Downloading_the_CBUFF_Module">Downloading the CBUFF
+Module</a></li>
+</ul>
+
+<hr style="width: 100%; height: 2px;"><big style="font-weight: bold;"><a name="News"></a>News - we've moved to GitHub</big><br>
+The team over at kenai.com are in the process of moving all projects
+over to jave.net. Somehow, moving a project targeted at embedded
+microcontrollers and written in C to a site with "java" in the name
+doesn't sit well with me. Having developed a certain proficiency with
+git, I have taken the plunge and have moved everything over here.<br>
+<br>
+<big style="font-weight: bold;"><a name="Introduction_to_the_CBUFF_Module"></a>Introduction to the CBUFF
+Module</big><br>
+
+<p class="western">The Circular Buffer Module is designed to allow
+the user to simply create circular buffer objects of self designated
+size for applications where data buffering is needed. The buffer is
+designed to hold the data type 'unsigned char' which is defined as a
+new data type 'CBUFF'. This allows for optimal memory usage on most
+embedded systems and flexibility for the user. The design is generic
+i.e. it
+is not targeted at any specific processor architecture or family of
+microcontrollers, allowing it to be used anywhere. The efficiency of
+the code and its performance is, therefore, very much dependant on
+the C compiler used to compile the code.</p>
+
+<h1 class="western" style="page-break-before: always;"><small><small><a name="Key_Software_Capabilities"></a>Key Software
+Capabilities</small></small></h1>
+
+<ul>
+
+  <li>
+    <p class="western">Supports up to 16 independent circular buffers</p>
+  </li>
+  <li>
+    <p class="western">Buffers store 'unsigned char' data type data
+(typically 8-bit data)</p>
+  </li>
+  <li>
+    <p class="western">Buffer size up to 'unsigned int' supported
+(typically 65536 bytes)</p>
+  </li>
+  <li>
+    <p class="western">Fully re-entrant on&nbsp;pre-emptive systems</p>
+  </li>
+  <li>
+    <p class="western">Supports put/get of single bytes or multiple
+bytes</p>
+  </li>
+  <li>
+    <p class="western">Supports flushing of individual buffers</p>
+  </li>
+  <li>
+    <p class="western">Remaining space calculation supported for
+individual buffers</p>
+  </li>
+  <li>
+    <p class="western">Fill level calculation supported for individual
+buffers</p>
+  </li>
+  <li>
+    <p class="western">Support for peeking head or tail (returns
+head/tail value without removing data)</p>
+  </li>
+  <li>
+    <p class="western">Support for returning last byte obtained through
+'get'</p>
+  </li>
+  <li>
+    <p class="western">Support for removing last byte written through
+'put'</p>
+  </li>
+  <li>
+    <p class="western">All memory allocation handled by the module's
+user</p>
+  </li>
+  <li>
+    <p class="western">All buffers protected from underflow/overflow</p>
+  </li>
+  <li>
+    <p class="western">Very small RAM footprint</p>
+  </li>
+  <li>
+    <p class="western">Fully portable ANSI C implementation, suitable
+for embedded microcontroller systems</p>
+  </li>
+</ul>
+
+<big><span style="font-weight: bold;"><a name="Downloading_the_CBUFF_Module"></a>Downloading the CBUFF Module</span></big>
+<p>A fully tested stable release is always available
+under the downloads link on&nbsp;<span style="text-decoration: underline;"></span><a href="http://codinghead.github.com/"><strong style="margin: 0px; padding: 0px; color: rgb(68, 68, 68); font-size: 13px; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 18px; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: rgb(225, 239, 248);"></strong>http://codinghead.github.com/</a>.</p>
+
+<p class="western"><big><span style="font-weight: bold;">Online
+Documentation for the CBUFF Module</span></big>
+</p>
+
+<p class="western">Documentation of the API for the CBUFF module can be
+reviewed here: <span style="text-decoration: underline;"></span><a href="http://cbuff-module.kenai.com/doxygen/index.html">http://codinghead.github.com/cbuff-module/documentation</a>
+or can be built from the git repository.<br>
+
+</p>
+
+<hr style="width: 100%; height: 2px;">
+<p class="western">Return to <a href="http://codinghead.github.com/cbuff-module">CBUFFs
+project home page</a>.</p>
+
+Updated 7th January 2012
+<hr style="width: 100%; height: 2px;">
+</body></html>
