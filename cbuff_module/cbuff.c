@@ -593,10 +593,6 @@ unsigned char cbuffPutByte(HCBUFF hCircBuffer,
 
     hCircBuffer->inPointer++;           /* Increment pointer                  */
 
-                                        /* Note that the buffer is no longer  */
-                                        /* empty                              */
-    hCircBuffer->localFlag &= ~CBUFF_EMPTY;
-
                                         /* Implement circular buffer          */
                                         /* wrap-around                        */
     if (hCircBuffer->inPointer > hCircBuffer->endOfBuffer)
@@ -608,12 +604,16 @@ unsigned char cbuffPutByte(HCBUFF hCircBuffer,
 
     if (hCircBuffer->inPointer == hCircBuffer->outPointer)
     {
-                                        /* Set CBUFF_FULL flag so that   */
+                                        /* Set CBUFF_FULL flag so that        */
                                         /* we don't attempt to write more     */
                                         /* data into the buffer until some-   */
                                         /* thing is read out                  */
         hCircBuffer->localFlag |= CBUFF_FULL;
     }
+
+										/* Note that the buffer is no longer  */
+                                        /* empty                              */
+    hCircBuffer->localFlag &= ~CBUFF_EMPTY;
 
     return CBUFF_PUT_OK;
 }
