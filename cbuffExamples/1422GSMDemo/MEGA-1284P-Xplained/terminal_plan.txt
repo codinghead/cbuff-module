@@ -1,0 +1,15 @@
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+                                                                       
+CBUFF Demo for Explorer 16/PIC24F - 1422GSM - MASTERs 2010                      - LINE1
+                                                                                - LINE2
+testBuffer Object Fill	x from 50 bytes                                         - LINE3
+[                                                                      ] - xxx% - LINE4
+                                                                                - LINE5
+Fill rate : x bytes/second                                                      - LINE6
+                                                                                - LINE7
+Empty buffer: >Manually< / >Automatically<                                      - LINE8
+Buffer empty trigger: x bytes                                                   - LINE9
+                                                                                - LINE10
+Last buffer content:                                                            - LINE11
+{                                                         }                     - LINE12
+Buffer Integrity: *FAIL*   Producer Speed: *TOO HIGH*                           - LINE13

@@ -28,6 +28,32 @@ ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File002]
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_dsPIC33_C30_test\cbuff.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ256MC710A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\..\cbuff_module\cbuff.c|..\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File003]
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_dsPIC33_C30_test\circBufferTest.o
+Folder=Intermediary
+DeviceName=dsPIC33FJ256MC710A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\..\cbuff_module\cbuff.c|..\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG
+[File004]
 Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_dsPIC33_C30_test\cbuffTest_dsPIC33_C30.cof
 Folder=Output
 DeviceName=dsPIC33FJ256MC710A
@@ -40,7 +66,7 @@ SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
 DebugOptions=--defsym=__MPLAB_DEBUG=1
-[File003]
+[File005]
 Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_dsPIC33_C30_test\cbuffTest_dsPIC33_C30.hex
 Folder=Output
 DeviceName=dsPIC33FJ256MC710A
@@ -53,6 +79,32 @@ SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
 DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File006]
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_dsPIC33_C30_test\cbuffTest_dsPIC33_C30.cof
+Folder=Output
+DeviceName=dsPIC33FJ256MC710A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\..\cbuff_module\cbuff.c|..\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
+[File007]
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_dsPIC33_C30_test\cbuffTest_dsPIC33_C30.hex
+Folder=Output
+DeviceName=dsPIC33FJ256MC710A
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|..\..\cbuff_module\cbuff.c|..\circBufferTest.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1
 [TOOL_LOC_STAMPS]
-tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files\Microchip\MPLAB C30\bin\pic30-gcc.exe
-tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files\Microchip\MPLAB C30\bin\pic30-ld.exe
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files\Microchip\mplabc30\v3.30c\bin\pic30-ld.exe

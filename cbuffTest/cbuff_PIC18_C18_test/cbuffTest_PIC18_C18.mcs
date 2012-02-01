@@ -2,57 +2,57 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC18_C18_test\cbuff.o
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_PIC18_C18_test\circBufferTest.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
-LanguageToolLocation=C:\MCC18\bin\mcc18.exe
+LanguageToolLocation=C:\Program Files\Microchip\mplabc18\v3.40\bin\mcc18.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18\h||$(LIBDIR)|C:\MCC18\lib||$(LKRDIR)||
-SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|..\circBufferTest.c|..\..\cbuff_module\cbuff.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File001]
-Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC18_C18_test\circBufferTest.o
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_PIC18_C18_test\cbuff.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
-LanguageToolLocation=C:\MCC18\bin\mcc18.exe
+LanguageToolLocation=C:\Program Files\Microchip\mplabc18\v3.40\bin\mcc18.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18\h||$(LIBDIR)|C:\MCC18\lib||$(LKRDIR)||
-SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|..\circBufferTest.c|..\..\cbuff_module\cbuff.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=-D__DEBUG
 [File002]
-Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC18_C18_test\cbuffTest_PIC18_C18.cof
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_PIC18_C18_test\cbuffTest_PIC18_C18.cof
 Folder=Output
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
-LanguageToolLocation=C:\MCC18\bin\mplink.exe
+LanguageToolLocation=C:\Program Files\Microchip\mplabc18\v3.40\bin\mplink.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18\h||$(LIBDIR)|C:\MCC18\lib||$(LKRDIR)||
-SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|..\circBufferTest.c|..\..\cbuff_module\cbuff.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /W
 TraceCmdString=
 DebugOptions=/z__MPLAB_DEBUG=1
 [File003]
-Location=C:\msysgit\dev\cbuff\cbuffTest\cbuff_PIC18_C18_test\cbuffTest_PIC18_C18.hex
+Location=C:\Documents and Settings\stuart.cording\My Documents\sw-dev\cbuff-module\cbuffTest\cbuff_PIC18_C18_test\cbuffTest_PIC18_C18.hex
 Folder=Output
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
-LanguageToolLocation=C:\MCC18\bin\mplink.exe
+LanguageToolLocation=C:\Program Files\Microchip\mplabc18\v3.40\bin\mplink.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\MCC18\h||$(LIBDIR)|C:\MCC18\lib||$(LKRDIR)||
-SOLK=<src>|C:\msysgit\dev\cbuff\cbuff_module\cbuff.c|C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|..\circBufferTest.c|..\..\cbuff_module\cbuff.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /W
 TraceCmdString=
 DebugOptions=/z__MPLAB_DEBUG=1
 [TOOL_LOC_STAMPS]
-tool_loc{96C98149-AA1B-4CF9-B967-FAE79CAB663C}=C:\MCC18\bin\mplink.exe
-tool_loc{E56A1C86-9D32-4DF6-8C34-FE0388B1B644}=C:\MCC18\bin\mcc18.exe
+tool_loc{96C98149-AA1B-4CF9-B967-FAE79CAB663C}=C:\Program Files\Microchip\mplabc18\v3.40\bin\mplink.exe
+tool_loc{E56A1C86-9D32-4DF6-8C34-FE0388B1B644}=C:\Program Files\Microchip\mplabc18\v3.40\bin\mcc18.exe

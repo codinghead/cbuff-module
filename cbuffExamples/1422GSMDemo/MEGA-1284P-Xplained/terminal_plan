@@ -1,0 +1,12 @@
+CBUFF Demo for Explorer 16/PIC24F - 1422GSM - MASTERs 2010
+
+testBuffer Fill
+[                                                 ] - xxx%
+
+Fill rate : x bytes/second
+
+Empty buffer: >Manually< / >Automatically<
+Buffer empty trigger: x bytes
+
+Last buffer content:
+{                                                         }
