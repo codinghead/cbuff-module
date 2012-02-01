@@ -3,37 +3,37 @@
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000002cc  00800100  00002c62  00002d16  2**0
+  0 .data         000002e6  00800100  00002c62  00002d16  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         00002c62  00000000  00000000  000000b4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000191  008003cc  008003cc  00002fe2  2**0
+  2 .bss          00000191  008003e6  008003e6  00002ffc  2**0
                   ALLOC
-  3 .fuse         00000003  00820000  00820000  00002fe2  2**0
+  3 .fuse         00000003  00820000  00820000  00002ffc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  4 .stab         000006cc  00000000  00000000  00002fe8  2**2
+  4 .stab         000006cc  00000000  00000000  00003000  2**2
                   CONTENTS, READONLY, DEBUGGING
-  5 .stabstr      00000085  00000000  00000000  000036b4  2**0
+  5 .stabstr      00000085  00000000  00000000  000036cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_aranges 000001a0  00000000  00000000  00003739  2**0
+  6 .debug_aranges 000001a0  00000000  00000000  00003751  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_pubnames 000006cb  00000000  00000000  000038d9  2**0
+  7 .debug_pubnames 000006cb  00000000  00000000  000038f1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_info   00002f7b  00000000  00000000  00003fa4  2**0
+  8 .debug_info   00002f7b  00000000  00000000  00003fbc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_abbrev 00001147  00000000  00000000  00006f1f  2**0
+  9 .debug_abbrev 00001147  00000000  00000000  00006f37  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_line   00002883  00000000  00000000  00008066  2**0
+ 10 .debug_line   00002883  00000000  00000000  0000807e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_frame  00000440  00000000  00000000  0000a8ec  2**2
+ 11 .debug_frame  00000440  00000000  00000000  0000a904  2**2
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_str    00000d8f  00000000  00000000  0000ad2c  2**0
+ 12 .debug_str    00000d8f  00000000  00000000  0000ad44  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_loc    00000b31  00000000  00000000  0000babb  2**0
+ 13 .debug_loc    00000b31  00000000  00000000  0000bad3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_pubtypes 00000686  00000000  00000000  0000c5ec  2**0
+ 14 .debug_pubtypes 00000686  00000000  00000000  0000c604  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000030  00000000  00000000  0000cc72  2**0
+ 15 .debug_ranges 00000030  00000000  00000000  0000cc8a  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -132,13 +132,13 @@ Disassembly of section .text:
       f2:	02 c0       	rjmp	.+4      	; 0xf8 <__do_copy_data+0x14>
       f4:	07 90       	elpm	r0, Z+
       f6:	0d 92       	st	X+, r0
-      f8:	ac 3c       	cpi	r26, 0xCC	; 204
+      f8:	a6 3e       	cpi	r26, 0xE6	; 230
       fa:	b1 07       	cpc	r27, r17
       fc:	d9 f7       	brne	.-10     	; 0xf4 <__do_copy_data+0x10>
 
 000000fe <__do_clear_bss>:
       fe:	15 e0       	ldi	r17, 0x05	; 5
-     100:	ac ec       	ldi	r26, 0xCC	; 204
+     100:	a6 ee       	ldi	r26, 0xE6	; 230
      102:	b3 e0       	ldi	r27, 0x03	; 3
      104:	01 c0       	rjmp	.+2      	; 0x108 <.do_clear_bss_start>
 
@@ -146,7 +146,7 @@ Disassembly of section .text:
      106:	1d 92       	st	X+, r1
 
 00000108 <.do_clear_bss_start>:
-     108:	ad 35       	cpi	r26, 0x5D	; 93
+     108:	a7 37       	cpi	r26, 0x77	; 119
      10a:	b1 07       	cpc	r27, r17
      10c:	e1 f7       	brne	.-8      	; 0x106 <.do_clear_bss_loop>
      10e:	0e 94 ca 06 	call	0xd94	; 0xd94 <main>
@@ -168,12 +168,12 @@ void cbuffInit(void)
      120:	de b7       	in	r29, 0x3e	; 62
                                         /* Initialise the linked list pointer */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
-     122:	10 92 cd 03 	sts	0x03CD, r1
-     126:	10 92 cc 03 	sts	0x03CC, r1
+     122:	10 92 e7 03 	sts	0x03E7, r1
+     126:	10 92 e6 03 	sts	0x03E6, r1
                                         /* Clear active buffers allocated     */
     activeCbuffObjs = 0;
-     12a:	10 92 cf 03 	sts	0x03CF, r1
-     12e:	10 92 ce 03 	sts	0x03CE, r1
+     12a:	10 92 e9 03 	sts	0x03E9, r1
+     12e:	10 92 e8 03 	sts	0x03E8, r1
 }
      132:	cf 91       	pop	r28
      134:	df 91       	pop	r29
@@ -192,12 +192,12 @@ void cbuffDeinit(void)
      13e:	de b7       	in	r29, 0x3e	; 62
                                         /* Clear the linked list pointer      */
     startOfCbuffObjs = (CBUFFOBJ *) 0;
-     140:	10 92 cd 03 	sts	0x03CD, r1
-     144:	10 92 cc 03 	sts	0x03CC, r1
+     140:	10 92 e7 03 	sts	0x03E7, r1
+     144:	10 92 e6 03 	sts	0x03E6, r1
                                         /* Clear active buffers allocated     */
     activeCbuffObjs = 0;
-     148:	10 92 cf 03 	sts	0x03CF, r1
-     14c:	10 92 ce 03 	sts	0x03CE, r1
+     148:	10 92 e9 03 	sts	0x03E9, r1
+     14c:	10 92 e8 03 	sts	0x03E8, r1
 }
      150:	cf 91       	pop	r28
      152:	df 91       	pop	r29
@@ -263,13 +263,13 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* just put this object in the first  */
                                         /* position                           */
             if (activeCbuffObjs == 0 && startOfCbuffObjs == (CBUFFOBJ *) 0)
-     19c:	80 91 ce 03 	lds	r24, 0x03CE
-     1a0:	90 91 cf 03 	lds	r25, 0x03CF
+     19c:	80 91 e8 03 	lds	r24, 0x03E8
+     1a0:	90 91 e9 03 	lds	r25, 0x03E9
      1a4:	00 97       	sbiw	r24, 0x00	; 0
      1a6:	09 f0       	breq	.+2      	; 0x1aa <cbuffCreate+0x54>
      1a8:	6e c0       	rjmp	.+220    	; 0x286 <cbuffCreate+0x130>
-     1aa:	80 91 cc 03 	lds	r24, 0x03CC
-     1ae:	90 91 cd 03 	lds	r25, 0x03CD
+     1aa:	80 91 e6 03 	lds	r24, 0x03E6
+     1ae:	90 91 e7 03 	lds	r25, 0x03E7
      1b2:	00 97       	sbiw	r24, 0x00	; 0
      1b4:	09 f0       	breq	.+2      	; 0x1b8 <cbuffCreate+0x62>
      1b6:	67 c0       	rjmp	.+206    	; 0x286 <cbuffCreate+0x130>
@@ -279,20 +279,20 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                 startOfCbuffObjs = newCircBufferObj;
      1b8:	89 85       	ldd	r24, Y+9	; 0x09
      1ba:	9a 85       	ldd	r25, Y+10	; 0x0a
-     1bc:	90 93 cd 03 	sts	0x03CD, r25
-     1c0:	80 93 cc 03 	sts	0x03CC, r24
+     1bc:	90 93 e7 03 	sts	0x03E7, r25
+     1c0:	80 93 e6 03 	sts	0x03E6, r24
                                         /* Setup buffer object                */
                 startOfCbuffObjs->startOfBuffer = buffer;
-     1c4:	80 91 cc 03 	lds	r24, 0x03CC
-     1c8:	90 91 cd 03 	lds	r25, 0x03CD
+     1c4:	80 91 e6 03 	lds	r24, 0x03E6
+     1c8:	90 91 e7 03 	lds	r25, 0x03E7
      1cc:	2d 81       	ldd	r18, Y+5	; 0x05
      1ce:	3e 81       	ldd	r19, Y+6	; 0x06
      1d0:	fc 01       	movw	r30, r24
      1d2:	31 83       	std	Z+1, r19	; 0x01
      1d4:	20 83       	st	Z, r18
                 startOfCbuffObjs->endOfBuffer   = buffer + (sizeof(CBUFF) *
-     1d6:	80 91 cc 03 	lds	r24, 0x03CC
-     1da:	90 91 cd 03 	lds	r25, 0x03CD
+     1d6:	80 91 e6 03 	lds	r24, 0x03E6
+     1da:	90 91 e7 03 	lds	r25, 0x03E7
      1de:	2f 81       	ldd	r18, Y+7	; 0x07
      1e0:	38 85       	ldd	r19, Y+8	; 0x08
      1e2:	21 50       	subi	r18, 0x01	; 1
@@ -306,16 +306,16 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      1f2:	22 83       	std	Z+2, r18	; 0x02
                                               (sizeOfBuffer - 1));
                 startOfCbuffObjs->inPointer  = buffer;
-     1f4:	80 91 cc 03 	lds	r24, 0x03CC
-     1f8:	90 91 cd 03 	lds	r25, 0x03CD
+     1f4:	80 91 e6 03 	lds	r24, 0x03E6
+     1f8:	90 91 e7 03 	lds	r25, 0x03E7
      1fc:	2d 81       	ldd	r18, Y+5	; 0x05
      1fe:	3e 81       	ldd	r19, Y+6	; 0x06
      200:	fc 01       	movw	r30, r24
      202:	35 83       	std	Z+5, r19	; 0x05
      204:	24 83       	std	Z+4, r18	; 0x04
                 startOfCbuffObjs->outPointer = buffer;
-     206:	80 91 cc 03 	lds	r24, 0x03CC
-     20a:	90 91 cd 03 	lds	r25, 0x03CD
+     206:	80 91 e6 03 	lds	r24, 0x03E6
+     20a:	90 91 e7 03 	lds	r25, 0x03E7
      20e:	2d 81       	ldd	r18, Y+5	; 0x05
      210:	3e 81       	ldd	r19, Y+6	; 0x06
      212:	fc 01       	movw	r30, r24
@@ -323,16 +323,16 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      216:	26 83       	std	Z+6, r18	; 0x06
                                         /* Clear all flags                    */
                 startOfCbuffObjs->localFlag = 0x00;
-     218:	80 91 cc 03 	lds	r24, 0x03CC
-     21c:	90 91 cd 03 	lds	r25, 0x03CD
+     218:	80 91 e6 03 	lds	r24, 0x03E6
+     21c:	90 91 e7 03 	lds	r25, 0x03E7
      220:	fc 01       	movw	r30, r24
      222:	12 86       	std	Z+10, r1	; 0x0a
                                         /* Set buffer empty flag              */
                 startOfCbuffObjs->localFlag |= CBUFF_EMPTY;
-     224:	80 91 cc 03 	lds	r24, 0x03CC
-     228:	90 91 cd 03 	lds	r25, 0x03CD
-     22c:	20 91 cc 03 	lds	r18, 0x03CC
-     230:	30 91 cd 03 	lds	r19, 0x03CD
+     224:	80 91 e6 03 	lds	r24, 0x03E6
+     228:	90 91 e7 03 	lds	r25, 0x03E7
+     22c:	20 91 e6 03 	lds	r18, 0x03E6
+     230:	30 91 e7 03 	lds	r19, 0x03E7
      234:	f9 01       	movw	r30, r18
      236:	22 85       	ldd	r18, Z+10	; 0x0a
      238:	20 64       	ori	r18, 0x40	; 64
@@ -340,24 +340,24 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      23c:	22 87       	std	Z+10, r18	; 0x0a
                                         /* Ensure we point to NULL            */
                 startOfCbuffObjs->nextCircBufferObj = (CBUFFOBJ *) 0;
-     23e:	80 91 cc 03 	lds	r24, 0x03CC
-     242:	90 91 cd 03 	lds	r25, 0x03CD
+     23e:	80 91 e6 03 	lds	r24, 0x03E6
+     242:	90 91 e7 03 	lds	r25, 0x03E7
      246:	fc 01       	movw	r30, r24
      248:	14 86       	std	Z+12, r1	; 0x0c
      24a:	13 86       	std	Z+11, r1	; 0x0b
                                         /* Assign it a number                 */
                 activeCbuffObjs |= circBuffNum;
-     24c:	20 91 ce 03 	lds	r18, 0x03CE
-     250:	30 91 cf 03 	lds	r19, 0x03CF
+     24c:	20 91 e8 03 	lds	r18, 0x03E8
+     250:	30 91 e9 03 	lds	r19, 0x03E9
      254:	89 81       	ldd	r24, Y+1	; 0x01
      256:	9a 81       	ldd	r25, Y+2	; 0x02
      258:	82 2b       	or	r24, r18
      25a:	93 2b       	or	r25, r19
-     25c:	90 93 cf 03 	sts	0x03CF, r25
-     260:	80 93 ce 03 	sts	0x03CE, r24
+     25c:	90 93 e9 03 	sts	0x03E9, r25
+     260:	80 93 e8 03 	sts	0x03E8, r24
                 startOfCbuffObjs->bufferNumber = circBuffNum;
-     264:	80 91 cc 03 	lds	r24, 0x03CC
-     268:	90 91 cd 03 	lds	r25, 0x03CD
+     264:	80 91 e6 03 	lds	r24, 0x03E6
+     268:	90 91 e7 03 	lds	r25, 0x03E7
      26c:	29 81       	ldd	r18, Y+1	; 0x01
      26e:	3a 81       	ldd	r19, Y+2	; 0x02
      270:	fc 01       	movw	r30, r24
@@ -365,8 +365,8 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      274:	20 87       	std	Z+8, r18	; 0x08
                                         /* Return buffer number               */
                 return startOfCbuffObjs->bufferNumber;
-     276:	80 91 cc 03 	lds	r24, 0x03CC
-     27a:	90 91 cd 03 	lds	r25, 0x03CD
+     276:	80 91 e6 03 	lds	r24, 0x03E6
+     27a:	90 91 e7 03 	lds	r25, 0x03E7
      27e:	fc 01       	movw	r30, r24
      280:	80 85       	ldd	r24, Z+8	; 0x08
      282:	91 85       	ldd	r25, Z+9	; 0x09
@@ -376,8 +376,8 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* all the cbuff objects we can       */
                                         /* support, insert another            */
             else if (activeCbuffObjs != 0xFFFF)
-     286:	80 91 ce 03 	lds	r24, 0x03CE
-     28a:	90 91 cf 03 	lds	r25, 0x03CF
+     286:	80 91 e8 03 	lds	r24, 0x03E8
+     28a:	90 91 e9 03 	lds	r25, 0x03E9
      28e:	ff ef       	ldi	r31, 0xFF	; 255
      290:	8f 3f       	cpi	r24, 0xFF	; 255
      292:	9f 07       	cpc	r25, r31
@@ -387,27 +387,27 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* Insert this object at the start of */
                                         /* the list                           */
                 localCircBufferObj = startOfCbuffObjs;
-     298:	80 91 cc 03 	lds	r24, 0x03CC
-     29c:	90 91 cd 03 	lds	r25, 0x03CD
+     298:	80 91 e6 03 	lds	r24, 0x03E6
+     29c:	90 91 e7 03 	lds	r25, 0x03E7
      2a0:	9c 83       	std	Y+4, r25	; 0x04
      2a2:	8b 83       	std	Y+3, r24	; 0x03
                 startOfCbuffObjs = newCircBufferObj;
      2a4:	89 85       	ldd	r24, Y+9	; 0x09
      2a6:	9a 85       	ldd	r25, Y+10	; 0x0a
-     2a8:	90 93 cd 03 	sts	0x03CD, r25
-     2ac:	80 93 cc 03 	sts	0x03CC, r24
+     2a8:	90 93 e7 03 	sts	0x03E7, r25
+     2ac:	80 93 e6 03 	sts	0x03E6, r24
                                         /* Setup buffer object                */
                 startOfCbuffObjs->startOfBuffer = buffer;
-     2b0:	80 91 cc 03 	lds	r24, 0x03CC
-     2b4:	90 91 cd 03 	lds	r25, 0x03CD
+     2b0:	80 91 e6 03 	lds	r24, 0x03E6
+     2b4:	90 91 e7 03 	lds	r25, 0x03E7
      2b8:	2d 81       	ldd	r18, Y+5	; 0x05
      2ba:	3e 81       	ldd	r19, Y+6	; 0x06
      2bc:	fc 01       	movw	r30, r24
      2be:	31 83       	std	Z+1, r19	; 0x01
      2c0:	20 83       	st	Z, r18
                 startOfCbuffObjs->endOfBuffer   = buffer + (sizeof(CBUFF) *
-     2c2:	80 91 cc 03 	lds	r24, 0x03CC
-     2c6:	90 91 cd 03 	lds	r25, 0x03CD
+     2c2:	80 91 e6 03 	lds	r24, 0x03E6
+     2c6:	90 91 e7 03 	lds	r25, 0x03E7
      2ca:	2f 81       	ldd	r18, Y+7	; 0x07
      2cc:	38 85       	ldd	r19, Y+8	; 0x08
      2ce:	21 50       	subi	r18, 0x01	; 1
@@ -421,16 +421,16 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      2de:	22 83       	std	Z+2, r18	; 0x02
                                                   (sizeOfBuffer - 1));
                 startOfCbuffObjs->inPointer  = buffer;
-     2e0:	80 91 cc 03 	lds	r24, 0x03CC
-     2e4:	90 91 cd 03 	lds	r25, 0x03CD
+     2e0:	80 91 e6 03 	lds	r24, 0x03E6
+     2e4:	90 91 e7 03 	lds	r25, 0x03E7
      2e8:	2d 81       	ldd	r18, Y+5	; 0x05
      2ea:	3e 81       	ldd	r19, Y+6	; 0x06
      2ec:	fc 01       	movw	r30, r24
      2ee:	35 83       	std	Z+5, r19	; 0x05
      2f0:	24 83       	std	Z+4, r18	; 0x04
                 startOfCbuffObjs->outPointer = buffer;
-     2f2:	80 91 cc 03 	lds	r24, 0x03CC
-     2f6:	90 91 cd 03 	lds	r25, 0x03CD
+     2f2:	80 91 e6 03 	lds	r24, 0x03E6
+     2f6:	90 91 e7 03 	lds	r25, 0x03E7
      2fa:	2d 81       	ldd	r18, Y+5	; 0x05
      2fc:	3e 81       	ldd	r19, Y+6	; 0x06
      2fe:	fc 01       	movw	r30, r24
@@ -438,16 +438,16 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
      302:	26 83       	std	Z+6, r18	; 0x06
                                         /* Clear all flags                    */
                 startOfCbuffObjs->localFlag = 0x00;
-     304:	80 91 cc 03 	lds	r24, 0x03CC
-     308:	90 91 cd 03 	lds	r25, 0x03CD
+     304:	80 91 e6 03 	lds	r24, 0x03E6
+     308:	90 91 e7 03 	lds	r25, 0x03E7
      30c:	fc 01       	movw	r30, r24
      30e:	12 86       	std	Z+10, r1	; 0x0a
                                         /* Set buffer empty flag              */
                 startOfCbuffObjs->localFlag |= CBUFF_EMPTY;
-     310:	80 91 cc 03 	lds	r24, 0x03CC
-     314:	90 91 cd 03 	lds	r25, 0x03CD
-     318:	20 91 cc 03 	lds	r18, 0x03CC
-     31c:	30 91 cd 03 	lds	r19, 0x03CD
+     310:	80 91 e6 03 	lds	r24, 0x03E6
+     314:	90 91 e7 03 	lds	r25, 0x03E7
+     318:	20 91 e6 03 	lds	r18, 0x03E6
+     31c:	30 91 e7 03 	lds	r19, 0x03E7
      320:	f9 01       	movw	r30, r18
      322:	22 85       	ldd	r18, Z+10	; 0x0a
      324:	20 64       	ori	r18, 0x40	; 64
@@ -456,8 +456,8 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                                         /* Ensure we point to next buffer     */
                                         /* object                             */
                 startOfCbuffObjs->nextCircBufferObj = localCircBufferObj;
-     32a:	80 91 cc 03 	lds	r24, 0x03CC
-     32e:	90 91 cd 03 	lds	r25, 0x03CD
+     32a:	80 91 e6 03 	lds	r24, 0x03E6
+     32e:	90 91 e7 03 	lds	r25, 0x03E7
      332:	2b 81       	ldd	r18, Y+3	; 0x03
      334:	3c 81       	ldd	r19, Y+4	; 0x04
      336:	fc 01       	movw	r30, r24
@@ -479,8 +479,8 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                 do
                 {
                     if (!(activeCbuffObjs & circBuffNum))
-     348:	20 91 ce 03 	lds	r18, 0x03CE
-     34c:	30 91 cf 03 	lds	r19, 0x03CF
+     348:	20 91 e8 03 	lds	r18, 0x03E8
+     34c:	30 91 e9 03 	lds	r19, 0x03E9
      350:	89 81       	ldd	r24, Y+1	; 0x01
      352:	9a 81       	ldd	r25, Y+2	; 0x02
      354:	82 23       	and	r24, r18
@@ -490,25 +490,25 @@ CBUFFNUM   cbuffCreate(CBUFF        * buffer,
                     {
                                         /* Assign the buffer number           */
                         activeCbuffObjs |= circBuffNum;
-     35c:	20 91 ce 03 	lds	r18, 0x03CE
-     360:	30 91 cf 03 	lds	r19, 0x03CF
+     35c:	20 91 e8 03 	lds	r18, 0x03E8
+     360:	30 91 e9 03 	lds	r19, 0x03E9
      364:	89 81       	ldd	r24, Y+1	; 0x01
      366:	9a 81       	ldd	r25, Y+2	; 0x02
      368:	82 2b       	or	r24, r18
      36a:	93 2b       	or	r25, r19
-     36c:	90 93 cf 03 	sts	0x03CF, r25
-     370:	80 93 ce 03 	sts	0x03CE, r24
+     36c:	90 93 e9 03 	sts	0x03E9, r25
+     370:	80 93 e8 03 	sts	0x03E8, r24
                         startOfCbuffObjs->bufferNumber = circBuffNum;
-     374:	80 91 cc 03 	lds	r24, 0x03CC
-     378:	90 91 cd 03 	lds	r25, 0x03CD
+     374:	80 91 e6 03 	lds	r24, 0x03E6
+     378:	90 91 e7 03 	lds	r25, 0x03E7
      37c:	29 81       	ldd	r18, Y+1	; 0x01
      37e:	3a 81       	ldd	r19, Y+2	; 0x02
      380:	fc 01       	movw	r30, r24
      382:	31 87       	std	Z+9, r19	; 0x09
      384:	20 87       	std	Z+8, r18	; 0x08
                         return startOfCbuffObjs->bufferNumber;
-     386:	80 91 cc 03 	lds	r24, 0x03CC
-     38a:	90 91 cd 03 	lds	r25, 0x03CD
+     386:	80 91 e6 03 	lds	r24, 0x03E6
+     38a:	90 91 e7 03 	lds	r25, 0x03E7
      38e:	fc 01       	movw	r30, r24
      390:	80 85       	ldd	r24, Z+8	; 0x08
      392:	91 85       	ldd	r25, Z+9	; 0x09
@@ -570,8 +570,8 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Make sure there is something to    */
                                         /* remove                             */
     if (startOfCbuffObjs != (CBUFFOBJ *) 0)
-     3d2:	80 91 cc 03 	lds	r24, 0x03CC
-     3d6:	90 91 cd 03 	lds	r25, 0x03CD
+     3d2:	80 91 e6 03 	lds	r24, 0x03E6
+     3d6:	90 91 e7 03 	lds	r25, 0x03E7
      3da:	00 97       	sbiw	r24, 0x00	; 0
      3dc:	09 f4       	brne	.+2      	; 0x3e0 <cbuffDestroy+0x20>
      3de:	75 c0       	rjmp	.+234    	; 0x4ca <cbuffDestroy+0x10a>
@@ -579,8 +579,8 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Check if first object is the one   */
                                         /* we are looking for                 */
         if (startOfCbuffObjs->bufferNumber == bufferNumber)
-     3e0:	80 91 cc 03 	lds	r24, 0x03CC
-     3e4:	90 91 cd 03 	lds	r25, 0x03CD
+     3e0:	80 91 e6 03 	lds	r24, 0x03E6
+     3e4:	90 91 e7 03 	lds	r25, 0x03E7
      3e8:	fc 01       	movw	r30, r24
      3ea:	20 85       	ldd	r18, Z+8	; 0x08
      3ec:	31 85       	ldd	r19, Z+9	; 0x09
@@ -593,13 +593,13 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Copy where this object is pointing */
                                         /* to into startOfCbuffObjs           */
             startOfCbuffObjs = startOfCbuffObjs->nextCircBufferObj;
-     3f8:	80 91 cc 03 	lds	r24, 0x03CC
-     3fc:	90 91 cd 03 	lds	r25, 0x03CD
+     3f8:	80 91 e6 03 	lds	r24, 0x03E6
+     3fc:	90 91 e7 03 	lds	r25, 0x03E7
      400:	fc 01       	movw	r30, r24
      402:	83 85       	ldd	r24, Z+11	; 0x0b
      404:	94 85       	ldd	r25, Z+12	; 0x0c
-     406:	90 93 cd 03 	sts	0x03CD, r25
-     40a:	80 93 cc 03 	sts	0x03CC, r24
+     406:	90 93 e7 03 	sts	0x03E7, r25
+     40a:	80 93 e6 03 	sts	0x03E6, r24
                                         /* Clear this buffers bit in the      */
                                         /* active buffers variable            */
             activeCbuffObjs &= ~bufferNumber;
@@ -608,12 +608,12 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
      412:	9c 01       	movw	r18, r24
      414:	20 95       	com	r18
      416:	30 95       	com	r19
-     418:	80 91 ce 03 	lds	r24, 0x03CE
-     41c:	90 91 cf 03 	lds	r25, 0x03CF
+     418:	80 91 e8 03 	lds	r24, 0x03E8
+     41c:	90 91 e9 03 	lds	r25, 0x03E9
      420:	82 23       	and	r24, r18
      422:	93 23       	and	r25, r19
-     424:	90 93 cf 03 	sts	0x03CF, r25
-     428:	80 93 ce 03 	sts	0x03CE, r24
+     424:	90 93 e9 03 	sts	0x03E9, r25
+     428:	80 93 e8 03 	sts	0x03E8, r24
                                         /* Destroyed the desired object       */
             return CBUFF_DESTROY_OK;
      42c:	81 e0       	ldi	r24, 0x01	; 1
@@ -622,8 +622,8 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Otherwise loop through all objects */
                                         /* if there are some                  */
         else if (startOfCbuffObjs->nextCircBufferObj != (CBUFFOBJ *) 0)
-     430:	80 91 cc 03 	lds	r24, 0x03CC
-     434:	90 91 cd 03 	lds	r25, 0x03CD
+     430:	80 91 e6 03 	lds	r24, 0x03E6
+     434:	90 91 e7 03 	lds	r25, 0x03E7
      438:	fc 01       	movw	r30, r24
      43a:	83 85       	ldd	r24, Z+11	; 0x0b
      43c:	94 85       	ldd	r25, Z+12	; 0x0c
@@ -634,14 +634,14 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
                                         /* Keep a copy of previous object     */
                                         /* pointer                            */
             previousCircBufferObj = startOfCbuffObjs;
-     444:	80 91 cc 03 	lds	r24, 0x03CC
-     448:	90 91 cd 03 	lds	r25, 0x03CD
+     444:	80 91 e6 03 	lds	r24, 0x03E6
+     448:	90 91 e7 03 	lds	r25, 0x03E7
      44c:	9c 83       	std	Y+4, r25	; 0x04
      44e:	8b 83       	std	Y+3, r24	; 0x03
                                         /* Get next object in the list        */
             localCircBufferObj = startOfCbuffObjs->nextCircBufferObj;
-     450:	80 91 cc 03 	lds	r24, 0x03CC
-     454:	90 91 cd 03 	lds	r25, 0x03CD
+     450:	80 91 e6 03 	lds	r24, 0x03E6
+     454:	90 91 e7 03 	lds	r25, 0x03E7
      458:	fc 01       	movw	r30, r24
      45a:	83 85       	ldd	r24, Z+11	; 0x0b
      45c:	94 85       	ldd	r25, Z+12	; 0x0c
@@ -690,12 +690,12 @@ unsigned char cbuffDestroy(CBUFFNUM bufferNumber)
      48e:	9c 01       	movw	r18, r24
      490:	20 95       	com	r18
      492:	30 95       	com	r19
-     494:	80 91 ce 03 	lds	r24, 0x03CE
-     498:	90 91 cf 03 	lds	r25, 0x03CF
+     494:	80 91 e8 03 	lds	r24, 0x03E8
+     498:	90 91 e9 03 	lds	r25, 0x03E9
      49c:	82 23       	and	r24, r18
      49e:	93 23       	and	r25, r19
-     4a0:	90 93 cf 03 	sts	0x03CF, r25
-     4a4:	80 93 ce 03 	sts	0x03CE, r24
+     4a0:	90 93 e9 03 	sts	0x03E9, r25
+     4a4:	80 93 e8 03 	sts	0x03E8, r24
                                         /* Destroyed the desired object       */
                     return CBUFF_DESTROY_OK;
      4a8:	81 e0       	ldi	r24, 0x01	; 1
@@ -761,8 +761,8 @@ HCBUFF cbuffOpen(CBUFFNUM bufferNumber)
                                         /* Check that a CBUFFNUM object    */
                                         /* exists with bufferNumber           */
     localCircBufferObj = startOfCbuffObjs;
-     4ee:	80 91 cc 03 	lds	r24, 0x03CC
-     4f2:	90 91 cd 03 	lds	r25, 0x03CD
+     4ee:	80 91 e6 03 	lds	r24, 0x03E6
+     4f2:	90 91 e7 03 	lds	r25, 0x03E7
      4f6:	9a 83       	std	Y+2, r25	; 0x02
      4f8:	89 83       	std	Y+1, r24	; 0x01
 
@@ -2419,10 +2419,10 @@ int main(void)
     cbuffInit();
      dbc:	0e 94 8d 00 	call	0x11a	; 0x11a <cbuffInit>
     testBufferNum = cbuffCreate(testBuffer, TESTBUFFERSIZE, 
-     dc0:	80 ed       	ldi	r24, 0xD0	; 208
+     dc0:	8a ee       	ldi	r24, 0xEA	; 234
      dc2:	93 e0       	ldi	r25, 0x03	; 3
-     dc4:	2c ef       	ldi	r18, 0xFC	; 252
-     dc6:	34 e0       	ldi	r19, 0x04	; 4
+     dc4:	26 e1       	ldi	r18, 0x16	; 22
+     dc6:	35 e0       	ldi	r19, 0x05	; 5
      dc8:	62 e3       	ldi	r22, 0x32	; 50
      dca:	70 e0       	ldi	r23, 0x00	; 0
      dcc:	a9 01       	movw	r20, r18
@@ -2431,9 +2431,9 @@ int main(void)
      dd4:	89 83       	std	Y+1, r24	; 0x01
                                     &testBufferObj);
     uartOutBufferNum = cbuffCreate(uartOutBuffer, UARTOUTBUFFERSIZE, 
-     dd6:	82 e0       	ldi	r24, 0x02	; 2
+     dd6:	8c e1       	ldi	r24, 0x1C	; 28
      dd8:	94 e0       	ldi	r25, 0x04	; 4
-     dda:	29 e0       	ldi	r18, 0x09	; 9
+     dda:	23 e2       	ldi	r18, 0x23	; 35
      ddc:	35 e0       	ldi	r19, 0x05	; 5
      dde:	6a ef       	ldi	r22, 0xFA	; 250
      de0:	70 e0       	ldi	r23, 0x00	; 0
@@ -2463,22 +2463,22 @@ int main(void)
      e00:	89 81       	ldd	r24, Y+1	; 0x01
      e02:	9a 81       	ldd	r25, Y+2	; 0x02
      e04:	0e 94 6f 02 	call	0x4de	; 0x4de <cbuffOpen>
-     e08:	90 93 17 05 	sts	0x0517, r25
-     e0c:	80 93 16 05 	sts	0x0516, r24
+     e08:	90 93 31 05 	sts	0x0531, r25
+     e0c:	80 93 30 05 	sts	0x0530, r24
     hUartOutBuffer = cbuffOpen(uartOutBufferNum);
      e10:	8b 81       	ldd	r24, Y+3	; 0x03
      e12:	9c 81       	ldd	r25, Y+4	; 0x04
      e14:	0e 94 6f 02 	call	0x4de	; 0x4de <cbuffOpen>
-     e18:	90 93 19 05 	sts	0x0519, r25
-     e1c:	80 93 18 05 	sts	0x0518, r24
+     e18:	90 93 33 05 	sts	0x0533, r25
+     e1c:	80 93 32 05 	sts	0x0532, r24
                                         /* Check buffers were opened          */
     if (hTestBuffer == (HCBUFF) 0 || hUartOutBuffer == (HCBUFF) 0)
-     e20:	80 91 16 05 	lds	r24, 0x0516
-     e24:	90 91 17 05 	lds	r25, 0x0517
+     e20:	80 91 30 05 	lds	r24, 0x0530
+     e24:	90 91 31 05 	lds	r25, 0x0531
      e28:	00 97       	sbiw	r24, 0x00	; 0
      e2a:	31 f0       	breq	.+12     	; 0xe38 <main+0xa4>
-     e2c:	80 91 18 05 	lds	r24, 0x0518
-     e30:	90 91 19 05 	lds	r25, 0x0519
+     e2c:	80 91 32 05 	lds	r24, 0x0532
+     e30:	90 91 33 05 	lds	r25, 0x0533
      e34:	00 97       	sbiw	r24, 0x00	; 0
      e36:	11 f4       	brne	.+4      	; 0xe3c <main+0xa8>
     {
@@ -2495,13 +2495,13 @@ int main(void)
     while(1)
     {
         triggerUART1(hUartOutBuffer);
-     e44:	80 91 18 05 	lds	r24, 0x0518
-     e48:	90 91 19 05 	lds	r25, 0x0519
+     e44:	80 91 32 05 	lds	r24, 0x0532
+     e48:	90 91 33 05 	lds	r25, 0x0533
      e4c:	0e 94 92 07 	call	0xf24	; 0xf24 <triggerUART1>
         
         updateStats(hTestBuffer);
-     e50:	80 91 16 05 	lds	r24, 0x0516
-     e54:	90 91 17 05 	lds	r25, 0x0517
+     e50:	80 91 30 05 	lds	r24, 0x0530
+     e54:	90 91 31 05 	lds	r25, 0x0531
      e58:	0e 94 3d 08 	call	0x107a	; 0x107a <updateStats>
 
         if(termIsAutomatic())
@@ -2510,8 +2510,8 @@ int main(void)
      e62:	a9 f0       	breq	.+42     	; 0xe8e <main+0xfa>
         {
             if(cbuffGetSpace(hTestBuffer) <= termGetEmptyTrigger())
-     e64:	80 91 16 05 	lds	r24, 0x0516
-     e68:	90 91 17 05 	lds	r25, 0x0517
+     e64:	80 91 30 05 	lds	r24, 0x0530
+     e68:	90 91 31 05 	lds	r25, 0x0531
      e6c:	0e 94 42 03 	call	0x684	; 0x684 <cbuffGetSpace>
      e70:	8c 01       	movw	r16, r24
      e72:	0e 94 50 0f 	call	0x1ea0	; 0x1ea0 <termGetEmptyTrigger>
@@ -2520,8 +2520,8 @@ int main(void)
      e7a:	b8 f0       	brcs	.+46     	; 0xeaa <main+0x116>
             {
                 termCheckBuffer(hTestBuffer);
-     e7c:	80 91 16 05 	lds	r24, 0x0516
-     e80:	90 91 17 05 	lds	r25, 0x0517
+     e7c:	80 91 30 05 	lds	r24, 0x0530
+     e80:	90 91 31 05 	lds	r25, 0x0531
      e84:	0e 94 69 0f 	call	0x1ed2	; 0x1ed2 <termCheckBuffer>
                 termFullScreenUpdate();
      e88:	0e 94 1d 10 	call	0x203a	; 0x203a <termFullScreenUpdate>
@@ -2529,23 +2529,23 @@ int main(void)
             }
         }    
         else if(emptyBuffer == 1)
-     e8e:	80 91 1a 05 	lds	r24, 0x051A
+     e8e:	80 91 34 05 	lds	r24, 0x0534
      e92:	81 30       	cpi	r24, 0x01	; 1
      e94:	51 f4       	brne	.+20     	; 0xeaa <main+0x116>
         {
             emptyBuffer = 0; 
-     e96:	10 92 1a 05 	sts	0x051A, r1
+     e96:	10 92 34 05 	sts	0x0534, r1
             termCheckBuffer(hTestBuffer);
-     e9a:	80 91 16 05 	lds	r24, 0x0516
-     e9e:	90 91 17 05 	lds	r25, 0x0517
+     e9a:	80 91 30 05 	lds	r24, 0x0530
+     e9e:	90 91 31 05 	lds	r25, 0x0531
      ea2:	0e 94 69 0f 	call	0x1ed2	; 0x1ed2 <termCheckBuffer>
             termFullScreenUpdate();
      ea6:	0e 94 1d 10 	call	0x203a	; 0x203a <termFullScreenUpdate>
         }    
         
 		termOutput(hUartOutBuffer);
-     eaa:	80 91 18 05 	lds	r24, 0x0518
-     eae:	90 91 19 05 	lds	r25, 0x0519
+     eaa:	80 91 32 05 	lds	r24, 0x0532
+     eae:	90 91 33 05 	lds	r25, 0x0533
      eb2:	0e 94 fe 09 	call	0x13fc	; 0x13fc <termOutput>
         else
         {
@@ -3155,7 +3155,7 @@ ISR(USART1_RX_vect)
             /* Empty Buffer */
             emptyBuffer = 1;
     11e0:	81 e0       	ldi	r24, 0x01	; 1
-    11e2:	80 93 1a 05 	sts	0x051A, r24
+    11e2:	80 93 34 05 	sts	0x0534, r24
         }    
     }
         
@@ -3245,8 +3245,8 @@ ISR(USART1_TX_vect)
     CBUFF txData;
     
     if (cbuffGetByte(hUartOutBuffer, &txData) == CBUFF_GET_OK)
-    1276:	80 91 18 05 	lds	r24, 0x0518
-    127a:	90 91 19 05 	lds	r25, 0x0519
+    1276:	80 91 32 05 	lds	r24, 0x0532
+    127a:	90 91 33 05 	lds	r25, 0x0533
     127e:	9e 01       	movw	r18, r28
     1280:	2f 5f       	subi	r18, 0xFF	; 255
     1282:	3f 4f       	sbci	r19, 0xFF	; 255
@@ -3343,8 +3343,8 @@ ISR(TIMER1_COMPA_vect)
                                         /* Put data in the test buffer -      */
                                         /* don't care if it fails             */
     cbuffPutByte(hTestBuffer, testData);
-    131e:	80 91 16 05 	lds	r24, 0x0516
-    1322:	90 91 17 05 	lds	r25, 0x0517
+    131e:	80 91 30 05 	lds	r24, 0x0530
+    1322:	90 91 31 05 	lds	r25, 0x0531
     1326:	20 91 00 01 	lds	r18, 0x0100
     132a:	62 2f       	mov	r22, r18
     132c:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
@@ -3420,7 +3420,7 @@ void termInit(void)
     1396:	89 81       	ldd	r24, Y+1	; 0x01
     1398:	88 2f       	mov	r24, r24
     139a:	90 e0       	ldi	r25, 0x00	; 0
-    139c:	85 5d       	subi	r24, 0xD5	; 213
+    139c:	8b 5b       	subi	r24, 0xBB	; 187
     139e:	9a 4f       	sbci	r25, 0xFA	; 250
     13a0:	20 e2       	ldi	r18, 0x20	; 32
     13a2:	fc 01       	movw	r30, r24
@@ -3442,35 +3442,35 @@ void termInit(void)
     }
         
     termData.bytesInBuffer = 0;
-    13b2:	10 92 1d 05 	sts	0x051D, r1
-    13b6:	10 92 1c 05 	sts	0x051C, r1
+    13b2:	10 92 37 05 	sts	0x0537, r1
+    13b6:	10 92 36 05 	sts	0x0536, r1
     termData.fillRate = 1;
     13ba:	81 e0       	ldi	r24, 0x01	; 1
     13bc:	90 e0       	ldi	r25, 0x00	; 0
-    13be:	90 93 1f 05 	sts	0x051F, r25
-    13c2:	80 93 1e 05 	sts	0x051E, r24
+    13be:	90 93 39 05 	sts	0x0539, r25
+    13c2:	80 93 38 05 	sts	0x0538, r24
     termData.fillBarLength = 0;
-    13c6:	10 92 20 05 	sts	0x0520, r1
+    13c6:	10 92 3a 05 	sts	0x053A, r1
     termData.percentFilled = 0;
-    13ca:	10 92 21 05 	sts	0x0521, r1
+    13ca:	10 92 3b 05 	sts	0x053B, r1
     termData.emptyOnBytesFree = 9;
     13ce:	89 e0       	ldi	r24, 0x09	; 9
-    13d0:	80 93 22 05 	sts	0x0522, r24
+    13d0:	80 93 3c 05 	sts	0x053C, r24
     termData.termMode = MANUAL;
-    13d4:	10 92 23 05 	sts	0x0523, r1
+    13d4:	10 92 3d 05 	sts	0x053D, r1
     termData.bytesInBufferCheck = 0;
-    13d8:	10 92 25 05 	sts	0x0525, r1
-    13dc:	10 92 24 05 	sts	0x0524, r1
+    13d8:	10 92 3f 05 	sts	0x053F, r1
+    13dc:	10 92 3e 05 	sts	0x053E, r1
     termData.producerSpeedTooHigh = SPEED_OK;
     13e0:	81 e0       	ldi	r24, 0x01	; 1
-    13e2:	80 93 26 05 	sts	0x0526, r24
+    13e2:	80 93 40 05 	sts	0x0540, r24
     termData.bufferIntegrity = INTEGRITY_OK;
     13e6:	81 e0       	ldi	r24, 0x01	; 1
-    13e8:	80 93 28 05 	sts	0x0528, r24
+    13e8:	80 93 42 05 	sts	0x0542, r24
     termData.oldLastChar = 0;
-    13ec:	10 92 27 05 	sts	0x0527, r1
+    13ec:	10 92 41 05 	sts	0x0541, r1
     termData.termFullScreenUpdate = FULLSCREEN_YES;
-    13f0:	10 92 29 05 	sts	0x0529, r1
+    13f0:	10 92 43 05 	sts	0x0543, r1
 }
     13f4:	0f 90       	pop	r0
     13f6:	cf 91       	pop	r28
@@ -3502,18 +3502,18 @@ void termOutput(HCBUFF hCbuff)
     CBUFF           cbuffTens;
     
     if (restartTerm)
-    1414:	80 91 2a 05 	lds	r24, 0x052A
+    1414:	80 91 44 05 	lds	r24, 0x0544
     1418:	88 23       	and	r24, r24
     141a:	21 f0       	breq	.+8      	; 0x1424 <termOutput+0x28>
     {
         termState = RESET_TERMINALA;
-    141c:	10 92 1b 05 	sts	0x051B, r1
+    141c:	10 92 35 05 	sts	0x0535, r1
         restartTerm = 0;
-    1420:	10 92 2a 05 	sts	0x052A, r1
+    1420:	10 92 44 05 	sts	0x0544, r1
     }
         
     switch(termState)
-    1424:	80 91 1b 05 	lds	r24, 0x051B
+    1424:	80 91 35 05 	lds	r24, 0x0535
     1428:	88 2f       	mov	r24, r24
     142a:	90 e0       	ldi	r25, 0x00	; 0
     142c:	aa 27       	eor	r26, r26
@@ -3568,7 +3568,7 @@ void termOutput(HCBUFF hCbuff)
     1480:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = RESET_TERMINALB;
     1484:	81 e0       	ldi	r24, 0x01	; 1
-    1486:	80 93 1b 05 	sts	0x051B, r24
+    1486:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     148a:	82 c4       	rjmp	.+2308   	; 0x1d90 <termOutput+0x994>
@@ -3594,7 +3594,7 @@ void termOutput(HCBUFF hCbuff)
     14aa:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = RESET_TERMINALC;
     14ae:	82 e0       	ldi	r24, 0x02	; 2
-    14b0:	80 93 1b 05 	sts	0x051B, r24
+    14b0:	80 93 35 05 	sts	0x0535, r24
             }    
             break; 
     14b4:	6d c4       	rjmp	.+2266   	; 0x1d90 <termOutput+0x994>
@@ -3620,7 +3620,7 @@ void termOutput(HCBUFF hCbuff)
     14d4:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = RESET_TERMINALD;
     14d8:	83 e0       	ldi	r24, 0x03	; 3
-    14da:	80 93 1b 05 	sts	0x051B, r24
+    14da:	80 93 35 05 	sts	0x0535, r24
             }    
             break;  
     14de:	58 c4       	rjmp	.+2224   	; 0x1d90 <termOutput+0x994>
@@ -3646,7 +3646,7 @@ void termOutput(HCBUFF hCbuff)
     14fe:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = RESET_TERMINALE;
     1502:	84 e0       	ldi	r24, 0x04	; 4
-    1504:	80 93 1b 05 	sts	0x051B, r24
+    1504:	80 93 35 05 	sts	0x0535, r24
             }    
             break;   
     1508:	43 c4       	rjmp	.+2182   	; 0x1d90 <termOutput+0x994>
@@ -3672,7 +3672,7 @@ void termOutput(HCBUFF hCbuff)
     1528:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_1;
     152c:	86 e0       	ldi	r24, 0x06	; 6
-    152e:	80 93 1b 05 	sts	0x051B, r24
+    152e:	80 93 35 05 	sts	0x0535, r24
             }    
             break; 
     1532:	2e c4       	rjmp	.+2140   	; 0x1d90 <termOutput+0x994>
@@ -3700,7 +3700,7 @@ void termOutput(HCBUFF hCbuff)
     1552:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_1;
     1556:	86 e0       	ldi	r24, 0x06	; 6
-    1558:	80 93 1b 05 	sts	0x051B, r24
+    1558:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     155c:	19 c4       	rjmp	.+2098   	; 0x1d90 <termOutput+0x994>
@@ -3728,7 +3728,7 @@ void termOutput(HCBUFF hCbuff)
     157c:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_3A;
     1580:	88 e0       	ldi	r24, 0x08	; 8
-    1582:	80 93 1b 05 	sts	0x051B, r24
+    1582:	80 93 35 05 	sts	0x0535, r24
             }    
             break;  
     1586:	04 c4       	rjmp	.+2056   	; 0x1d90 <termOutput+0x994>
@@ -3748,7 +3748,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termReturn, sizeof(termReturn)-1);
     1598:	8f 81       	ldd	r24, Y+7	; 0x07
     159a:	98 85       	ldd	r25, Y+8	; 0x08
-    159c:	21 ec       	ldi	r18, 0xC1	; 193
+    159c:	2b ed       	ldi	r18, 0xDB	; 219
     159e:	32 e0       	ldi	r19, 0x02	; 2
     15a0:	b9 01       	movw	r22, r18
     15a2:	42 e0       	ldi	r20, 0x02	; 2
@@ -3756,7 +3756,7 @@ void termOutput(HCBUFF hCbuff)
     15a6:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_3A;
     15aa:	88 e0       	ldi	r24, 0x08	; 8
-    15ac:	80 93 1b 05 	sts	0x051B, r24
+    15ac:	80 93 35 05 	sts	0x0535, r24
             }    
             break; 
     15b0:	ef c3       	rjmp	.+2014   	; 0x1d90 <termOutput+0x994>
@@ -3784,7 +3784,7 @@ void termOutput(HCBUFF hCbuff)
     15d0:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_3B;
     15d4:	89 e0       	ldi	r24, 0x09	; 9
-    15d6:	80 93 1b 05 	sts	0x051B, r24
+    15d6:	80 93 35 05 	sts	0x0535, r24
             }    
             break; 
     15da:	da c3       	rjmp	.+1972   	; 0x1d90 <termOutput+0x994>
@@ -3800,8 +3800,8 @@ void termOutput(HCBUFF hCbuff)
     15ea:	99 c3       	rjmp	.+1842   	; 0x1d1e <termOutput+0x922>
             {
                 uiTemp = termData.bytesInBuffer;
-    15ec:	80 91 1c 05 	lds	r24, 0x051C
-    15f0:	90 91 1d 05 	lds	r25, 0x051D
+    15ec:	80 91 36 05 	lds	r24, 0x0536
+    15f0:	90 91 37 05 	lds	r25, 0x0537
     15f4:	9b 83       	std	Y+3, r25	; 0x03
     15f6:	8a 83       	std	Y+2, r24	; 0x02
                 if(uiTemp < 10)
@@ -3866,7 +3866,7 @@ void termOutput(HCBUFF hCbuff)
                 }    
                 termState = OUTPUT_LINE_3C;
     1662:	8a e0       	ldi	r24, 0x0A	; 10
-    1664:	80 93 1b 05 	sts	0x051B, r24
+    1664:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1668:	93 c3       	rjmp	.+1830   	; 0x1d90 <termOutput+0x994>
@@ -3892,7 +3892,7 @@ void termOutput(HCBUFF hCbuff)
     1688:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_4A;
     168c:	8b e0       	ldi	r24, 0x0B	; 11
-    168e:	80 93 1b 05 	sts	0x051B, r24
+    168e:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1692:	7e c3       	rjmp	.+1788   	; 0x1d90 <termOutput+0x994>
@@ -3920,7 +3920,7 @@ void termOutput(HCBUFF hCbuff)
     16b2:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_4B;
     16b6:	8c e0       	ldi	r24, 0x0C	; 12
-    16b8:	80 93 1b 05 	sts	0x051B, r24
+    16b8:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     16bc:	69 c3       	rjmp	.+1746   	; 0x1d90 <termOutput+0x994>
@@ -3942,7 +3942,7 @@ void termOutput(HCBUFF hCbuff)
     16d0:	13 c0       	rjmp	.+38     	; 0x16f8 <termOutput+0x2fc>
                 {
                     if (count < termData.fillBarLength)
-    16d2:	90 91 20 05 	lds	r25, 0x0520
+    16d2:	90 91 3a 05 	lds	r25, 0x053A
     16d6:	89 81       	ldd	r24, Y+1	; 0x01
     16d8:	89 17       	cp	r24, r25
     16da:	30 f4       	brcc	.+12     	; 0x16e8 <termOutput+0x2ec>
@@ -3981,7 +3981,7 @@ void termOutput(HCBUFF hCbuff)
                 }    
                 termState = OUTPUT_LINE_4C;
     16fe:	8d e0       	ldi	r24, 0x0D	; 13
-    1700:	80 93 1b 05 	sts	0x051B, r24
+    1700:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1704:	45 c3       	rjmp	.+1674   	; 0x1d90 <termOutput+0x994>
@@ -4007,7 +4007,7 @@ void termOutput(HCBUFF hCbuff)
     1724:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_4D;
     1728:	8e e0       	ldi	r24, 0x0E	; 14
-    172a:	80 93 1b 05 	sts	0x051B, r24
+    172a:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     172e:	30 c3       	rjmp	.+1632   	; 0x1d90 <termOutput+0x994>
@@ -4023,7 +4023,7 @@ void termOutput(HCBUFF hCbuff)
     173e:	f9 c2       	rjmp	.+1522   	; 0x1d32 <termOutput+0x936>
             {
                 cbuffUnits = termData.percentFilled;
-    1740:	80 91 21 05 	lds	r24, 0x0521
+    1740:	80 91 3b 05 	lds	r24, 0x053B
     1744:	8d 83       	std	Y+5, r24	; 0x05
                 if(cbuffUnits < 10)
     1746:	8d 81       	ldd	r24, Y+5	; 0x05
@@ -4096,16 +4096,16 @@ void termOutput(HCBUFF hCbuff)
     17ba:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
                 }      
                 if (termData.termFullScreenUpdate == FULLSCREEN_YES)
-    17be:	80 91 29 05 	lds	r24, 0x0529
+    17be:	80 91 43 05 	lds	r24, 0x0543
     17c2:	88 23       	and	r24, r24
     17c4:	39 f4       	brne	.+14     	; 0x17d4 <termOutput+0x3d8>
                 {
                     termData.termFullScreenUpdate = FULLSCREEN_NO;
     17c6:	81 e0       	ldi	r24, 0x01	; 1
-    17c8:	80 93 29 05 	sts	0x0529, r24
+    17c8:	80 93 43 05 	sts	0x0543, r24
                     termState = OUTPUT_LINE_4E;
     17cc:	8f e0       	ldi	r24, 0x0F	; 15
-    17ce:	80 93 1b 05 	sts	0x051B, r24
+    17ce:	80 93 35 05 	sts	0x0535, r24
                 else
                 {
                     termState = OUTPUT_LINE_4F;
@@ -4120,7 +4120,7 @@ void termOutput(HCBUFF hCbuff)
                 {
                     termState = OUTPUT_LINE_4F;
     17d4:	80 e1       	ldi	r24, 0x10	; 16
-    17d6:	80 93 1b 05 	sts	0x051B, r24
+    17d6:	80 93 35 05 	sts	0x0535, r24
                 }    
             }    
             break;
@@ -4147,7 +4147,7 @@ void termOutput(HCBUFF hCbuff)
     17fa:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_6A;
     17fe:	81 e1       	ldi	r24, 0x11	; 17
-    1800:	80 93 1b 05 	sts	0x051B, r24
+    1800:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1804:	c5 c2       	rjmp	.+1418   	; 0x1d90 <termOutput+0x994>
@@ -4172,7 +4172,7 @@ void termOutput(HCBUFF hCbuff)
     1824:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_3A;
     1828:	88 e0       	ldi	r24, 0x08	; 8
-    182a:	80 93 1b 05 	sts	0x051B, r24
+    182a:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     182e:	b0 c2       	rjmp	.+1376   	; 0x1d90 <termOutput+0x994>
@@ -4200,7 +4200,7 @@ void termOutput(HCBUFF hCbuff)
     184e:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_6B;
     1852:	82 e1       	ldi	r24, 0x12	; 18
-    1854:	80 93 1b 05 	sts	0x051B, r24
+    1854:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1858:	9b c2       	rjmp	.+1334   	; 0x1d90 <termOutput+0x994>
@@ -4216,8 +4216,8 @@ void termOutput(HCBUFF hCbuff)
     1868:	6c c2       	rjmp	.+1240   	; 0x1d42 <termOutput+0x946>
             {
                 if(termData.fillRate < 10)
-    186a:	80 91 1e 05 	lds	r24, 0x051E
-    186e:	90 91 1f 05 	lds	r25, 0x051F
+    186a:	80 91 38 05 	lds	r24, 0x0538
+    186e:	90 91 39 05 	lds	r25, 0x0539
     1872:	8a 30       	cpi	r24, 0x0A	; 10
     1874:	91 05       	cpc	r25, r1
     1876:	88 f4       	brcc	.+34     	; 0x189a <termOutput+0x49e>
@@ -4228,8 +4228,8 @@ void termOutput(HCBUFF hCbuff)
     187c:	60 e2       	ldi	r22, 0x20	; 32
     187e:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
                     cbuffPutByte(hCbuff, (CBUFF) termData.fillRate + '0');
-    1882:	80 91 1e 05 	lds	r24, 0x051E
-    1886:	90 91 1f 05 	lds	r25, 0x051F
+    1882:	80 91 38 05 	lds	r24, 0x0538
+    1886:	90 91 39 05 	lds	r25, 0x0539
     188a:	28 2f       	mov	r18, r24
     188c:	20 5d       	subi	r18, 0xD0	; 208
     188e:	8f 81       	ldd	r24, Y+7	; 0x07
@@ -4239,15 +4239,15 @@ void termOutput(HCBUFF hCbuff)
     1898:	31 c0       	rjmp	.+98     	; 0x18fc <termOutput+0x500>
                 }
                 else if (termData.fillRate < 100)
-    189a:	80 91 1e 05 	lds	r24, 0x051E
-    189e:	90 91 1f 05 	lds	r25, 0x051F
+    189a:	80 91 38 05 	lds	r24, 0x0538
+    189e:	90 91 39 05 	lds	r25, 0x0539
     18a2:	84 36       	cpi	r24, 0x64	; 100
     18a4:	91 05       	cpc	r25, r1
     18a6:	50 f5       	brcc	.+84     	; 0x18fc <termOutput+0x500>
                 {
                     cbuffTens = (CBUFF) (termData.fillRate / 10) + '0';
-    18a8:	80 91 1e 05 	lds	r24, 0x051E
-    18ac:	90 91 1f 05 	lds	r25, 0x051F
+    18a8:	80 91 38 05 	lds	r24, 0x0538
+    18ac:	90 91 39 05 	lds	r25, 0x0539
     18b0:	2a e0       	ldi	r18, 0x0A	; 10
     18b2:	30 e0       	ldi	r19, 0x00	; 0
     18b4:	b9 01       	movw	r22, r18
@@ -4271,8 +4271,8 @@ void termOutput(HCBUFF hCbuff)
     18d8:	80 5e       	subi	r24, 0xE0	; 224
     18da:	8e 83       	std	Y+6, r24	; 0x06
                     cbuffUnits = (CBUFF) (termData.fillRate - cbuffTens) + '0';
-    18dc:	80 91 1e 05 	lds	r24, 0x051E
-    18e0:	90 91 1f 05 	lds	r25, 0x051F
+    18dc:	80 91 38 05 	lds	r24, 0x0538
+    18e0:	90 91 39 05 	lds	r25, 0x0539
     18e4:	98 2f       	mov	r25, r24
     18e6:	8e 81       	ldd	r24, Y+6	; 0x06
     18e8:	f9 2f       	mov	r31, r25
@@ -4289,7 +4289,7 @@ void termOutput(HCBUFF hCbuff)
                 }      
                 termState = OUTPUT_LINE_6C;  
     18fc:	83 e1       	ldi	r24, 0x13	; 19
-    18fe:	80 93 1b 05 	sts	0x051B, r24
+    18fe:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1902:	46 c2       	rjmp	.+1164   	; 0x1d90 <termOutput+0x994>
@@ -4315,7 +4315,7 @@ void termOutput(HCBUFF hCbuff)
     1922:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_8A;
     1926:	84 e1       	ldi	r24, 0x14	; 20
-    1928:	80 93 1b 05 	sts	0x051B, r24
+    1928:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     192c:	31 c2       	rjmp	.+1122   	; 0x1d90 <termOutput+0x994>
@@ -4343,7 +4343,7 @@ void termOutput(HCBUFF hCbuff)
     194c:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_8B;
     1950:	85 e1       	ldi	r24, 0x15	; 21
-    1952:	80 93 1b 05 	sts	0x051B, r24
+    1952:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1956:	1c c2       	rjmp	.+1080   	; 0x1d90 <termOutput+0x994>
@@ -4358,7 +4358,7 @@ void termOutput(HCBUFF hCbuff)
     1966:	f3 c1       	rjmp	.+998    	; 0x1d4e <termOutput+0x952>
             {
                 if(termData.termMode == MANUAL)
-    1968:	80 91 23 05 	lds	r24, 0x0523
+    1968:	80 91 3d 05 	lds	r24, 0x053D
     196c:	88 23       	and	r24, r24
     196e:	b9 f4       	brne	.+46     	; 0x199e <termOutput+0x5a2>
                 {
@@ -4383,7 +4383,7 @@ void termOutput(HCBUFF hCbuff)
     1992:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
                     termState = OUTPUT_LINE_8C;
     1996:	86 e1       	ldi	r24, 0x16	; 22
-    1998:	80 93 1b 05 	sts	0x051B, r24
+    1998:	80 93 35 05 	sts	0x0535, r24
                     cbuffPutArray(hCbuff, termLine8b, sizeof(termLine8b)-1);
                     cbuffPutByte(hCbuff, ' ');
                     termState = OUTPUT_LINE_8C;
@@ -4417,7 +4417,7 @@ void termOutput(HCBUFF hCbuff)
     19c0:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
                     termState = OUTPUT_LINE_8C;
     19c4:	86 e1       	ldi	r24, 0x16	; 22
-    19c6:	80 93 1b 05 	sts	0x051B, r24
+    19c6:	80 93 35 05 	sts	0x0535, r24
                 }        
             }    
             break;
@@ -4443,7 +4443,7 @@ void termOutput(HCBUFF hCbuff)
     19ea:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_8D;
     19ee:	87 e1       	ldi	r24, 0x17	; 23
-    19f0:	80 93 1b 05 	sts	0x051B, r24
+    19f0:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     19f4:	cd c1       	rjmp	.+922    	; 0x1d90 <termOutput+0x994>
@@ -4459,7 +4459,7 @@ void termOutput(HCBUFF hCbuff)
                                                 + sizeof(termReturn)))
             {
                 if(termData.termMode == AUTOMATIC)
-    1a06:	80 91 23 05 	lds	r24, 0x0523
+    1a06:	80 91 3d 05 	lds	r24, 0x053D
     1a0a:	81 30       	cpi	r24, 0x01	; 1
     1a0c:	01 f5       	brne	.+64     	; 0x1a4e <termOutput+0x652>
                 {
@@ -4485,7 +4485,7 @@ void termOutput(HCBUFF hCbuff)
                     cbuffPutArray(hCbuff, termReturn, sizeof(termReturn)-1);
     1a34:	8f 81       	ldd	r24, Y+7	; 0x07
     1a36:	98 85       	ldd	r25, Y+8	; 0x08
-    1a38:	21 ec       	ldi	r18, 0xC1	; 193
+    1a38:	2b ed       	ldi	r18, 0xDB	; 219
     1a3a:	32 e0       	ldi	r19, 0x02	; 2
     1a3c:	b9 01       	movw	r22, r18
     1a3e:	42 e0       	ldi	r20, 0x02	; 2
@@ -4493,7 +4493,7 @@ void termOutput(HCBUFF hCbuff)
     1a42:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                     termState = OUTPUT_LINE_9A;
     1a46:	88 e1       	ldi	r24, 0x18	; 24
-    1a48:	80 93 1b 05 	sts	0x051B, r24
+    1a48:	80 93 35 05 	sts	0x0535, r24
                     cbuffPutByte(hCbuff, ' ');
                     cbuffPutArray(hCbuff, termReturn, sizeof(termReturn)-1);
                     termState = OUTPUT_LINE_9D;
@@ -4528,7 +4528,7 @@ void termOutput(HCBUFF hCbuff)
                     cbuffPutArray(hCbuff, termReturn, sizeof(termReturn)-1);
     1a74:	8f 81       	ldd	r24, Y+7	; 0x07
     1a76:	98 85       	ldd	r25, Y+8	; 0x08
-    1a78:	21 ec       	ldi	r18, 0xC1	; 193
+    1a78:	2b ed       	ldi	r18, 0xDB	; 219
     1a7a:	32 e0       	ldi	r19, 0x02	; 2
     1a7c:	b9 01       	movw	r22, r18
     1a7e:	42 e0       	ldi	r20, 0x02	; 2
@@ -4536,7 +4536,7 @@ void termOutput(HCBUFF hCbuff)
     1a82:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                     termState = OUTPUT_LINE_9D;
     1a86:	8b e1       	ldi	r24, 0x1B	; 27
-    1a88:	80 93 1b 05 	sts	0x051B, r24
+    1a88:	80 93 35 05 	sts	0x0535, r24
                 }        
             }    
             break;
@@ -4565,7 +4565,7 @@ void termOutput(HCBUFF hCbuff)
     1aac:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_9B;
     1ab0:	89 e1       	ldi	r24, 0x19	; 25
-    1ab2:	80 93 1b 05 	sts	0x051B, r24
+    1ab2:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1ab6:	6c c1       	rjmp	.+728    	; 0x1d90 <termOutput+0x994>
@@ -4580,7 +4580,7 @@ void termOutput(HCBUFF hCbuff)
     1ac6:	4b c1       	rjmp	.+662    	; 0x1d5e <termOutput+0x962>
             {
                 cbuffPutByte(hCbuff, (CBUFF)termData.emptyOnBytesFree + '0');
-    1ac8:	80 91 22 05 	lds	r24, 0x0522
+    1ac8:	80 91 3c 05 	lds	r24, 0x053C
     1acc:	28 2f       	mov	r18, r24
     1ace:	20 5d       	subi	r18, 0xD0	; 208
     1ad0:	8f 81       	ldd	r24, Y+7	; 0x07
@@ -4589,7 +4589,7 @@ void termOutput(HCBUFF hCbuff)
     1ad6:	0e 94 dd 02 	call	0x5ba	; 0x5ba <cbuffPutByte>
                 termState = OUTPUT_LINE_9C;
     1ada:	8a e1       	ldi	r24, 0x1A	; 26
-    1adc:	80 93 1b 05 	sts	0x051B, r24
+    1adc:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1ae0:	57 c1       	rjmp	.+686    	; 0x1d90 <termOutput+0x994>
@@ -4614,7 +4614,7 @@ void termOutput(HCBUFF hCbuff)
     1b00:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_11;
     1b04:	8c e1       	ldi	r24, 0x1C	; 28
-    1b06:	80 93 1b 05 	sts	0x051B, r24
+    1b06:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1b0a:	42 c1       	rjmp	.+644    	; 0x1d90 <termOutput+0x994>
@@ -4623,7 +4623,7 @@ void termOutput(HCBUFF hCbuff)
     1b0c:	8f 81       	ldd	r24, Y+7	; 0x07
     1b0e:	98 85       	ldd	r25, Y+8	; 0x08
     1b10:	0e 94 42 03 	call	0x684	; 0x684 <cbuffGetSpace>
-    1b14:	85 32       	cpi	r24, 0x25	; 37
+    1b14:	8f 33       	cpi	r24, 0x3F	; 63
     1b16:	91 05       	cpc	r25, r1
     1b18:	08 f4       	brcc	.+2      	; 0x1b1c <termOutput+0x720>
     1b1a:	25 c1       	rjmp	.+586    	; 0x1d66 <termOutput+0x96a>
@@ -4634,12 +4634,12 @@ void termOutput(HCBUFF hCbuff)
     1b20:	2d e2       	ldi	r18, 0x2D	; 45
     1b22:	32 e0       	ldi	r19, 0x02	; 2
     1b24:	b9 01       	movw	r22, r18
-    1b26:	43 e2       	ldi	r20, 0x23	; 35
+    1b26:	4d e3       	ldi	r20, 0x3D	; 61
     1b28:	50 e0       	ldi	r21, 0x00	; 0
     1b2a:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_11;
     1b2e:	8c e1       	ldi	r24, 0x1C	; 28
-    1b30:	80 93 1b 05 	sts	0x051B, r24
+    1b30:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1b34:	2d c1       	rjmp	.+602    	; 0x1d90 <termOutput+0x994>
@@ -4659,7 +4659,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine11, sizeof(termLine11)-1);
     1b46:	8f 81       	ldd	r24, Y+7	; 0x07
     1b48:	98 85       	ldd	r25, Y+8	; 0x08
-    1b4a:	21 e5       	ldi	r18, 0x51	; 81
+    1b4a:	2b e6       	ldi	r18, 0x6B	; 107
     1b4c:	32 e0       	ldi	r19, 0x02	; 2
     1b4e:	b9 01       	movw	r22, r18
     1b50:	4b e1       	ldi	r20, 0x1B	; 27
@@ -4667,7 +4667,7 @@ void termOutput(HCBUFF hCbuff)
     1b54:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_12A;
     1b58:	8d e1       	ldi	r24, 0x1D	; 29
-    1b5a:	80 93 1b 05 	sts	0x051B, r24
+    1b5a:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1b5e:	18 c1       	rjmp	.+560    	; 0x1d90 <termOutput+0x994>
@@ -4687,7 +4687,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine12a, sizeof(termLine12a)-1);
     1b70:	8f 81       	ldd	r24, Y+7	; 0x07
     1b72:	98 85       	ldd	r25, Y+8	; 0x08
-    1b74:	2d e6       	ldi	r18, 0x6D	; 109
+    1b74:	27 e8       	ldi	r18, 0x87	; 135
     1b76:	32 e0       	ldi	r19, 0x02	; 2
     1b78:	b9 01       	movw	r22, r18
     1b7a:	41 e0       	ldi	r20, 0x01	; 1
@@ -4695,7 +4695,7 @@ void termOutput(HCBUFF hCbuff)
     1b7e:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_12B;
     1b82:	8e e1       	ldi	r24, 0x1E	; 30
-    1b84:	80 93 1b 05 	sts	0x051B, r24
+    1b84:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1b88:	03 c1       	rjmp	.+518    	; 0x1d90 <termOutput+0x994>
@@ -4712,7 +4712,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, checkBuffer, 50);
     1b9a:	8f 81       	ldd	r24, Y+7	; 0x07
     1b9c:	98 85       	ldd	r25, Y+8	; 0x08
-    1b9e:	2b e2       	ldi	r18, 0x2B	; 43
+    1b9e:	25 e4       	ldi	r18, 0x45	; 69
     1ba0:	35 e0       	ldi	r19, 0x05	; 5
     1ba2:	b9 01       	movw	r22, r18
     1ba4:	42 e3       	ldi	r20, 0x32	; 50
@@ -4720,7 +4720,7 @@ void termOutput(HCBUFF hCbuff)
     1ba8:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_12C;
     1bac:	8f e1       	ldi	r24, 0x1F	; 31
-    1bae:	80 93 1b 05 	sts	0x051B, r24
+    1bae:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1bb2:	ee c0       	rjmp	.+476    	; 0x1d90 <termOutput+0x994>
@@ -4737,7 +4737,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine12c, sizeof(termLine12c)-1);
     1bc4:	8f 81       	ldd	r24, Y+7	; 0x07
     1bc6:	98 85       	ldd	r25, Y+8	; 0x08
-    1bc8:	2f e6       	ldi	r18, 0x6F	; 111
+    1bc8:	29 e8       	ldi	r18, 0x89	; 137
     1bca:	32 e0       	ldi	r19, 0x02	; 2
     1bcc:	b9 01       	movw	r22, r18
     1bce:	43 e0       	ldi	r20, 0x03	; 3
@@ -4745,7 +4745,7 @@ void termOutput(HCBUFF hCbuff)
     1bd2:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_13A;
     1bd6:	80 e2       	ldi	r24, 0x20	; 32
-    1bd8:	80 93 1b 05 	sts	0x051B, r24
+    1bd8:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1bdc:	d9 c0       	rjmp	.+434    	; 0x1d90 <termOutput+0x994>
@@ -4765,20 +4765,20 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13a, sizeof(termLine13a)-1);
     1bee:	8f 81       	ldd	r24, Y+7	; 0x07
     1bf0:	98 85       	ldd	r25, Y+8	; 0x08
-    1bf2:	23 e7       	ldi	r18, 0x73	; 115
+    1bf2:	2d e8       	ldi	r18, 0x8D	; 141
     1bf4:	32 e0       	ldi	r19, 0x02	; 2
     1bf6:	b9 01       	movw	r22, r18
     1bf8:	42 e1       	ldi	r20, 0x12	; 18
     1bfa:	50 e0       	ldi	r21, 0x00	; 0
     1bfc:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 if (termData.bufferIntegrity == INTEGRITY_OK)
-    1c00:	80 91 28 05 	lds	r24, 0x0528
+    1c00:	80 91 42 05 	lds	r24, 0x0542
     1c04:	81 30       	cpi	r24, 0x01	; 1
     1c06:	21 f4       	brne	.+8      	; 0x1c10 <termOutput+0x814>
                 {
                     termState = OUTPUT_LINE_13B;
     1c08:	81 e2       	ldi	r24, 0x21	; 33
-    1c0a:	80 93 1b 05 	sts	0x051B, r24
+    1c0a:	80 93 35 05 	sts	0x0535, r24
                 else
                 {
                     termState = OUTPUT_LINE_13C;
@@ -4793,7 +4793,7 @@ void termOutput(HCBUFF hCbuff)
                 {
                     termState = OUTPUT_LINE_13C;
     1c10:	82 e2       	ldi	r24, 0x22	; 34
-    1c12:	80 93 1b 05 	sts	0x051B, r24
+    1c12:	80 93 35 05 	sts	0x0535, r24
                 }    
             }    
             break;
@@ -4811,7 +4811,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13b, sizeof(termLine13b)-1);
     1c28:	8f 81       	ldd	r24, Y+7	; 0x07
     1c2a:	98 85       	ldd	r25, Y+8	; 0x08
-    1c2c:	26 e8       	ldi	r18, 0x86	; 134
+    1c2c:	20 ea       	ldi	r18, 0xA0	; 160
     1c2e:	32 e0       	ldi	r19, 0x02	; 2
     1c30:	b9 01       	movw	r22, r18
     1c32:	49 e0       	ldi	r20, 0x09	; 9
@@ -4819,7 +4819,7 @@ void termOutput(HCBUFF hCbuff)
     1c36:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_13D;
     1c3a:	83 e2       	ldi	r24, 0x23	; 35
-    1c3c:	80 93 1b 05 	sts	0x051B, r24
+    1c3c:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1c40:	a7 c0       	rjmp	.+334    	; 0x1d90 <termOutput+0x994>
@@ -4836,7 +4836,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13c, sizeof(termLine13c)-1);
     1c52:	8f 81       	ldd	r24, Y+7	; 0x07
     1c54:	98 85       	ldd	r25, Y+8	; 0x08
-    1c56:	20 e9       	ldi	r18, 0x90	; 144
+    1c56:	2a ea       	ldi	r18, 0xAA	; 170
     1c58:	32 e0       	ldi	r19, 0x02	; 2
     1c5a:	b9 01       	movw	r22, r18
     1c5c:	49 e0       	ldi	r20, 0x09	; 9
@@ -4844,7 +4844,7 @@ void termOutput(HCBUFF hCbuff)
     1c60:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = OUTPUT_LINE_13D;
     1c64:	83 e2       	ldi	r24, 0x23	; 35
-    1c66:	80 93 1b 05 	sts	0x051B, r24
+    1c66:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1c6a:	92 c0       	rjmp	.+292    	; 0x1d90 <termOutput+0x994>
@@ -4861,20 +4861,20 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13d, sizeof(termLine13d)-1);
     1c7c:	8f 81       	ldd	r24, Y+7	; 0x07
     1c7e:	98 85       	ldd	r25, Y+8	; 0x08
-    1c80:	2a e9       	ldi	r18, 0x9A	; 154
+    1c80:	24 eb       	ldi	r18, 0xB4	; 180
     1c82:	32 e0       	ldi	r19, 0x02	; 2
     1c84:	b9 01       	movw	r22, r18
     1c86:	40 e1       	ldi	r20, 0x10	; 16
     1c88:	50 e0       	ldi	r21, 0x00	; 0
     1c8a:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 if (termData.producerSpeedTooHigh == SPEED_OK)
-    1c8e:	80 91 26 05 	lds	r24, 0x0526
+    1c8e:	80 91 40 05 	lds	r24, 0x0540
     1c92:	81 30       	cpi	r24, 0x01	; 1
     1c94:	21 f4       	brne	.+8      	; 0x1c9e <termOutput+0x8a2>
                 {
                     termState = OUTPUT_LINE_13E;
     1c96:	84 e2       	ldi	r24, 0x24	; 36
-    1c98:	80 93 1b 05 	sts	0x051B, r24
+    1c98:	80 93 35 05 	sts	0x0535, r24
                 else
                 {
                     termState = OUTPUT_LINE_13F;
@@ -4889,7 +4889,7 @@ void termOutput(HCBUFF hCbuff)
                 {
                     termState = OUTPUT_LINE_13F;
     1c9e:	85 e2       	ldi	r24, 0x25	; 37
-    1ca0:	80 93 1b 05 	sts	0x051B, r24
+    1ca0:	80 93 35 05 	sts	0x0535, r24
                 }
             }    
             break;
@@ -4907,7 +4907,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13e, sizeof(termLine13e)-1);
     1cb6:	8f 81       	ldd	r24, Y+7	; 0x07
     1cb8:	98 85       	ldd	r25, Y+8	; 0x08
-    1cba:	2b ea       	ldi	r18, 0xAB	; 171
+    1cba:	25 ec       	ldi	r18, 0xC5	; 197
     1cbc:	32 e0       	ldi	r19, 0x02	; 2
     1cbe:	b9 01       	movw	r22, r18
     1cc0:	4a e0       	ldi	r20, 0x0A	; 10
@@ -4915,7 +4915,7 @@ void termOutput(HCBUFF hCbuff)
     1cc4:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = HOME_CURSOR;
     1cc8:	85 e0       	ldi	r24, 0x05	; 5
-    1cca:	80 93 1b 05 	sts	0x051B, r24
+    1cca:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1cce:	60 c0       	rjmp	.+192    	; 0x1d90 <termOutput+0x994>
@@ -4932,7 +4932,7 @@ void termOutput(HCBUFF hCbuff)
                 cbuffPutArray(hCbuff, termLine13f, sizeof(termLine13f)-1);
     1ce0:	8f 81       	ldd	r24, Y+7	; 0x07
     1ce2:	98 85       	ldd	r25, Y+8	; 0x08
-    1ce4:	26 eb       	ldi	r18, 0xB6	; 182
+    1ce4:	20 ed       	ldi	r18, 0xD0	; 208
     1ce6:	32 e0       	ldi	r19, 0x02	; 2
     1ce8:	b9 01       	movw	r22, r18
     1cea:	4a e0       	ldi	r20, 0x0A	; 10
@@ -4940,7 +4940,7 @@ void termOutput(HCBUFF hCbuff)
     1cee:	0e 94 9c 05 	call	0xb38	; 0xb38 <cbuffPutArray>
                 termState = HOME_CURSOR;
     1cf2:	85 e0       	ldi	r24, 0x05	; 5
-    1cf4:	80 93 1b 05 	sts	0x051B, r24
+    1cf4:	80 93 35 05 	sts	0x0535, r24
             }    
             break;
     1cf8:	4b c0       	rjmp	.+150    	; 0x1d90 <termOutput+0x994>
@@ -5274,8 +5274,8 @@ void termUpdateBytesInBuffer(unsigned int noOfBytes)
     termData.bytesInBuffer = noOfBytes;
     1db0:	89 81       	ldd	r24, Y+1	; 0x01
     1db2:	9a 81       	ldd	r25, Y+2	; 0x02
-    1db4:	90 93 1d 05 	sts	0x051D, r25
-    1db8:	80 93 1c 05 	sts	0x051C, r24
+    1db4:	90 93 37 05 	sts	0x0537, r25
+    1db8:	80 93 36 05 	sts	0x0536, r24
     
     termData.fillBarLength = (unsigned char) ((float)noOfBytes * 1.45);
     1dbc:	89 81       	ldd	r24, Y+1	; 0x01
@@ -5302,14 +5302,14 @@ void termUpdateBytesInBuffer(unsigned int noOfBytes)
     1dea:	0e 94 26 10 	call	0x204c	; 0x204c <__fixunssfsi>
     1dee:	dc 01       	movw	r26, r24
     1df0:	cb 01       	movw	r24, r22
-    1df2:	80 93 20 05 	sts	0x0520, r24
+    1df2:	80 93 3a 05 	sts	0x053A, r24
     
     //termData.fillBarLength = (unsigned char) ((noOfBytes * 15)/10);
     
     termData.percentFilled = noOfBytes * 2;
     1df6:	89 81       	ldd	r24, Y+1	; 0x01
     1df8:	88 0f       	add	r24, r24
-    1dfa:	80 93 21 05 	sts	0x0521, r24
+    1dfa:	80 93 3b 05 	sts	0x053B, r24
 }
     1dfe:	0f 90       	pop	r0
     1e00:	0f 90       	pop	r0
@@ -5358,8 +5358,8 @@ void termSetFillRate(unsigned int fillRate)
     termData.fillRate = fillRate;
     1e3c:	89 81       	ldd	r24, Y+1	; 0x01
     1e3e:	9a 81       	ldd	r25, Y+2	; 0x02
-    1e40:	90 93 1f 05 	sts	0x051F, r25
-    1e44:	80 93 1e 05 	sts	0x051E, r24
+    1e40:	90 93 39 05 	sts	0x0539, r25
+    1e44:	80 93 38 05 	sts	0x0538, r24
 }
     1e48:	0f 90       	pop	r0
     1e4a:	0f 90       	pop	r0
@@ -5376,8 +5376,8 @@ unsigned int termGetFillRate(void)
     1e56:	cd b7       	in	r28, 0x3d	; 61
     1e58:	de b7       	in	r29, 0x3e	; 62
     return termData.fillRate;
-    1e5a:	80 91 1e 05 	lds	r24, 0x051E
-    1e5e:	90 91 1f 05 	lds	r25, 0x051F
+    1e5a:	80 91 38 05 	lds	r24, 0x0538
+    1e5e:	90 91 39 05 	lds	r25, 0x0539
 }
     1e62:	cf 91       	pop	r28
     1e64:	df 91       	pop	r29
@@ -5402,7 +5402,7 @@ void termSetBufferEmptyMode(char mode)
     1e7e:	19 f4       	brne	.+6      	; 0x1e86 <termSetBufferEmptyMode+0x1e>
     {
         termData.termMode = MANUAL;
-    1e80:	10 92 23 05 	sts	0x0523, r1
+    1e80:	10 92 3d 05 	sts	0x053D, r1
     1e84:	09 c0       	rjmp	.+18     	; 0x1e98 <termSetBufferEmptyMode+0x30>
     }    
     else if (mode == 'A' || mode == 'a')
@@ -5415,7 +5415,7 @@ void termSetBufferEmptyMode(char mode)
     {
         termData.termMode = AUTOMATIC;
     1e92:	81 e0       	ldi	r24, 0x01	; 1
-    1e94:	80 93 23 05 	sts	0x0523, r24
+    1e94:	80 93 3d 05 	sts	0x053D, r24
     }    
 }
     1e98:	0f 90       	pop	r0
@@ -5432,7 +5432,7 @@ int termGetEmptyTrigger(void)
     1ea4:	cd b7       	in	r28, 0x3d	; 61
     1ea6:	de b7       	in	r29, 0x3e	; 62
     return (int) termData.emptyOnBytesFree;    
-    1ea8:	80 91 22 05 	lds	r24, 0x0522
+    1ea8:	80 91 3c 05 	lds	r24, 0x053C
     1eac:	88 2f       	mov	r24, r24
     1eae:	90 e0       	ldi	r25, 0x00	; 0
 }
@@ -5453,7 +5453,7 @@ void termSetEmptyTrigger(char triggerNumber)
     termData.emptyOnBytesFree = (unsigned char) triggerNumber - '0';
     1ec2:	89 81       	ldd	r24, Y+1	; 0x01
     1ec4:	80 53       	subi	r24, 0x30	; 48
-    1ec6:	80 93 22 05 	sts	0x0522, r24
+    1ec6:	80 93 3c 05 	sts	0x053C, r24
 }    
     1eca:	0f 90       	pop	r0
     1ecc:	cf 91       	pop	r28
@@ -5485,7 +5485,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
         checkBuffer[loopCount] = ' ';
     1eea:	89 81       	ldd	r24, Y+1	; 0x01
     1eec:	9a 81       	ldd	r25, Y+2	; 0x02
-    1eee:	85 5d       	subi	r24, 0xD5	; 213
+    1eee:	8b 5b       	subi	r24, 0xBB	; 187
     1ef0:	9a 4f       	sbci	r25, 0xFA	; 250
     1ef2:	20 e2       	ldi	r18, 0x20	; 32
     1ef4:	fc 01       	movw	r30, r24
@@ -5513,7 +5513,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
     bufferCount = cbuffGetArray(hCbuff, checkBuffer, 50);
     1f0c:	8d 81       	ldd	r24, Y+5	; 0x05
     1f0e:	9e 81       	ldd	r25, Y+6	; 0x06
-    1f10:	2b e2       	ldi	r18, 0x2B	; 43
+    1f10:	25 e4       	ldi	r18, 0x45	; 69
     1f12:	35 e0       	ldi	r19, 0x05	; 5
     1f14:	b9 01       	movw	r22, r18
     1f16:	42 e3       	ldi	r20, 0x32	; 50
@@ -5526,7 +5526,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
                                         /* emptied the buffer, there is no    */
                                         /* data-loss check                    */
     if(termData.oldLastChar == 0)
-    1f22:	80 91 27 05 	lds	r24, 0x0527
+    1f22:	80 91 41 05 	lds	r24, 0x0541
     1f26:	88 23       	and	r24, r24
     1f28:	51 f4       	brne	.+20     	; 0x1f3e <termCheckBuffer+0x6c>
     {
@@ -5534,11 +5534,11 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1f2a:	8b 81       	ldd	r24, Y+3	; 0x03
     1f2c:	9c 81       	ldd	r25, Y+4	; 0x04
     1f2e:	01 97       	sbiw	r24, 0x01	; 1
-    1f30:	85 5d       	subi	r24, 0xD5	; 213
+    1f30:	8b 5b       	subi	r24, 0xBB	; 187
     1f32:	9a 4f       	sbci	r25, 0xFA	; 250
     1f34:	fc 01       	movw	r30, r24
     1f36:	80 81       	ld	r24, Z
-    1f38:	80 93 27 05 	sts	0x0527, r24
+    1f38:	80 93 41 05 	sts	0x0541, r24
     1f3c:	22 c0       	rjmp	.+68     	; 0x1f82 <termCheckBuffer+0xb0>
                                         /* data lost from the producer during */
                                         /* between buffer emptying. The data  */
@@ -5546,19 +5546,19 @@ void  termCheckBuffer(HCBUFF hCbuff)
     else
     {
         if (termData.oldLastChar == 'Z')
-    1f3e:	80 91 27 05 	lds	r24, 0x0527
+    1f3e:	80 91 41 05 	lds	r24, 0x0541
     1f42:	8a 35       	cpi	r24, 0x5A	; 90
     1f44:	19 f4       	brne	.+6      	; 0x1f4c <termCheckBuffer+0x7a>
         {
             termData.oldLastChar = 'A' - 1;   
     1f46:	80 e4       	ldi	r24, 0x40	; 64
-    1f48:	80 93 27 05 	sts	0x0527, r24
+    1f48:	80 93 41 05 	sts	0x0541, r24
         }    
         if (checkBuffer[0] != termData.oldLastChar + 1)
-    1f4c:	80 91 2b 05 	lds	r24, 0x052B
+    1f4c:	80 91 45 05 	lds	r24, 0x0545
     1f50:	28 2f       	mov	r18, r24
     1f52:	30 e0       	ldi	r19, 0x00	; 0
-    1f54:	80 91 27 05 	lds	r24, 0x0527
+    1f54:	80 91 41 05 	lds	r24, 0x0541
     1f58:	88 2f       	mov	r24, r24
     1f5a:	90 e0       	ldi	r25, 0x00	; 0
     1f5c:	01 96       	adiw	r24, 0x01	; 1
@@ -5567,25 +5567,25 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1f62:	19 f0       	breq	.+6      	; 0x1f6a <termCheckBuffer+0x98>
         {
             termData.producerSpeedTooHigh = TOO_HIGH; 
-    1f64:	10 92 26 05 	sts	0x0526, r1
+    1f64:	10 92 40 05 	sts	0x0540, r1
     1f68:	03 c0       	rjmp	.+6      	; 0x1f70 <termCheckBuffer+0x9e>
         }    
         else
         {
             termData.producerSpeedTooHigh = SPEED_OK;   
     1f6a:	81 e0       	ldi	r24, 0x01	; 1
-    1f6c:	80 93 26 05 	sts	0x0526, r24
+    1f6c:	80 93 40 05 	sts	0x0540, r24
         }
         
         termData.oldLastChar = checkBuffer[bufferCount-1];    
     1f70:	8b 81       	ldd	r24, Y+3	; 0x03
     1f72:	9c 81       	ldd	r25, Y+4	; 0x04
     1f74:	01 97       	sbiw	r24, 0x01	; 1
-    1f76:	85 5d       	subi	r24, 0xD5	; 213
+    1f76:	8b 5b       	subi	r24, 0xBB	; 187
     1f78:	9a 4f       	sbci	r25, 0xFA	; 250
     1f7a:	fc 01       	movw	r30, r24
     1f7c:	80 81       	ld	r24, Z
-    1f7e:	80 93 27 05 	sts	0x0527, r24
+    1f7e:	80 93 41 05 	sts	0x0541, r24
     }    
                                         /* Here we check for buffer integrity */
                                         /* to make sure that the data really  */
@@ -5593,7 +5593,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
                                         /* from A-Z as we expected            */
     termData.bufferIntegrity = INTEGRITY_OK;
     1f82:	81 e0       	ldi	r24, 0x01	; 1
-    1f84:	80 93 28 05 	sts	0x0528, r24
+    1f84:	80 93 42 05 	sts	0x0542, r24
     
     for (loopCount = 0; loopCount < (bufferCount-1); loopCount ++)
     1f88:	1a 82       	std	Y+2, r1	; 0x02
@@ -5605,7 +5605,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
         if (checkBuffer[loopCount] != 'Z')
     1f8e:	89 81       	ldd	r24, Y+1	; 0x01
     1f90:	9a 81       	ldd	r25, Y+2	; 0x02
-    1f92:	85 5d       	subi	r24, 0xD5	; 213
+    1f92:	8b 5b       	subi	r24, 0xBB	; 187
     1f94:	9a 4f       	sbci	r25, 0xFA	; 250
     1f96:	fc 01       	movw	r30, r24
     1f98:	80 81       	ld	r24, Z
@@ -5615,7 +5615,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
             if (checkBuffer[loopCount] != (checkBuffer[loopCount+1] - 1) )
     1f9e:	89 81       	ldd	r24, Y+1	; 0x01
     1fa0:	9a 81       	ldd	r25, Y+2	; 0x02
-    1fa2:	85 5d       	subi	r24, 0xD5	; 213
+    1fa2:	8b 5b       	subi	r24, 0xBB	; 187
     1fa4:	9a 4f       	sbci	r25, 0xFA	; 250
     1fa6:	fc 01       	movw	r30, r24
     1fa8:	80 81       	ld	r24, Z
@@ -5624,7 +5624,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1fae:	89 81       	ldd	r24, Y+1	; 0x01
     1fb0:	9a 81       	ldd	r25, Y+2	; 0x02
     1fb2:	01 96       	adiw	r24, 0x01	; 1
-    1fb4:	85 5d       	subi	r24, 0xD5	; 213
+    1fb4:	8b 5b       	subi	r24, 0xBB	; 187
     1fb6:	9a 4f       	sbci	r25, 0xFA	; 250
     1fb8:	fc 01       	movw	r30, r24
     1fba:	80 81       	ld	r24, Z
@@ -5636,7 +5636,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1fc6:	71 f0       	breq	.+28     	; 0x1fe4 <termCheckBuffer+0x112>
             {
                 termData.bufferIntegrity = INTEGRITY_ERROR;
-    1fc8:	10 92 28 05 	sts	0x0528, r1
+    1fc8:	10 92 42 05 	sts	0x0542, r1
     1fcc:	0b c0       	rjmp	.+22     	; 0x1fe4 <termCheckBuffer+0x112>
                                         /* Unless the byte is 'Z'; then       */
                                         /* simply check if the next byte is   */
@@ -5647,7 +5647,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1fce:	89 81       	ldd	r24, Y+1	; 0x01
     1fd0:	9a 81       	ldd	r25, Y+2	; 0x02
     1fd2:	01 96       	adiw	r24, 0x01	; 1
-    1fd4:	85 5d       	subi	r24, 0xD5	; 213
+    1fd4:	8b 5b       	subi	r24, 0xBB	; 187
     1fd6:	9a 4f       	sbci	r25, 0xFA	; 250
     1fd8:	fc 01       	movw	r30, r24
     1fda:	80 81       	ld	r24, Z
@@ -5655,7 +5655,7 @@ void  termCheckBuffer(HCBUFF hCbuff)
     1fde:	11 f0       	breq	.+4      	; 0x1fe4 <termCheckBuffer+0x112>
             {
                 termData.bufferIntegrity = INTEGRITY_ERROR;
-    1fe0:	10 92 28 05 	sts	0x0528, r1
+    1fe0:	10 92 42 05 	sts	0x0542, r1
                                         /* to make sure that the data really  */
                                         /* got put into the buffer in order   */
                                         /* from A-Z as we expected            */
@@ -5702,7 +5702,7 @@ unsigned char termIsAutomatic(void)
     2018:	cd b7       	in	r28, 0x3d	; 61
     201a:	de b7       	in	r29, 0x3e	; 62
     return (unsigned char) termData.termMode;
-    201c:	80 91 23 05 	lds	r24, 0x0523
+    201c:	80 91 3d 05 	lds	r24, 0x053D
 }
     2020:	cf 91       	pop	r28
     2022:	df 91       	pop	r29
@@ -5718,7 +5718,7 @@ void termRestartTerminal (void)
     202c:	de b7       	in	r29, 0x3e	; 62
     restartTerm = 1;
     202e:	81 e0       	ldi	r24, 0x01	; 1
-    2030:	80 93 2a 05 	sts	0x052A, r24
+    2030:	80 93 44 05 	sts	0x0544, r24
 }    
     2034:	cf 91       	pop	r28
     2036:	df 91       	pop	r29
@@ -5733,7 +5733,7 @@ void termFullScreenUpdate(void)
     203e:	cd b7       	in	r28, 0x3d	; 61
     2040:	de b7       	in	r29, 0x3e	; 62
     termData.termFullScreenUpdate = FULLSCREEN_YES;
-    2042:	10 92 29 05 	sts	0x0529, r1
+    2042:	10 92 43 05 	sts	0x0543, r1
 }    
     2046:	cf 91       	pop	r28
     2048:	df 91       	pop	r29
@@ -6099,7 +6099,7 @@ void termFullScreenUpdate(void)
     231a:	9b 83       	std	Y+3, r25	; 0x03
     231c:	8a 83       	std	Y+2, r24	; 0x02
     231e:	05 c0       	rjmp	.+10     	; 0x232a <_fpadd_parts+0x286>
-    2320:	e4 ec       	ldi	r30, 0xC4	; 196
+    2320:	ee ed       	ldi	r30, 0xDE	; 222
     2322:	f2 e0       	ldi	r31, 0x02	; 2
     2324:	03 c0       	rjmp	.+6      	; 0x232c <_fpadd_parts+0x288>
     2326:	fb 01       	movw	r30, r22
@@ -6437,7 +6437,7 @@ void termFullScreenUpdate(void)
     25d2:	ce 01       	movw	r24, r28
     25d4:	49 96       	adiw	r24, 0x19	; 25
     25d6:	02 c0       	rjmp	.+4      	; 0x25dc <__mulsf3+0x1e8>
-    25d8:	84 ec       	ldi	r24, 0xC4	; 196
+    25d8:	8e ed       	ldi	r24, 0xDE	; 222
     25da:	92 e0       	ldi	r25, 0x02	; 2
     25dc:	0e 94 48 14 	call	0x2890	; 0x2890 <__pack_f>
     25e0:	a0 96       	adiw	r28, 0x20	; 32
@@ -6761,7 +6761,7 @@ void termFullScreenUpdate(void)
     2866:	d2 f7       	brpl	.-12     	; 0x285c <__clzsi2+0x80>
     2868:	d6 01       	movw	r26, r12
     286a:	c5 01       	movw	r24, r10
-    286c:	84 53       	subi	r24, 0x34	; 52
+    286c:	8a 51       	subi	r24, 0x1A	; 26
     286e:	9d 4f       	sbci	r25, 0xFD	; 253
     2870:	fc 01       	movw	r30, r24
     2872:	80 81       	ld	r24, Z

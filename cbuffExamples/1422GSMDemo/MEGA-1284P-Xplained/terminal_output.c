@@ -137,7 +137,7 @@ const CBUFF     termLine8d[] = "Automatically";
 
 const CBUFF     termLine9a[] = "Consumer auto testBuffer read triggers on ";
 const CBUFF     termLine9c[] = " bytes free\n\r\n\r";
-const CBUFF     termLine9d[] = "                               \n\r\n\r";
+const CBUFF     termLine9d[] = "                                                         \n\r\n\r";
 
 const CBUFF     termLine11[] = "Last read buffer content:\n\r";
 
