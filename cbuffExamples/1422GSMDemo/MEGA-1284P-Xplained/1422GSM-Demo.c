@@ -1,22 +1,23 @@
 /*******************************************************************************
 *
-* CIRCULAR BUFFER DEMO PROGRAM for 1422GSM MASTERS CLASS
+* CIRCULAR BUFFER DEMO PROGRAM for MEGA-1284P XPLAINED Board from Atmel
 *
 *******************************************************************************/
 
 /*******************************************************************************
 *
-* Demos the the circular buffer module's functionality on a PIC24FJ128GA010
-* with the Explorer 16 board using the 8MHz crystal. Oscillator is XT no PLL.
-* Internal clock frequency is 8 x 4 = 32MHz
+* Demos the the circular buffer module's functionality on an ATmega1284P
+* with the MEGA-1284P Xplained board using the 11.0952MHz crystal. Oscillator
+* is "Low Power Crystal Oscillator" in the "8.0 - 16.0 MHz" frequency range 
+* setting. Internal clock frequency is therefore also 11.0952MHz.
 *
 * Filename : 1422GSM-Demo.c
 * Version : V0.01
-* Programmer(s) : Suart Cording aka CODINGHEAD 
+* Programmer(s) : Stuart Cording aka CODINGHEAD 
 * 
 ********************************************************************************
 * Note(s) : 
-* 11 June 2010  - v0.1 - First cut
+* 01 Feb 2012  - v0.1 - First cut
 *******************************************************************************/
 
 /*******************************************************************************
@@ -51,7 +52,7 @@
 *                                 LOCAL DEFINES
 *******************************************************************************/
 #define TESTBUFFERSIZE      50
-#define UARTOUTBUFFERSIZE   500
+#define UARTOUTBUFFERSIZE   250
 
 /*******************************************************************************
 *                                LOCAL CONSTANTS
@@ -82,8 +83,8 @@ static unsigned char        emptyBuffer = 0;
 /*******************************************************************************
 *                             LOCAL FUNCTION PROTOTYPES
 *******************************************************************************/
-void initUart2(void);
-void triggerUART2(HCBUFF hCbuff);
+void initUart1(void);
+void triggerUART1(HCBUFF hCbuff);
 void initTimer2(void);
 void startTimer2(void);
 void stopTimer2(void);
@@ -121,12 +122,12 @@ int main(void)
 {
     CBUFFNUM    testBufferNum;
     CBUFFNUM    uartOutBufferNum;
-    volatile unsigned int x = 0;
+//    volatile unsigned int x = 0;
                                         /* Initialise all used hardware and   */
                                         /* related interrupts                 */
     initLEDs();
-    initUart2();
-    initTimer2();
+    initUart1();
+    initTimer1();
     initInterrupts();
     termInit();
     
@@ -152,15 +153,13 @@ int main(void)
         error();
     }    
                                         /* Start Timer based data generation  */
-    startTimer2();                                       
+    startTimer1();                                       
                                         /* Output statistics                  */
     while(1)
     {
-        triggerUART2(hUartOutBuffer);
+        triggerUART1(hUartOutBuffer);
         
         updateStats(hTestBuffer);
-        
-        //termOutput(hUartOutBuffer);
 
         if(termIsAutomatic())
         {
@@ -178,7 +177,7 @@ int main(void)
         }    
         
 		termOutput(hUartOutBuffer);
-		
+#if 0
         if (x >= 0x0FFF)
         {
             //termOutput(hUartOutBuffer);
@@ -188,18 +187,61 @@ int main(void)
         {
             x++;
         }    
+#endif
     }    
 }
 
+/*******************************************************************************
+* initLEDs()
+*
+* Description: 
+*   Initialises PORTB bits 0, 1 and 2 as outputs to allow control of the 
+* on board LEDs
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
 void initLEDs(void)
 {
     DDRB = 0x07;
     PORTB = 0x00;
 }
 
-void initUart2(void)
+/*******************************************************************************
+* initUart1()
+*
+* Description: 
+*   Initialises USART1 for 57.6k baud for use with the on-board USB-CDC 
+* converter implemented in the UC3 "Board Controller"
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
+void initUart1(void)
 {
-                                        /* Make sure I/O clock to USART1 is enabled */
+                                    /* Make sure I/O clock to USART1 is enabled */
 	PRR0 &= ~(1 << PRUSART1);
 	
 	/* Set baud rate to 57.6k for 11.0592MHz crystal */
@@ -214,14 +256,14 @@ void initUart2(void)
 }
 
 /*******************************************************************************
-* triggerUART2()
+* triggerUART1()
 *
 * Description: 
-*   Checks if there is data in the selected cbuff and if the UART2TX buffer is
+*   Checks if there is data in the selected cbuff and if the UART1TX buffer is
 * empty. If both cases are true, one byte of data is then written into the 
-* U2TXREG. The resulting interrupt as a result of this single transfer will
-* trigger a further transfer of data from the cbuff into the UART2TX in the 
-* U2TXInterrupt routine.
+* UDR1 register. The resulting interrupt as a result of this single transfer
+* will trigger a further transfer of data from the cbuff into the UDR1 in the 
+* ISR(USART1_RX_vect) interrupt routine.
 *
 * See also:
 *
@@ -237,12 +279,12 @@ void initUart2(void)
 * Notes : 
 *
 *******************************************************************************/
-void triggerUART2(HCBUFF hCbuff)
+void triggerUART1(HCBUFF hCbuff)
 {
                                         /* Local storage for data read from   */
                                         /* cbuff                              */
     CBUFF data;
-                                        /* Check if U2 TX is totally empty     */
+                                        /* Check if U1 TX is totally empty     */
     if((UCSR1A & (1 << UDRE1)))
     {
                                         /* Check if there is any data to send */
@@ -258,7 +300,28 @@ void triggerUART2(HCBUFF hCbuff)
     }    
 }    
 
-void initTimer2(void)
+/*******************************************************************************
+* initTimer1()
+*
+* Description: 
+*   Initialises Timer 1 which will function as the producer, stuffing data into
+* the buffer at the rate set via the terminal window.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
+void initTimer1(void)
 {
 	                                    /* Normal Port operation, normal operation */
     TCCR1A = 0x00;
@@ -271,24 +334,108 @@ void initTimer2(void)
     OCR1A = 10800;
 }
 
-void startTimer2(void)
+/*******************************************************************************
+* startTimer1()
+*
+* Description: 
+*   Starts the Timer 1 module.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
+void startTimer1(void)
 {   
 	TCNT1 = 0;
 	                                    /* 11.0592MHz / 124 Prescaler = 10.8kHz */
     TCCR1B |= 0x05;
 }
-void stopTimer2(void)
+
+/*******************************************************************************
+* stopTimer1()
+*
+* Description: 
+*   Stops the Timer 1 clock. Timer stops counting.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
+void stopTimer1(void)
 {
     TCCR1B &= ~0x05;
 }  
-void setTimer2IntRate(void)
+
+/*******************************************************************************
+* setTimer1IntRate()
+*
+* Description: 
+*   Modifies the frequency of interrupts generated by Timer 1 based upon the 
+* users's input via the terminal interface.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
+void setTimer1IntRate(void)
 {
-    stopTimer2();
+    stopTimer1();
                                             /* T2 clock speed is 10800Hz          */        
     OCR1A = (10800 / termGetFillRate());
-    startTimer2();
+    startTimer1();
 }    
 
+/*******************************************************************************
+* initInterrupts()
+*
+* Description: 
+*   Initialises the interrupts for USART1 and Timer 1 then enables global
+* interrupts.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
 void initInterrupts(void)
 {
                                         /* T1 OCA Match Interrupt                 */
@@ -297,14 +444,33 @@ void initInterrupts(void)
 	/* Enable RX'er and TX'er */
 	UCSR1B |= (1 << RXCIE1) | (1 << RXEN1) | (1 << TXEN1);
 	
+	/* Enable global interrupts */
 	sei();	
 }
 
+/*******************************************************************************
+* updateStats()
+*
+* Description: 
+*   Updates the statistics for display in the terminal.
+*
+* See also:
+*
+* Arguments: 
+*   None
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   main()
+*
+* Notes : 
+*
+*******************************************************************************/
 void updateStats(HCBUFF hCbuff)
 {
     termUpdateBytesInBuffer(cbuffGetFill(hCbuff));
-    
-//    termSetFillRate(0xFFFF / PR2);
 }    
 
 
@@ -342,8 +508,29 @@ void error(void)
         }    
     }    
 }
-    
-/* Receive Interrupt handler */
+
+/*******************************************************************************
+* USART1_RX_vect()
+*
+* Description: 
+*   Parses the incoming data from the terminal and modifies the application
+* functionality as requested.
+*
+* See also:
+*
+* Arguments: 
+*   void
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   Hardware
+*
+* Notes : 
+*   This interrupt does not leave the global interrupt enable bit on because 
+* the hardware register UDR1 is shared with the USART1 TX vector interrupt
+*******************************************************************************/
 ISR(USART1_RX_vect)
 {
     uint8_t rxData;
@@ -365,7 +552,7 @@ ISR(USART1_RX_vect)
     {
         fillRate = termGetFillRate() + 1;
         termSetFillRate(fillRate);
-        setTimer2IntRate();
+        setTimer1IntRate();
     }
     else if (rxData == '-' || rxData == '.') /* ',' for keypad - */
     {
@@ -375,7 +562,7 @@ ISR(USART1_RX_vect)
             fillRate = 1;
         }
         termSetFillRate(fillRate);
-        setTimer2IntRate();
+        setTimer1IntRate();
     }
     else if (rxData == 'r' || rxData == 'R')
     {
@@ -391,19 +578,64 @@ ISR(USART1_RX_vect)
     }
         
     termFullScreenUpdate();
+	
+	PORTB ^= 0x01;
 }    
 
-/* Transmit interrupt handler */
-ISR(USART1_TX_vect)
+/*******************************************************************************
+* USART1_TX_vect()
+*
+* Description: 
+*   Outputs the next byte of data for the terminal output.
+*
+* See also:
+*
+* Arguments: 
+*   void
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   Hardware
+*
+* Notes : 
+*   This interrupt leaves the global interrupt enable bit on!
+*******************************************************************************/
+ISR(USART1_TX_vect, ISR_NOBLOCK)
 {
+	PORTB ^= 0x04;
+	
     CBUFF txData;
     
     if (cbuffGetByte(hUartOutBuffer, &txData) == CBUFF_GET_OK)
     {
         UDR1 = (uint8_t) txData;
     }       
+	PORTB ^= 0x04;
 }  
 
+/*******************************************************************************
+* TIMER1_COMPA_vect()
+*
+* Description: 
+*   Inserts next byte of test data into the test buffer.
+*
+* See also:
+*
+* Arguments: 
+*   void
+*
+* Returns: 
+*   void
+*
+* Callers: 
+*   Hardware
+*
+* Notes : 
+*   This interrupt does not leave the global interrupt enable bit on because 
+* Timer 1 has the highest priority of all enabled interrupts.
+*******************************************************************************/
 ISR(TIMER1_COMPA_vect)
 {
     static unsigned char testData = 'A';
@@ -419,6 +651,8 @@ ISR(TIMER1_COMPA_vect)
     {
         testData = 'A';        
     }
+	
+	PORTB ^= 0x02;
 }  
 
 

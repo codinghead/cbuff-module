@@ -28,7 +28,7 @@
       <ToolNumber>J30200008659</ToolNumber>
       <Channel>
         <host>127.0.0.1</host>
-        <port>1675</port>
+        <port>1056</port>
         <ssl>False</ssl>
       </Channel>
       <ToolOptions>
