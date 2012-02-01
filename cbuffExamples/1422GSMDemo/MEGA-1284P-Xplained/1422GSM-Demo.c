@@ -528,8 +528,7 @@ void error(void)
 *   Hardware
 *
 * Notes : 
-*   This interrupt does not leave the global interrupt enable bit on because 
-* the hardware register UDR1 is shared with the USART1 TX vector interrupt
+*    
 *******************************************************************************/
 ISR(USART1_RX_vect)
 {
@@ -600,9 +599,9 @@ ISR(USART1_RX_vect)
 *   Hardware
 *
 * Notes : 
-*   This interrupt leaves the global interrupt enable bit on!
+*   
 *******************************************************************************/
-ISR(USART1_TX_vect, ISR_NOBLOCK)
+ISR(USART1_TX_vect)
 {
 	PORTB ^= 0x04;
 	
@@ -633,8 +632,7 @@ ISR(USART1_TX_vect, ISR_NOBLOCK)
 *   Hardware
 *
 * Notes : 
-*   This interrupt does not leave the global interrupt enable bit on because 
-* Timer 1 has the highest priority of all enabled interrupts.
+*   
 *******************************************************************************/
 ISR(TIMER1_COMPA_vect)
 {
