@@ -21,7 +21,7 @@
 *
 * \section contactInfo Contact Information
 * For more information and the latest release, please visit this projects home
-* page at http://cbuff-module.kenai.com/
+* page at http://codinghead.github.com/cbuff-module
 * To participate in the project or for other enquiries, please contact Stuart
 * Cording at codinghead@gmail.com
 *
