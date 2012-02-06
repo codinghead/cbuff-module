@@ -1,0 +1,153 @@
+\hypertarget{group___c_b_u_f_fput_get_functions}{
+\section{Put/Get Functions}
+\label{group___c_b_u_f_fput_get_functions}\index{Put/Get Functions@{Put/Get Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} data)
+\begin{DoxyCompactList}\small\item\em Puts a single CBUFF into the buffer. \item\end{DoxyCompactList}\item 
+unsigned char \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Removes and returns one CBUFF from chosen buffer. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}{cbuffPutArray} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, const \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$data, unsigned int noOfBytes)
+\begin{DoxyCompactList}\small\item\em Allows more than one piece of data to be written into the buffer. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}{cbuffGetArray} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$data, unsigned int noOfBytes)
+\begin{DoxyCompactList}\small\item\em Allows more than one piece of data to be read from the buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to put data into and retrieve date from buffers that have been created and open. Data can be either added/retrieved on a single piece of data basis, or multiple pieces of data basis. 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}{
+\index{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffGetArray@{cbuffGetArray}}
+\index{cbuffGetArray@{cbuffGetArray}!CBUFFputGetFunctions@{CBUFFputGetFunctions}}
+\subsubsection[{cbuffGetArray}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cbuffGetArray (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{{\bf CBUFF} $\ast$}]{ data, }
+\item[{unsigned int}]{ noOfBytes}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}
+
+
+Allows more than one piece of data to be read from the buffer. 
+
+This function allows the caller to read as much data as possible from the chosen buffer object until either all the data has been read, or the destination array is full.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}{cbuffPutArray()}, \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()}, \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance \item[{\em data}]-\/ pointer to location to store data read from buffer \item[{\em noOfBytes}]-\/ number of bytes being requested to be read from buffer\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes actually read from the buffer (may be 0 if buffer is empty)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function
+\item This function doesn't allow the buffer to underflow
+\item User must ensure that CBUFF $\ast$ data points to a space of free memory large enough to accomodate noOfBytes of data 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\hypertarget{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{
+\index{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffGetByte@{cbuffGetByte}}
+\index{cbuffGetByte@{cbuffGetByte}!CBUFFputGetFunctions@{CBUFFputGetFunctions}}
+\subsubsection[{cbuffGetByte}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char cbuffGetByte (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{{\bf CBUFF} $\ast$}]{ data}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}
+
+
+Removes and returns one CBUFF from chosen buffer. 
+
+A single byte is removed from the buffer indicated by hCircBuffer and written into $\ast$ data. This function will not allow the buffer to underflow. The buffer must exist and be open before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}{cbuffGetArray()}, \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()}, \hyperlink{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}{cbuffPutArray()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance \item[{\em data}]-\/ pointer to variable to store read byte\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em \hyperlink{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}{CBUFF\_\-GET\_\-OK}}]-\/ operation completed successfully \item[{\em \hyperlink{cbuff_8h_ad66419f570e592a335226a552a13fea6}{CBUFF\_\-GET\_\-FAIL}}]-\/ operation failed due to buffer being empty\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item openCircBuffer() must have been successfully called before using this function
+\item This function does not allow a buffer underflow
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Todo}]Check if $\ast$data doesn't need a const to prevent the function modifying the pointer. \end{Desc}
+\hypertarget{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}{
+\index{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffPutArray@{cbuffPutArray}}
+\index{cbuffPutArray@{cbuffPutArray}!CBUFFputGetFunctions@{CBUFFputGetFunctions}}
+\subsubsection[{cbuffPutArray}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cbuffPutArray (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{const {\bf CBUFF} $\ast$}]{ data, }
+\item[{unsigned int}]{ noOfBytes}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}
+
+
+Allows more than one piece of data to be written into the buffer. 
+
+This function allows the caller to write as much data as possible into the chosen buffer object until all the data is consumed, or the buffer becomes full.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}{cbuffGetArray()}, \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()}, \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance \item[{\em data}]-\/ pointer to data to be written to buffer \item[{\em noOfBytes}]-\/ number of bytes being requested to write into buffer\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes actually written in the buffer (may be 0 if buffer is full)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function
+\item This function will not allow the buffer to overflow 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\hypertarget{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{
+\index{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffPutByte@{cbuffPutByte}}
+\index{cbuffPutByte@{cbuffPutByte}!CBUFFputGetFunctions@{CBUFFputGetFunctions}}
+\subsubsection[{cbuffPutByte}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char cbuffPutByte (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{{\bf CBUFF}}]{ data}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}
+
+
+Puts a single CBUFF into the buffer. 
+
+The CBUFF value provided will be added to the buffer requested. This function will fail only if the buffer is full.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fput_get_functions_ga96aa549fceaf66b586b1527d59715092}{cbuffPutArray()}, \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()}, \hyperlink{group___c_b_u_f_fput_get_functions_ga910285aaa6134396f061ab0e7031e826}{cbuffGetArray()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle of the open buffer to be used \item[{\em data}]-\/ the CBUFF value to be added to the buffer\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em \hyperlink{cbuff_8h_a148976599d104ae1b1af2445c017a6d2}{CBUFF\_\-PUT\_\-OK}}]-\/ operation was successful \item[{\em \hyperlink{cbuff_8h_a5b026220aaf3feea98db7746d2fd5438}{CBUFF\_\-PUT\_\-FAIL}}]-\/ operation failed due to buffer being full\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item \hyperlink{group___c_b_u_f_fopen_c_lose_functions_ga4b124282950602630a84fb4dded3f452}{cbuffOpen()} must have been successfully called before using this function 
+\end{DoxyEnumerate}
+\end{DoxyNote}

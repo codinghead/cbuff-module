@@ -1,0 +1,71 @@
+\hypertarget{group___c_b_u_f_finit_deinit_functions}{
+\section{Initialise/Deinitialise Functions}
+\label{group___c_b_u_f_finit_deinit_functions}\index{Initialise/Deinitialise Functions@{Initialise/Deinitialise Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___c_b_u_f_finit_deinit_functions_ga7e22e07e92de2e55ba4127fc542f04d1}{cbuffInit} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the circular buffer module. \item\end{DoxyCompactList}\item 
+void \hyperlink{group___c_b_u_f_finit_deinit_functions_gaa80505d00c9fa33d93abd2e2cf3074b8}{cbuffDeinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialises the circular buffer module. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to initialise and deinitialise the module. 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_finit_deinit_functions_gaa80505d00c9fa33d93abd2e2cf3074b8}{
+\index{CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}!cbuffDeinit@{cbuffDeinit}}
+\index{cbuffDeinit@{cbuffDeinit}!CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}}
+\subsubsection[{cbuffDeinit}]{\setlength{\rightskip}{0pt plus 5cm}void cbuffDeinit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_finit_deinit_functions_gaa80505d00c9fa33d93abd2e2cf3074b8}
+
+
+Deinitialises the circular buffer module. 
+
+Initialises all global variables needed by the CBUFF module. Must be called before using any of the other functions in this module. No check will be made to ensure that you did actually initialise the module before using it, so it is up to you!
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_finit_deinit_functions_ga7e22e07e92de2e55ba4127fc542f04d1}{cbuffInit()}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item Caller is reposible for returning all current handles and deallocating all buffers before calling \hyperlink{group___c_b_u_f_finit_deinit_functions_gaa80505d00c9fa33d93abd2e2cf3074b8}{cbuffDeinit()} 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item The content of any buffers will remain in memory after this function is called. If you have any data there that you don't want other to see, ensure that you clear the buffer's contents before deinitialising this module. 
+\end{DoxyItemize}
+\end{DoxyWarning}
+\hypertarget{group___c_b_u_f_finit_deinit_functions_ga7e22e07e92de2e55ba4127fc542f04d1}{
+\index{CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}!cbuffInit@{cbuffInit}}
+\index{cbuffInit@{cbuffInit}!CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}}
+\subsubsection[{cbuffInit}]{\setlength{\rightskip}{0pt plus 5cm}void cbuffInit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_finit_deinit_functions_ga7e22e07e92de2e55ba4127fc542f04d1}
+
+
+Initialises the circular buffer module. 
+
+Initialises all global variables needed by the CBUFF module. Must be called before using any of the other functions in this module. No check will be made to ensure that you did actually initialise the module before using it, so it is up to you!
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_finit_deinit_functions_gaa80505d00c9fa33d93abd2e2cf3074b8}{cbuffDeinit()}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item Must be called before using any functions in the CBUFF module 
+\end{DoxyEnumerate}
+\end{DoxyNote}

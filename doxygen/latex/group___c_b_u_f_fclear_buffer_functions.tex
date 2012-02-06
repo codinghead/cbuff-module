@@ -1,0 +1,42 @@
+\hypertarget{group___c_b_u_f_fclear_buffer_functions}{
+\section{Clear Buffer Functions}
+\label{group___c_b_u_f_fclear_buffer_functions}\index{Clear Buffer Functions@{Clear Buffer Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___c_b_u_f_fclear_buffer_functions_ga93457699516cf451eb9736952f1760d0}{cbuffClearBuffer} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer)
+\begin{DoxyCompactList}\small\item\em Resets the buffers head and tail pointers and marks buffer as empty. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to reset the chosen buffer back to an empty state. 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_fclear_buffer_functions_ga93457699516cf451eb9736952f1760d0}{
+\index{CBUFFclearBufferFunctions@{CBUFFclearBufferFunctions}!cbuffClearBuffer@{cbuffClearBuffer}}
+\index{cbuffClearBuffer@{cbuffClearBuffer}!CBUFFclearBufferFunctions@{CBUFFclearBufferFunctions}}
+\subsubsection[{cbuffClearBuffer}]{\setlength{\rightskip}{0pt plus 5cm}void cbuffClearBuffer (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fclear_buffer_functions_ga93457699516cf451eb9736952f1760d0}
+
+
+Resets the buffers head and tail pointers and marks buffer as empty. 
+
+The head and tail pointers in the requested buffer will be reset to point at the beginning of the buffer and the buffer will be marked as empty. The data currently in the buffer is, however, $\ast$not$\ast$ deleted.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function.
+\item The associated buffer itself is not emptied. Any data in the buffer will still be in memory after this function is called, although it won't be accessible by this module anymore because the module thinks the buffer is empty.
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]Consider renaming this function to 'cbuffResetBuffer()' and using this function name for the function to acutally clear all of the data in the buffer. \end{Desc}

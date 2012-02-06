@@ -1,0 +1,77 @@
+\hypertarget{group___c_b_u_f_fspace_fill_functions}{
+\section{Space/Fill Functions}
+\label{group___c_b_u_f_fspace_fill_functions}\index{Space/Fill Functions@{Space/Fill Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{group___c_b_u_f_fspace_fill_functions_ga4662fd028068ea2363b9a933a20e48eb}{cbuffGetSpace} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer)
+\begin{DoxyCompactList}\small\item\em Returns how much more data room the buffer can accept. \item\end{DoxyCompactList}\item 
+unsigned int \hyperlink{group___c_b_u_f_fspace_fill_functions_ga206387356184cde9e24b7c2b28d2850f}{cbuffGetFill} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer)
+\begin{DoxyCompactList}\small\item\em Returns how much data is in the buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to determine how full a buffer is, or how much space remains in the chosen buffer. 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_fspace_fill_functions_ga206387356184cde9e24b7c2b28d2850f}{
+\index{CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}!cbuffGetFill@{cbuffGetFill}}
+\index{cbuffGetFill@{cbuffGetFill}!CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}}
+\subsubsection[{cbuffGetFill}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cbuffGetFill (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fspace_fill_functions_ga206387356184cde9e24b7c2b28d2850f}
+
+
+Returns how much data is in the buffer. 
+
+Use this function to find out how much space has been used in the buffer or, alternatively, how much data the buffer contains.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fspace_fill_functions_ga4662fd028068ea2363b9a933a20e48eb}{cbuffGetSpace()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of CBUFF bytes of data in the buffer
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\hypertarget{group___c_b_u_f_fspace_fill_functions_ga4662fd028068ea2363b9a933a20e48eb}{
+\index{CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}!cbuffGetSpace@{cbuffGetSpace}}
+\index{cbuffGetSpace@{cbuffGetSpace}!CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}}
+\subsubsection[{cbuffGetSpace}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int cbuffGetSpace (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fspace_fill_functions_ga4662fd028068ea2363b9a933a20e48eb}
+
+
+Returns how much more data room the buffer can accept. 
+
+Use this function to find out how much space remains in the chosen buffer.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fspace_fill_functions_ga206387356184cde9e24b7c2b28d2850f}{cbuffGetFill()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+amount of space remaining in the buffer
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function 
+\end{DoxyEnumerate}
+\end{DoxyNote}

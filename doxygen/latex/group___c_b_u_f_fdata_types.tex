@@ -1,0 +1,42 @@
+\hypertarget{group___c_b_u_f_fdata_types}{
+\section{Data Types Needed For CBUFF Use}
+\label{group___c_b_u_f_fdata_types}\index{Data Types Needed For CBUFF Use@{Data Types Needed For CBUFF Use}}
+}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF}
+\item 
+typedef unsigned int \hyperlink{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}{CBUFFNUM}
+\item 
+typedef struct CBUFFTYPE \hyperlink{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{CBUFFOBJ}
+\item 
+typedef \hyperlink{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{CBUFFOBJ} $\ast$ \hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data types the user will be required to use to make use of the CBUFF Module's functions. 
+
+\subsection{Typedef Documentation}
+\hypertarget{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{
+\index{CBUFFdataTypes@{CBUFFdataTypes}!CBUFF@{CBUFF}}
+\index{CBUFF@{CBUFF}!CBUFFdataTypes@{CBUFFdataTypes}}
+\subsubsection[{CBUFF}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CBUFF}}}
+\label{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}
+Data type for use to create arrays for use as circular buffers with the CBUFF module \hypertarget{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}{
+\index{CBUFFdataTypes@{CBUFFdataTypes}!CBUFFNUM@{CBUFFNUM}}
+\index{CBUFFNUM@{CBUFFNUM}!CBUFFdataTypes@{CBUFFdataTypes}}
+\subsubsection[{CBUFFNUM}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CBUFFNUM}}}
+\label{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}
+Used to hold the unique buffer number that the buffer was assigned at creation with \hyperlink{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{cbuffCreate()}, to define which buffer should be used when acquiring a handle with \hyperlink{group___c_b_u_f_fopen_c_lose_functions_ga4b124282950602630a84fb4dded3f452}{cbuffOpen()} and which buffer should be destroyed with \hyperlink{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{cbuffDestroy()} \hypertarget{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{
+\index{CBUFFdataTypes@{CBUFFdataTypes}!CBUFFOBJ@{CBUFFOBJ}}
+\index{CBUFFOBJ@{CBUFFOBJ}!CBUFFdataTypes@{CBUFFdataTypes}}
+\subsubsection[{CBUFFOBJ}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CBUFFOBJ}}}
+\label{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}
+The CBUFFOBJ data type is used to create variables that hold all the information needed by the CBUFF module to keep track of the status of the buffer that has been created. One variable is needed per buffer created. Used by \hyperlink{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{cbuffCreate()} \hypertarget{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{
+\index{CBUFFdataTypes@{CBUFFdataTypes}!HCBUFF@{HCBUFF}}
+\index{HCBUFF@{HCBUFF}!CBUFFdataTypes@{CBUFFdataTypes}}
+\subsubsection[{HCBUFF}]{\setlength{\rightskip}{0pt plus 5cm}{\bf HCBUFF}}}
+\label{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}
+The HCBUFF data type is used to create variables to store handles to buffers that have been opened with \hyperlink{group___c_b_u_f_fopen_c_lose_functions_ga4b124282950602630a84fb4dded3f452}{cbuffOpen()}, or to close them with \hyperlink{group___c_b_u_f_fopen_c_lose_functions_ga66a96e9abf5e7ea12779edb9c49c3043}{cbuffClose()} 

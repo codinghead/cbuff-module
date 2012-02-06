@@ -1,0 +1,42 @@
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics{cbuff-module_final_small}}
+\end{DoxyImageNoCaption}
+ \hypertarget{main_intro}{}\section{Introduction}\label{main_intro}
+The CBUFF Module is designed to be a universal 'unsigned char' circular buffer module.
+
+It is designed to be processor architecture independant, and allows the programmer using it to maintain control of the resources the module needs whilst only requiring minimal resources itself. Specifically defined for microcontroller based applications with minimal flash and RAM memory.\hypertarget{main_contactInfo}{}\section{Contact Information}\label{main_contactInfo}
+For more information and the latest release, please visit this projects home page at \href{http://cbuff-module.kenai.com/}{\tt http://cbuff-\/module.kenai.com/} To participate in the project or for other enquiries, please contact Stuart Cording at \href{mailto:codinghead@gmail.com}{\tt codinghead@gmail.com}\hypertarget{main_license}{}\section{Licensing Information}\label{main_license}
+Copyright (c) 2010 Stuart Cording
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\begin{DoxyAuthor}{Author}
+Stuart Cording aka CODINGHEAD
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item 7th Nov 2010 -\/ removed versioning info from file -\/ versioning is now done in GIT
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyItemize}
+\item V0.03 7th May 2010 -\/ renamed all API calls and typedefs so that circular buffer related function names, data types etc. begin with \char`\"{}cbuff\char`\"{}.
+\begin{DoxyItemize}
+\item removed Summary of CBUFF\_\-OVERRUN in \hyperlink{cbuff_8h}{cbuff.h} as it was not being used (possibilty of overrun was removed in V0.01)
+\item moved usage of CBUFF\_\-OPEN into the CBUFFOBJ-\/$>$localFlag instead of using CBUFFOBJ-\/$>$bufferNumber high bit.
+\item Clarified and improved comments for heading of each function
+\item Fixed bug in cbuffDestroy which caused \char`\"{}Bus Exception.
+ Unimplemented RAM memory access\char`\"{} on the PIC32 due to pointer to NULL being used for the evaluation of the \char`\"{}bufferNumber\char`\"{} element. Problem should have been apparent on other architectures too.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item V0.02 16th March 2010 -\/ re-\/wrote the API to allow the creation of buffers to which a handle can then be obtained with the \char`\"{}open\char`\"{} function" 
+\end{DoxyItemize}

@@ -1,0 +1,75 @@
+\hypertarget{cbuff_8h}{
+\section{cbuff.h File Reference}
+\label{cbuff_8h}\index{cbuff.h@{cbuff.h}}
+}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}{CBUFF\_\-GET\_\-OK}~0x01
+\item 
+\#define \hyperlink{cbuff_8h_ad66419f570e592a335226a552a13fea6}{CBUFF\_\-GET\_\-FAIL}~0x00
+\item 
+\#define \hyperlink{cbuff_8h_a148976599d104ae1b1af2445c017a6d2}{CBUFF\_\-PUT\_\-OK}~0x01
+\item 
+\#define \hyperlink{cbuff_8h_a5b026220aaf3feea98db7746d2fd5438}{CBUFF\_\-PUT\_\-FAIL}~0x00
+\item 
+\#define \hyperlink{cbuff_8h_a8fbedf468c74362ee7a8a8742e42b4f2}{CBUFF\_\-DESTROY\_\-FAIL}~0x00
+\item 
+\#define \hyperlink{cbuff_8h_ad5e68ebca9bbf5437cbe5e2b205a37af}{CBUFF\_\-DESTROY\_\-OK}~0x01
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF}
+\item 
+typedef unsigned int \hyperlink{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}{CBUFFNUM}
+\item 
+typedef struct CBUFFTYPE \hyperlink{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{CBUFFOBJ}
+\item 
+typedef \hyperlink{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{CBUFFOBJ} $\ast$ \hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Stuart Cording aka CODINGHEAD
+\end{DoxyAuthor}
+Provides a universal 'unsigned char' circular buffer. All contents within this file are 'public' and to be used by end user
+
+\begin{DoxyNote}{Note}
+See the git versioning notes for version information 
+\end{DoxyNote}
+
+
+\subsection{Define Documentation}
+\hypertarget{cbuff_8h_a8fbedf468c74362ee7a8a8742e42b4f2}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-DESTROY\_\-FAIL@{CBUFF\_\-DESTROY\_\-FAIL}}
+\index{CBUFF\_\-DESTROY\_\-FAIL@{CBUFF\_\-DESTROY\_\-FAIL}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-DESTROY\_\-FAIL}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-DESTROY\_\-FAIL~0x00}}
+\label{cbuff_8h_a8fbedf468c74362ee7a8a8742e42b4f2}
+Signals that \hyperlink{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{cbuffDestroy()} failed to deallocate the requested buffer object \hypertarget{cbuff_8h_ad5e68ebca9bbf5437cbe5e2b205a37af}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-DESTROY\_\-OK@{CBUFF\_\-DESTROY\_\-OK}}
+\index{CBUFF\_\-DESTROY\_\-OK@{CBUFF\_\-DESTROY\_\-OK}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-DESTROY\_\-OK}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-DESTROY\_\-OK~0x01}}
+\label{cbuff_8h_ad5e68ebca9bbf5437cbe5e2b205a37af}
+Signals that \hyperlink{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{cbuffDestroy()} successfully deallocated the requested object \hypertarget{cbuff_8h_ad66419f570e592a335226a552a13fea6}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-GET\_\-FAIL@{CBUFF\_\-GET\_\-FAIL}}
+\index{CBUFF\_\-GET\_\-FAIL@{CBUFF\_\-GET\_\-FAIL}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-GET\_\-FAIL}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-GET\_\-FAIL~0x00}}
+\label{cbuff_8h_ad66419f570e592a335226a552a13fea6}
+Signals that \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()}, \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}{cbuffPeekTail()}, and \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}{cbuffPeekHead()} functions failed to read a byte \hypertarget{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-GET\_\-OK@{CBUFF\_\-GET\_\-OK}}
+\index{CBUFF\_\-GET\_\-OK@{CBUFF\_\-GET\_\-OK}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-GET\_\-OK}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-GET\_\-OK~0x01}}
+\label{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}
+Signals that \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()}, \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}{cbuffPeekTail()}, and \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}{cbuffPeekHead()} functions successfully read a byte \hypertarget{cbuff_8h_a5b026220aaf3feea98db7746d2fd5438}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-PUT\_\-FAIL@{CBUFF\_\-PUT\_\-FAIL}}
+\index{CBUFF\_\-PUT\_\-FAIL@{CBUFF\_\-PUT\_\-FAIL}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-PUT\_\-FAIL}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-PUT\_\-FAIL~0x00}}
+\label{cbuff_8h_a5b026220aaf3feea98db7746d2fd5438}
+Signals that \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()} function failed to write a byte -\/ most likely a sign that the chosen buffer is full \hypertarget{cbuff_8h_a148976599d104ae1b1af2445c017a6d2}{
+\index{cbuff.h@{cbuff.h}!CBUFF\_\-PUT\_\-OK@{CBUFF\_\-PUT\_\-OK}}
+\index{CBUFF\_\-PUT\_\-OK@{CBUFF\_\-PUT\_\-OK}!cbuff.h@{cbuff.h}}
+\subsubsection[{CBUFF\_\-PUT\_\-OK}]{\setlength{\rightskip}{0pt plus 5cm}\#define CBUFF\_\-PUT\_\-OK~0x01}}
+\label{cbuff_8h_a148976599d104ae1b1af2445c017a6d2}
+Signals that \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()} function successfully wrote a byte 

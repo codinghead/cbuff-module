@@ -1,0 +1,84 @@
+\hypertarget{group___c_b_u_f_fpeek_buffer_functions}{
+\section{Peek Buffer Head/Tail Functions}
+\label{group___c_b_u_f_fpeek_buffer_functions}\index{Peek Buffer Head/Tail Functions@{Peek Buffer Head/Tail Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}{cbuffPeekTail} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Returns value of the next CBUFF that would be read from buffer without actually removing it. \item\end{DoxyCompactList}\item 
+unsigned char \hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}{cbuffPeekHead} (\hyperlink{group___c_b_u_f_fdata_types_ga554880d758aa53ae40930fbb49412e60}{HCBUFF} hCircBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Returns value of the last data item that was stored in the buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to peek into the head or the tail of the chosen buffer. These functions return the last data value written into the buffer or the next data value that would be read out of the buffer if it were to be read. 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}{
+\index{CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}!cbuffPeekHead@{cbuffPeekHead}}
+\index{cbuffPeekHead@{cbuffPeekHead}!CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}}
+\subsubsection[{cbuffPeekHead}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char cbuffPeekHead (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{{\bf CBUFF} $\ast$}]{ data}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}
+
+
+Returns value of the last data item that was stored in the buffer. 
+
+This function allows the caller to see the most recent piece of data that was written into the buffer (using \hyperlink{group___c_b_u_f_fput_get_functions_ga999b3c089262828104f8e8e10cefb5cd}{cbuffPutByte()} for example). This could be useful when evaluating data received that uses some sort of 'stop' or 'start' byte as part of the protocol and you want advance warning of this as the data is put into the buffer e.g. new NMEA GPS Data always starts with a ';'
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}{cbuffPeekTail()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance \item[{\em data}]-\/ pointer to variable to store read byte\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em \hyperlink{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}{CBUFF\_\-GET\_\-OK}}]-\/ operation completed successfully \item[{\em \hyperlink{cbuff_8h_ad66419f570e592a335226a552a13fea6}{CBUFF\_\-GET\_\-FAIL}}]-\/ operation failed due to buffer being empty\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]Check if $\ast$data doesn't need a const to prevent the function modifying the pointer. \end{Desc}
+\hypertarget{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}{
+\index{CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}!cbuffPeekTail@{cbuffPeekTail}}
+\index{cbuffPeekTail@{cbuffPeekTail}!CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}}
+\subsubsection[{cbuffPeekTail}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char cbuffPeekTail (
+\begin{DoxyParamCaption}
+\item[{{\bf HCBUFF}}]{ hCircBuffer, }
+\item[{{\bf CBUFF} $\ast$}]{ data}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fpeek_buffer_functions_ga4b431b4317e2f75b549b062530ecd9a3}
+
+
+Returns value of the next CBUFF that would be read from buffer without actually removing it. 
+
+This function allows the caller to see what piece if data would be returned if it were to be removed from the buffer (using \hyperlink{group___c_b_u_f_fput_get_functions_gafef77f05cad83c77f2a52e2e7477e3bc}{cbuffGetByte()} for example). This is particularly useful when evaluating data received that uses some sort of 'stop' or 'start' byte as part of the protocol e.g. new NMEA GPS Data always starts with a ';'
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fpeek_buffer_functions_ga52d817b014ba86d30009afd4197392bf}{cbuffPeekHead()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em hCircBuffer}]-\/ handle to HCBUFF variable for this buffer instance \item[{\em data}]-\/ pointer to variable to store read byte\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em \hyperlink{cbuff_8h_aed4d79f9c31ace44bb97266e341efa3c}{CBUFF\_\-GET\_\-OK}}]-\/ operation completed successfully \item[{\em \hyperlink{cbuff_8h_ad66419f570e592a335226a552a13fea6}{CBUFF\_\-GET\_\-FAIL}}]-\/ operation failed due to buffer being empty\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item openCircBuffer() must have been successfully called before using this function
+\item This function does not allow a buffer underflow
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\begin{Desc}
+\item[\hyperlink{todo__todo000003}{Todo}]Check if $\ast$data doesn't need a const to prevent the function modifying the pointer. \end{Desc}

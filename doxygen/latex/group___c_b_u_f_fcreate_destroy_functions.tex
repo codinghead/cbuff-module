@@ -1,0 +1,82 @@
+\hypertarget{group___c_b_u_f_fcreate_destroy_functions}{
+\section{Create/Destroy Functions}
+\label{group___c_b_u_f_fcreate_destroy_functions}\index{Create/Destroy Functions@{Create/Destroy Functions}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}{CBUFFNUM} \hyperlink{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{cbuffCreate} (\hyperlink{group___c_b_u_f_fdata_types_ga4c6278cce108e0ee8bb1b9c609d0cbf4}{CBUFF} $\ast$buffer, unsigned int sizeOfBuffer, \hyperlink{group___c_b_u_f_fdata_types_ga2cbf79f31747b0f5cf01750d1d42d12f}{CBUFFOBJ} $\ast$newCircBufferObj)
+\begin{DoxyCompactList}\small\item\em Creates a new buffer object and adds it to the global linked list of buffers. \item\end{DoxyCompactList}\item 
+unsigned char \hyperlink{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{cbuffDestroy} (\hyperlink{group___c_b_u_f_fdata_types_gacaab9c1baaec5739b9e9629c51fd7258}{CBUFFNUM} bufferNumber)
+\begin{DoxyCompactList}\small\item\em Destroys an exisiting buffer object and removes it to the global linked list of buffers. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+CBUFF Module's functions used to create and destroy buffer objects 
+
+\subsection{Function Documentation}
+\hypertarget{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{
+\index{CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}!cbuffCreate@{cbuffCreate}}
+\index{cbuffCreate@{cbuffCreate}!CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}}
+\subsubsection[{cbuffCreate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CBUFFNUM} cbuffCreate (
+\begin{DoxyParamCaption}
+\item[{{\bf CBUFF} $\ast$}]{ buffer, }
+\item[{unsigned int}]{ sizeOfBuffer, }
+\item[{{\bf CBUFFOBJ} $\ast$}]{ newCircBufferObj}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}
+
+
+Creates a new buffer object and adds it to the global linked list of buffers. 
+
+New buffer object will be added to the global linked list of buffers providing that there is space for another buffer. In total 16 buffers can be supported simultaneously.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{cbuffDestroy()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em buffer}]-\/ a buffer defined by the caller \item[{\em sizeOfBuffer}]-\/ size of aformentioned buffer in bytes \item[{\em newCircBufferObj}]-\/ buffer object to insert into linked list of buffer objects\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em 0}]-\/ failed to create the buffer \item[{\em $>$=1}]-\/ the number asigned to the buffer created\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item The CBUFF module can only handle up to a maximum of 16 buffers
+\item It is recommended that the 'sizeOfBuffer' should always be at least 3 or greater to be useful. This will, however, not be checked by this function. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\hypertarget{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}{
+\index{CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}!cbuffDestroy@{cbuffDestroy}}
+\index{cbuffDestroy@{cbuffDestroy}!CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}}
+\subsubsection[{cbuffDestroy}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char cbuffDestroy (
+\begin{DoxyParamCaption}
+\item[{{\bf CBUFFNUM}}]{ bufferNumber}
+\end{DoxyParamCaption}
+)}}
+\label{group___c_b_u_f_fcreate_destroy_functions_ga27c64188592188aca24828740198f21c}
+
+
+Destroys an exisiting buffer object and removes it to the global linked list of buffers. 
+
+The buffer object will be removed from the global linked list of buffers, providing that the buffer exists and that the buffer has been closed.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{cbuffCreate()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bufferNumber}]-\/ number of buffer to destroy as returned by \hyperlink{group___c_b_u_f_fopen_c_lose_functions_ga66a96e9abf5e7ea12779edb9c49c3043}{cbuffClose()}\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em CBUFF\_\-DESTROY\_\-FAIL}]-\/ failed to destroy requested object \item[{\em CBUFF\_\-DESTROY\_\-OK}]-\/ destroyed requested object successfully\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyEnumerate}
+\item Caller must have 'created' (\hyperlink{group___c_b_u_f_fcreate_destroy_functions_gaeeaed884818fd76417da6347fd033a44}{cbuffCreate()}) at least one circular buffer object before calling this function
+\item Destroying a buffer object does not delete the buffer's content, nor free the associated CBUFFOBJ memory used
+\item An open buffer cannot be destroyed. Such a case returns a FAIL 
+\end{DoxyEnumerate}
+\end{DoxyNote}
