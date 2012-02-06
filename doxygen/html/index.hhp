@@ -1,0 +1,43 @@
+[OPTIONS]
+Compiled file=..\chm-help\cbuff-help.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=main.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=CBUFF-Module
+
+[WINDOWS]
+main="CBUFF-Module","index.hhc","index.hhk","main.html","main.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+main.html
+pages.html
+cbuff_8h_source.html
+cbuff_8c.html
+cbuff_8h.html
+todo.html
+group___c_b_u_f_finit_deinit_functions.html
+group___c_b_u_f_fcreate_destroy_functions.html
+group___c_b_u_f_fopen_c_lose_functions.html
+group___c_b_u_f_fput_get_functions.html
+group___c_b_u_f_fspace_fill_functions.html
+group___c_b_u_f_fclear_buffer_functions.html
+group___c_b_u_f_fpeek_buffer_functions.html
+group___c_b_u_f_funput_unget_functions.html
+group___c_b_u_f_fdata_types.html
+modules.html
+files.html
+globals.html
+globals_func.html
+globals_type.html
+globals_defs.html
+tabs.css
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
+nav_h.png
+nav_f.png
