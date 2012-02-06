@@ -54,6 +54,7 @@ DOM/*.js
 # Ignore documentation files in the doxygen directory created by doxygen
 doxygen/*.txt
 doxygen/html/*
+doxygen/html/search/*
 doxygen/latex/*
 doxygen/rtf/*
 
