@@ -36,9 +36,9 @@ file_000=no
 file_001=no
 file_002=no
 [FILE_INFO]
-file_000=C:\msysgit\dev\cbuff\cbuff_module\cbuff.c
-file_001=C:\msysgit\dev\cbuff\cbuffTest\circBufferTest.c
-file_002=C:\msysgit\dev\cbuff\cbuff_module\cbuff.h
+file_000=..\..\cbuff_module\cbuff.c
+file_001=..\circBufferTest.c
+file_002=..\..\cbuff_module\cbuff.h
 [SUITE_INFO]
 suite_guid={479DDE59-4D56-455E-855E-FFF59A3DB57E}
 suite_state=

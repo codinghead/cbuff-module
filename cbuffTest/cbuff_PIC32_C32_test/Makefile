@@ -1,0 +1,26 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: cbuffTest_PIC32_C32.mcp
+# Date: Tue Nov 01 20:19:21 2011
+
+AS = pic32-as.exe
+CC = pic32-gcc.exe
+LD = pic32-ld.exe
+AR = pic32-ar.exe
+HX = pic32-bin2hex.exe
+RM = rm
+
+cbuffTest_PIC32_C32.hex : cbuffTest_PIC32_C32.elf
+	$(HX) "cbuffTest_PIC32_C32.elf"
+
+cbuffTest_PIC32_C32.elf : cbuff.o circBufferTest.o
+	$(CC) -mprocessor=32MX795F512H "cbuff.o" "circBufferTest.o" -o"cbuffTest_PIC32_C32.elf" -Wl,-L"C:\Program Files\Microchip\MPLAB C32\lib",-L"C:\Program Files\Microchip\MPLAB C32\pic32mx\lib",--defsym=__MPLAB_BUILD=1,-Map="cbuffTest_PIC32_C32.map"
+
+cbuff.o : ../../cbuff_module/cbuff.c ../../cbuff_module/cbuff.h
+	$(CC) -mprocessor=32MX795F512H -x c -c "..\..\cbuff_module\cbuff.c" -o"cbuff.o" -MMD -MF"cbuff.d" -g
+
+circBufferTest.o : ../circBufferTest.c ../../cbuff_module/cbuff.h
+	$(CC) -mprocessor=32MX795F512H -x c -c "..\circBufferTest.c" -o"circBufferTest.o" -MMD -MF"circBufferTest.d" -g
+
+clean : 
+	$(RM) "cbuff.o" "circBufferTest.o" "cbuffTest_PIC32_C32.elf" "cbuffTest_PIC32_C32.hex"
+
