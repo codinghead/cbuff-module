@@ -53,9 +53,9 @@ DOM/*.js
 
 # Ignore documentation files in the doxygen directory created by doxygen
 doxygen/*.txt
-doxygen/html/
-doxygen/latex/
-doxygen/rtf/
+doxygen/html/*
+doxygen/latex/*
+doxygen/rtf/*
 
 # Ignore extraneous Open Office files
 *.odt#
