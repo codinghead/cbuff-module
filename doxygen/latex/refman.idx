@@ -1,0 +1,67 @@
+\indexentry{Initialise/Deinitialise Functions@{Initialise/Deinitialise Functions}|hyperpage}{9}
+\indexentry{CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}!cbuffDeinit@{cbuffDeinit}|hyperpage}{9}
+\indexentry{cbuffDeinit@{cbuffDeinit}!CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}|hyperpage}{9}
+\indexentry{CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}!cbuffInit@{cbuffInit}|hyperpage}{10}
+\indexentry{cbuffInit@{cbuffInit}!CBUFFinitDeinitFunctions@{CBUFFinitDeinitFunctions}|hyperpage}{10}
+\indexentry{Create/Destroy Functions@{Create/Destroy Functions}|hyperpage}{10}
+\indexentry{CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}!cbuffCreate@{cbuffCreate}|hyperpage}{10}
+\indexentry{cbuffCreate@{cbuffCreate}!CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}|hyperpage}{10}
+\indexentry{CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}!cbuffDestroy@{cbuffDestroy}|hyperpage}{11}
+\indexentry{cbuffDestroy@{cbuffDestroy}!CBUFFcreateDestroyFunctions@{CBUFFcreateDestroyFunctions}|hyperpage}{11}
+\indexentry{Open/Close Functions@{Open/Close Functions}|hyperpage}{11}
+\indexentry{CBUFFopenCLoseFunctions@{CBUFFopenCLoseFunctions}!cbuffClose@{cbuffClose}|hyperpage}{12}
+\indexentry{cbuffClose@{cbuffClose}!CBUFFopenCLoseFunctions@{CBUFFopenCLoseFunctions}|hyperpage}{12}
+\indexentry{CBUFFopenCLoseFunctions@{CBUFFopenCLoseFunctions}!cbuffOpen@{cbuffOpen}|hyperpage}{12}
+\indexentry{cbuffOpen@{cbuffOpen}!CBUFFopenCLoseFunctions@{CBUFFopenCLoseFunctions}|hyperpage}{12}
+\indexentry{Put/Get Functions@{Put/Get Functions}|hyperpage}{13}
+\indexentry{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffGetArray@{cbuffGetArray}|hyperpage}{13}
+\indexentry{cbuffGetArray@{cbuffGetArray}!CBUFFputGetFunctions@{CBUFFputGetFunctions}|hyperpage}{13}
+\indexentry{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffGetByte@{cbuffGetByte}|hyperpage}{13}
+\indexentry{cbuffGetByte@{cbuffGetByte}!CBUFFputGetFunctions@{CBUFFputGetFunctions}|hyperpage}{13}
+\indexentry{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffPutArray@{cbuffPutArray}|hyperpage}{14}
+\indexentry{cbuffPutArray@{cbuffPutArray}!CBUFFputGetFunctions@{CBUFFputGetFunctions}|hyperpage}{14}
+\indexentry{CBUFFputGetFunctions@{CBUFFputGetFunctions}!cbuffPutByte@{cbuffPutByte}|hyperpage}{14}
+\indexentry{cbuffPutByte@{cbuffPutByte}!CBUFFputGetFunctions@{CBUFFputGetFunctions}|hyperpage}{14}
+\indexentry{Space/Fill Functions@{Space/Fill Functions}|hyperpage}{15}
+\indexentry{CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}!cbuffGetFill@{cbuffGetFill}|hyperpage}{15}
+\indexentry{cbuffGetFill@{cbuffGetFill}!CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}|hyperpage}{15}
+\indexentry{CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}!cbuffGetSpace@{cbuffGetSpace}|hyperpage}{16}
+\indexentry{cbuffGetSpace@{cbuffGetSpace}!CBUFFspaceFillFunctions@{CBUFFspaceFillFunctions}|hyperpage}{16}
+\indexentry{Clear Buffer Functions@{Clear Buffer Functions}|hyperpage}{17}
+\indexentry{CBUFFclearBufferFunctions@{CBUFFclearBufferFunctions}!cbuffClearBuffer@{cbuffClearBuffer}|hyperpage}{17}
+\indexentry{cbuffClearBuffer@{cbuffClearBuffer}!CBUFFclearBufferFunctions@{CBUFFclearBufferFunctions}|hyperpage}{17}
+\indexentry{Peek Buffer Head/Tail Functions@{Peek Buffer Head/Tail Functions}|hyperpage}{17}
+\indexentry{CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}!cbuffPeekHead@{cbuffPeekHead}|hyperpage}{18}
+\indexentry{cbuffPeekHead@{cbuffPeekHead}!CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}|hyperpage}{18}
+\indexentry{CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}!cbuffPeekTail@{cbuffPeekTail}|hyperpage}{18}
+\indexentry{cbuffPeekTail@{cbuffPeekTail}!CBUFFpeekBufferFunctions@{CBUFFpeekBufferFunctions}|hyperpage}{18}
+\indexentry{Unput/Unget Buffer Functions@{Unput/Unget Buffer Functions}|hyperpage}{19}
+\indexentry{CBUFFunputUngetFunctions@{CBUFFunputUngetFunctions}!cbuffUngetByte@{cbuffUngetByte}|hyperpage}{19}
+\indexentry{cbuffUngetByte@{cbuffUngetByte}!CBUFFunputUngetFunctions@{CBUFFunputUngetFunctions}|hyperpage}{19}
+\indexentry{CBUFFunputUngetFunctions@{CBUFFunputUngetFunctions}!cbuffUnputByte@{cbuffUnputByte}|hyperpage}{20}
+\indexentry{cbuffUnputByte@{cbuffUnputByte}!CBUFFunputUngetFunctions@{CBUFFunputUngetFunctions}|hyperpage}{20}
+\indexentry{Data Types Needed For CBUFF Use@{Data Types Needed For CBUFF Use}|hyperpage}{20}
+\indexentry{CBUFFdataTypes@{CBUFFdataTypes}!CBUFF@{CBUFF}|hyperpage}{21}
+\indexentry{CBUFF@{CBUFF}!CBUFFdataTypes@{CBUFFdataTypes}|hyperpage}{21}
+\indexentry{CBUFFdataTypes@{CBUFFdataTypes}!CBUFFNUM@{CBUFFNUM}|hyperpage}{21}
+\indexentry{CBUFFNUM@{CBUFFNUM}!CBUFFdataTypes@{CBUFFdataTypes}|hyperpage}{21}
+\indexentry{CBUFFdataTypes@{CBUFFdataTypes}!CBUFFOBJ@{CBUFFOBJ}|hyperpage}{21}
+\indexentry{CBUFFOBJ@{CBUFFOBJ}!CBUFFdataTypes@{CBUFFdataTypes}|hyperpage}{21}
+\indexentry{CBUFFdataTypes@{CBUFFdataTypes}!HCBUFF@{HCBUFF}|hyperpage}{21}
+\indexentry{HCBUFF@{HCBUFF}!CBUFFdataTypes@{CBUFFdataTypes}|hyperpage}{21}
+\indexentry{cbuff.c@{cbuff.c}|hyperpage}{23}
+\indexentry{cbuff.c@{cbuff.c}!CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}@{CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}}|hyperpage}{25}
+\indexentry{CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}@{CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}}!cbuff.c@{cbuff.c}|hyperpage}{25}
+\indexentry{cbuff.h@{cbuff.h}|hyperpage}{25}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL}!cbuff.h@{cbuff.h}|hyperpage}{26}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK}!cbuff.h@{cbuff.h}|hyperpage}{26}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL}!cbuff.h@{cbuff.h}|hyperpage}{26}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK}!cbuff.h@{cbuff.h}|hyperpage}{26}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL@{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL}!cbuff.h@{cbuff.h}|hyperpage}{26}
+\indexentry{cbuff.h@{cbuff.h}!CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK}|hyperpage}{26}
+\indexentry{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK@{CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK}!cbuff.h@{cbuff.h}|hyperpage}{26}

@@ -1,0 +1,136 @@
+\begin{theindex}
+
+  \item {CBUFF}
+    \subitem {CBUFFdataTypes}, \hyperpage{21}
+  \item {cbuff.c}, \hyperpage{23}
+    \subitem {CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}}, 
+		\hyperpage{25}
+  \item {cbuff.h}, \hyperpage{25}
+    \subitem {CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL}, 
+		\hyperpage{26}
+    \subitem {CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK}, 
+		\hyperpage{26}
+    \subitem {CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL}, 
+		\hyperpage{26}
+    \subitem {CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK}, 
+		\hyperpage{26}
+    \subitem {CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL}, 
+		\hyperpage{26}
+    \subitem {CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK}, 
+		\hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}FAIL}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}DESTROY\_\discretionary {-}{}{}OK}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}FAIL}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}OK}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}MODULE\_\discretionary {-}{}{}\_\discretionary {-}{}{}}
+    \subitem {cbuff.c}, \hyperpage{25}
+  \item {CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}FAIL}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {CBUFF\_\discretionary {-}{}{}PUT\_\discretionary {-}{}{}OK}
+    \subitem {cbuff.h}, \hyperpage{26}
+  \item {cbuffClearBuffer}
+    \subitem {CBUFFclearBufferFunctions}, \hyperpage{17}
+  \item {CBUFFclearBufferFunctions}
+    \subitem {cbuffClearBuffer}, \hyperpage{17}
+  \item {cbuffClose}
+    \subitem {CBUFFopenCLoseFunctions}, \hyperpage{12}
+  \item {cbuffCreate}
+    \subitem {CBUFFcreateDestroyFunctions}, \hyperpage{10}
+  \item {CBUFFcreateDestroyFunctions}
+    \subitem {cbuffCreate}, \hyperpage{10}
+    \subitem {cbuffDestroy}, \hyperpage{11}
+  \item {CBUFFdataTypes}
+    \subitem {CBUFF}, \hyperpage{21}
+    \subitem {CBUFFNUM}, \hyperpage{21}
+    \subitem {CBUFFOBJ}, \hyperpage{21}
+    \subitem {HCBUFF}, \hyperpage{21}
+  \item {cbuffDeinit}
+    \subitem {CBUFFinitDeinitFunctions}, \hyperpage{9}
+  \item {cbuffDestroy}
+    \subitem {CBUFFcreateDestroyFunctions}, \hyperpage{11}
+  \item {cbuffGetArray}
+    \subitem {CBUFFputGetFunctions}, \hyperpage{13}
+  \item {cbuffGetByte}
+    \subitem {CBUFFputGetFunctions}, \hyperpage{13}
+  \item {cbuffGetFill}
+    \subitem {CBUFFspaceFillFunctions}, \hyperpage{15}
+  \item {cbuffGetSpace}
+    \subitem {CBUFFspaceFillFunctions}, \hyperpage{16}
+  \item {cbuffInit}
+    \subitem {CBUFFinitDeinitFunctions}, \hyperpage{10}
+  \item {CBUFFinitDeinitFunctions}
+    \subitem {cbuffDeinit}, \hyperpage{9}
+    \subitem {cbuffInit}, \hyperpage{10}
+  \item {CBUFFNUM}
+    \subitem {CBUFFdataTypes}, \hyperpage{21}
+  \item {CBUFFOBJ}
+    \subitem {CBUFFdataTypes}, \hyperpage{21}
+  \item {cbuffOpen}
+    \subitem {CBUFFopenCLoseFunctions}, \hyperpage{12}
+  \item {CBUFFopenCLoseFunctions}
+    \subitem {cbuffClose}, \hyperpage{12}
+    \subitem {cbuffOpen}, \hyperpage{12}
+  \item {CBUFFpeekBufferFunctions}
+    \subitem {cbuffPeekHead}, \hyperpage{18}
+    \subitem {cbuffPeekTail}, \hyperpage{18}
+  \item {cbuffPeekHead}
+    \subitem {CBUFFpeekBufferFunctions}, \hyperpage{18}
+  \item {cbuffPeekTail}
+    \subitem {CBUFFpeekBufferFunctions}, \hyperpage{18}
+  \item {cbuffPutArray}
+    \subitem {CBUFFputGetFunctions}, \hyperpage{14}
+  \item {cbuffPutByte}
+    \subitem {CBUFFputGetFunctions}, \hyperpage{14}
+  \item {CBUFFputGetFunctions}
+    \subitem {cbuffGetArray}, \hyperpage{13}
+    \subitem {cbuffGetByte}, \hyperpage{13}
+    \subitem {cbuffPutArray}, \hyperpage{14}
+    \subitem {cbuffPutByte}, \hyperpage{14}
+  \item {CBUFFspaceFillFunctions}
+    \subitem {cbuffGetFill}, \hyperpage{15}
+    \subitem {cbuffGetSpace}, \hyperpage{16}
+  \item {cbuffUngetByte}
+    \subitem {CBUFFunputUngetFunctions}, \hyperpage{19}
+  \item {cbuffUnputByte}
+    \subitem {CBUFFunputUngetFunctions}, \hyperpage{20}
+  \item {CBUFFunputUngetFunctions}
+    \subitem {cbuffUngetByte}, \hyperpage{19}
+    \subitem {cbuffUnputByte}, \hyperpage{20}
+  \item {Clear Buffer Functions}, \hyperpage{17}
+  \item {Create/Destroy Functions}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Data Types Needed For CBUFF Use}, \hyperpage{20}
+
+  \indexspace
+
+  \item {HCBUFF}
+    \subitem {CBUFFdataTypes}, \hyperpage{21}
+
+  \indexspace
+
+  \item {Initialise/Deinitialise Functions}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Open/Close Functions}, \hyperpage{11}
+
+  \indexspace
+
+  \item {Peek Buffer Head/Tail Functions}, \hyperpage{17}
+  \item {Put/Get Functions}, \hyperpage{13}
+
+  \indexspace
+
+  \item {Space/Fill Functions}, \hyperpage{15}
+
+  \indexspace
+
+  \item {Unput/Unget Buffer Functions}, \hyperpage{19}
+
+\end{theindex}
